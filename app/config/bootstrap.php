@@ -48,3 +48,8 @@
  * Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
+
+
+Inflector::rules('plural', array('rules' => array(), 'irregular' => array('universidad'=>'universidades',
+																			'pais'=>'paises',
+																			'disponibilidad'=>'disponibilidades'), 'uninflected' => array()));
