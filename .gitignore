@@ -1,4 +1,4 @@
-/app/tmp
+/app/tmp/cache
 /app/tmp/cache/persistent
 /lib/Cake/Console/Templates/skel/tmp/
 /build
