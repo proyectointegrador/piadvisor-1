@@ -11,7 +11,7 @@ class Categoria extends AppModel {
  *
  * @var string
  */
-	var $name = 'Categoria'
+	var $name = 'Categoria';
 	var $displayField = 'name';
 
 
