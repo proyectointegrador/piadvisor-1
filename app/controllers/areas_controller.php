@@ -5,7 +5,9 @@ class AreasController extends AppController {
 
 	function index() {
 		$this->Area->recursive = 0;
-		$this->set('areas', $this->paginate());
+		$areas = $this->paginate();
+		
+		$this->set(compact('areas'));
 	}
 
 	function view($id = null) {

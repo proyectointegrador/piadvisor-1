@@ -72,19 +72,20 @@ class UniversidadesController extends AppController {
  * @return void
  */
  function edit($id = null) {
-		if (!$this->Universidad->exists($id)) {
-			throw new NotFoundException(__('Invalid universidad'));
+		if (!$id && empty($this->data)) {
+			$this->Session->setFlash(__('Invalid universidad', true));
+			$this->redirect(array('action' => 'index'));
 		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Universidad->save($this->request->data)) {
-				$this->Session->setFlash(__('The universidad has been saved'));
+		if (!empty($this->data)) {
+			if ($this->Universidad->save($this->data)) {
+				$this->Session->setFlash(__('The universidad has been saved',true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The universidad could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The universidad could not be saved. Please, try again.',true));
 			}
 		} else {
 			$options = array('conditions' => array('Universidad.' . $this->Universidad->primaryKey => $id));
-			$this->request->data = $this->Universidad->find('first', $options);
+			$this->data = $this->Universidad->find('first', $options);
 		}
 		$disponibilidades = $this->Universidad->Disponibilidad->find('list');
 		$demandas = $this->Universidad->Demanda->find('list');

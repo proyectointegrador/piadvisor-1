@@ -81,7 +81,7 @@ class DATABASE_CONFIG {
 		'password' => '',
 		'database' => 'piadvisor',
 		'prefix' => '',
-		//'encoding' => 'utf8',
+		'encoding' => 'utf8',
 	);
 
 	var $test = array(

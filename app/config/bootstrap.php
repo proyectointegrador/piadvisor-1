@@ -53,3 +53,15 @@
 Inflector::rules('plural', array('rules' => array(), 'irregular' => array('universidad'=>'universidades',
 																			'pais'=>'paises',
 																			'disponibilidad'=>'disponibilidades'), 'uninflected' => array()));
+
+//Variables de entorno
+Configure::write(
+    'Continentes',array (
+		'1' => 'África',
+		'2' => 'Asia',
+		'3' => 'Europa',
+		'4' => 'Norteamérica',
+		'5' => 'Oceanía',
+		'6' => 'Sudamérica'
+		)
+);

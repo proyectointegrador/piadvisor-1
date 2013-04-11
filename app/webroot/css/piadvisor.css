@@ -1,0 +1,28 @@
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Archivo de estilos para la página
+ */
+div.pais_content{
+	padding: 0px;
+}
+.forma div {
+	clear: none;
+	margin: 5px;
+	padding: .5em;
+	vertical-align: text-top;
+}
+.forma label {
+	text-align: left;
+	cursor: default;
+}	
+.iaminline{
+	/*float: left; 
+	display: inline;*/
+	clear:none;
+	width:60px;
+}
