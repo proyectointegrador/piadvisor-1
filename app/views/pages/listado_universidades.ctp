@@ -67,11 +67,11 @@ $continentes = Configure::read('Continentes');
 <div id="listadoajax">
 	<table class="table table-striped" >
 	<tr>
-			<th><?php echo _('Codigo'); ?></th>
-			<th><?php echo _('Universidad'); ?></th>
-			<th><?php echo _('Idioma'); ?></th>
-			<th><?php echo _('Ciudad'); ?></th>
-			<th><?php echo _('Detalles'); ?></th>
+			<th><?php echo __('Codigo'); ?></th>
+			<th><?php echo __('Universidad'); ?></th>
+			<th><?php echo __('Idioma'); ?></th>
+			<th><?php echo __('Ciudad'); ?></th>
+			<th><?php echo __('Detalles'); ?></th>
 	</tr>
 	<?php foreach ($universidades as $universidad): ?>
 	<tr>
