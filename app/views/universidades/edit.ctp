@@ -20,7 +20,7 @@
 		echo $this->Form->input('Requisito',array('label'=>'Requisitos Relacionados','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Enviar')); ?>
+<?php echo $this->Form->end(__('Enviar',true)); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Menu'); ?></h3>

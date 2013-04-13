@@ -46,7 +46,6 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver',true), array('action' => 'view', $universidad['Universidad']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar',true), array('action' => 'edit', $universidad['Universidad']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Eliminar',true), array('action' => 'delete', $universidad['Universidad']['id']), null, __('Are you sure you want to delete # %s?', $universidad['Universidad']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
