@@ -18,7 +18,7 @@
 		echo $this->Form->input('categoria_id');
 		echo $this->Form->input('clave');
 		echo $this->Form->input('descripcion');
-		echo $this->Form->input('descripcion2');
+		echo $this->Form->input('activo', array('value'=> '1', 'type' =>'hidden'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar',true)); ?>

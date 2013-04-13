@@ -20,6 +20,7 @@ $continentes = Configure::read('Continentes');
 	<?php
 		echo $this->Form->input('name',array('label'=>'Nombre'));
 		echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----'));
+		echo $this->Form->input('activo', array('value'=> '1', 'type' =>'hidden'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar',true)); ?>
