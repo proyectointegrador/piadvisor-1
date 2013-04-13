@@ -49,7 +49,7 @@ class CarrerasController extends AppController {
 		$areas = $this->Carrera->Area->find('list');
 		$this->set(compact('areas'));
 	}
-
+/*
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for carrera', true));
@@ -61,5 +61,5 @@ class CarrerasController extends AppController {
 		}
 		$this->Session->setFlash(__('Carrera was not deleted', true));
 		$this->redirect(array('action' => 'index'));
-	}
+	}*/
 }

@@ -120,7 +120,7 @@ class UniversidadesController extends AppController {
 													'order'=>'clave'));
 		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos'));
 	}
-
+/*
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for universidad', true));
@@ -132,5 +132,5 @@ class UniversidadesController extends AppController {
 		}
 		$this->Session->setFlash(__('Universidad was not deleted', true));
 		$this->redirect(array('action' => 'index'));
-	}
+	}*/
 }

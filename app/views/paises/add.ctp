@@ -22,7 +22,7 @@ $continentes = Configure::read('Continentes');
 		echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Enviar')); ?>
+<?php echo $this->Form->end(__('Enviar',true)); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Menu'); ?></h3>

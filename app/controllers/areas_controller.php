@@ -47,7 +47,7 @@ class AreasController extends AppController {
 			$this->data = $this->Area->read(null, $id);
 		}
 	}
-
+	/*
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for area', true));
@@ -59,5 +59,5 @@ class AreasController extends AppController {
 		}
 		$this->Session->setFlash(__('Area was not deleted', true));
 		$this->redirect(array('action' => 'index'));
-	}
+	}*/
 }

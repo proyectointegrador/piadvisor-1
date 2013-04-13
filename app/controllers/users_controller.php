@@ -45,7 +45,7 @@ class UsersController extends AppController {
 			$this->data = $this->User->read(null, $id);
 		}
 	}
-
+/*
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for user', true));
@@ -57,5 +57,5 @@ class UsersController extends AppController {
 		}
 		$this->Session->setFlash(__('User was not deleted', true));
 		$this->redirect(array('action' => 'index'));
-	}
+	}*/
 }

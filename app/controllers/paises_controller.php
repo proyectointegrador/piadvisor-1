@@ -45,7 +45,7 @@ class PaisesController extends AppController {
 			$this->data = $this->Pais->read(null, $id);
 		}
 	}
-
+/*
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for pais', true));
@@ -57,5 +57,5 @@ class PaisesController extends AppController {
 		}
 		$this->Session->setFlash(__('Pais was not deleted', true));
 		$this->redirect(array('action' => 'index'));
-	}
+	}*/
 }

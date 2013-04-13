@@ -49,7 +49,7 @@ class RequisitosController extends AppController {
 		$categorias = $this->Requisito->Categorium->find('list');
 		$this->set(compact('categorias'));
 	}
-
+/*
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for requisito', true));
@@ -61,5 +61,5 @@ class RequisitosController extends AppController {
 		}
 		$this->Session->setFlash(__('Requisito was not deleted', true));
 		$this->redirect(array('action' => 'index'));
-	}
+	}*/
 }

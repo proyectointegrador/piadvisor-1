@@ -45,7 +45,7 @@ class DemandasController extends AppController {
 			$this->data = $this->Demanda->read(null, $id);
 		}
 	}
-
+/*
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for demanda', true));
@@ -57,5 +57,5 @@ class DemandasController extends AppController {
 		}
 		$this->Session->setFlash(__('Demanda was not deleted', true));
 		$this->redirect(array('action' => 'index'));
-	}
+	}*/
 }

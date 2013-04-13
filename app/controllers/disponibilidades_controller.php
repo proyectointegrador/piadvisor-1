@@ -45,7 +45,7 @@ class DisponibilidadesController extends AppController {
 			$this->data = $this->Disponibilidad->read(null, $id);
 		}
 	}
-
+/*
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for disponibilidad', true));
@@ -57,5 +57,5 @@ class DisponibilidadesController extends AppController {
 		}
 		$this->Session->setFlash(__('Disponibilidad was not deleted', true));
 		$this->redirect(array('action' => 'index'));
-	}
+	}*/
 }
