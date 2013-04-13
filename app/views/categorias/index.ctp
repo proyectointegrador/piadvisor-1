@@ -16,7 +16,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('name','Nombre'); ?></th>
+			<th><?php echo $this->Paginator->sort('Nombre','name'); ?></th>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php foreach ($categorias as $categoria): ?>
@@ -24,7 +24,7 @@
 		<td><?php echo h($categoria['Categoria']['id']); ?>&nbsp;</td>
 		<td><?php echo h($categoria['Categoria']['name']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $categoria['Categoria']['id'])); ?>
+			<?php echo $this->Html->link(__('Editar',true), array('action' => 'edit', $categoria['Categoria']['id'])); ?>
 			
 		</td>
 	</tr>
@@ -33,19 +33,19 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Página {:page} de {:pages}, mostrando {:current} registros de {:count} totales, empezando en {:start}, terminando en {:end}')
+	'format' => __('Página %page% de %pages%, mostrando %current% registros de %count% totales, empezando en %start%, terminando en %end%', true)
 	));
 	?>	</p>
+
 	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('anterior'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('siguiente') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
+		<?php echo $this->Paginator->prev('<< ' . __('anterior', true), array(), null, array('class'=>'disabled'));?>
+	 | 	<?php echo $this->Paginator->numbers();?>
+ |
+		<?php echo $this->Paginator->next(__('siguiente', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Ligas'); ?></h3>
+	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Nueva Categoria',true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Requisitos',true), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>

@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 /**
  *Autores:
  *  Edgar García Camarillo
@@ -9,7 +9,7 @@
  * Descripción: Esta es la vista de administración
  * 				para listar Requisitos.
  */
- 
+ ?>
  <div class="requisitos index">
 	<h2><?php echo __('Requisitos'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
@@ -17,8 +17,7 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('categoria_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('clave'); ?></th>
-			<th><?php echo $this->Paginator->sort('descripcion'); ?></th>
-			<th><?php echo $this->Paginator->sort('descripcion2'); ?></th>
+			<th><?php echo $this->Paginator->sort('descripciÃ³n'); ?></th>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php foreach ($requisitos as $requisito): ?>
@@ -29,9 +28,7 @@
 		</td>
 		<td><?php echo h($requisito['Requisito']['clave']); ?>&nbsp;</td>
 		<td><?php echo h($requisito['Requisito']['descripcion']); ?>&nbsp;</td>
-		<td><?php echo h($requisito['Requisito']['descripcion2']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('Ver',true), array('action' => 'view', $requisito['Requisito']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar',true), array('action' => 'edit', $requisito['Requisito']['id'])); ?>
 			
 		</td>
@@ -41,15 +38,15 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Pagina {:page} de {:pages}, mostrando {:current} registros de {:count} totales, empezando en {:start}, terminando en {:end}')
+	'format' => __('PÃ¡gina %page% de %pages%, mostrando %current% registros de %count% totales, empezando en %start%, terminando en %end%', true)
 	));
 	?>	</p>
+
 	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('anterior'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('siguiente') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
+		<?php echo $this->Paginator->prev('<< ' . __('anterior', true), array(), null, array('class'=>'disabled'));?>
+	 | 	<?php echo $this->Paginator->numbers();?>
+ |
+		<?php echo $this->Paginator->next(__('siguiente', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>
 <div class="actions">
