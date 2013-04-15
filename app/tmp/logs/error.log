@@ -20,3 +20,4 @@
 2013-04-11 19:08:57 Warning: Warning (2): Invalid argument supplied for foreach() in [/opt/lampp/htdocs/piadvisor-1/piadvisor-1/app/controllers/pages_controller.php, line 268]
 2013-04-13 22:22:57 Warning: Warning (512): Method FormHelper::postLink does not exist in [/opt/lampp/htdocs/piadvisor-1/piadvisor-1/cake/libs/view/helper.php, line 154]
 2013-04-13 22:27:17 Warning: Warning (512): Method FormHelper::postLink does not exist in [/opt/lampp/htdocs/piadvisor-1/piadvisor-1/cake/libs/view/helper.php, line 154]
+2013-04-15 04:08:39 Warning: Warning (512): /opt/lampp/htdocs/piadvisor-1/app/tmp/cache/persistent/ is not writable in [/opt/lampp/htdocs/piadvisor-1/cake/libs/cache/file.php, line 281]
