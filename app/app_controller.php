@@ -11,10 +11,10 @@ class AppController extends Controller {
     function beforeFilter() {
      $detect = new Mobile_Detect;
      if ($detect->isMobile()){// && !$detect->isTablet()) {
-        	$path = APP.'View/' . $this->name . DS . 'movil/' . $this->action . '.ctp';
+        	$path = APP.'views/' . strtolower($this->name) . DS . 'movil/' . $this->action . '.ctp';
         	if (file_exists($path)) {
         		$this->layout = 'movil';
-        		$vistapath= $this->name . '/movil';
+        		$vistapath= strtolower($this->name) . '/movil';
         		$this->viewPath = $vistapath;
         	}
      }else if($this->name == 'Pages'){
