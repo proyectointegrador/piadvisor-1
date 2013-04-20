@@ -2,6 +2,7 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
+	var $components = array('Acl');
 
 	function index() {
 		$this->User->recursive = 0;
@@ -26,6 +27,8 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
 			}
 		}
+		$groups = $this->User->Group->find('list');
+		$this->set(compact('groups'));
 	}
 
 	function edit($id = null) {
@@ -44,8 +47,10 @@ class UsersController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $id);
 		}
+		$groups = $this->User->Group->find('list');
+		$this->set(compact('groups'));
 	}
-/*
+
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for user', true));
@@ -57,5 +62,65 @@ class UsersController extends AppController {
 		}
 		$this->Session->setFlash(__('User was not deleted', true));
 		$this->redirect(array('action' => 'index'));
-	}*/
+	}
+	
+	
+	function login() {
+		if ($this->Session->read('Auth.User')) {
+			$this->Session->setFlash('You are logged in!');
+			$this->redirect('/', null, false);
+		}
+	}
+
+	function logout() {
+		$this->Session->setFlash('Good-Bye');
+		$this->redirect($this->Auth->logout());
+	}
+	
+	function beforeFilter() {
+    parent::beforeFilter();
+  //  $this->Auth->allowedActions = array('*');
+    $this->Auth->allowedActions = array('login', 'logout');
+
+
+	}
+	
+	function initDB() {
+    $group =& $this->User->Group;
+    //Allow admins to everything
+    $group->id = 1;
+    $this->Acl->allow($group, 'controllers');
+
+    //allow managers to posts and widgets
+    $group->id = 2;
+    $this->Acl->deny($group, 'controllers');
+    $this->Acl->allow($group, 'controllers/Carreras');
+    $this->Acl->allow($group, 'controllers/Categorias');
+    $this->Acl->allow($group, 'controllers/Demandas');
+    $this->Acl->allow($group, 'controllers/Disponibilidades');
+    $this->Acl->allow($group, 'controllers/Paises');
+    $this->Acl->allow($group, 'controllers/Requisitos');
+    $this->Acl->allow($group, 'controllers/Universidades');
+    $this->Acl->allow($group, 'controllers/Groups');
+    $this->Acl->allow($group, 'controllers/Users');
+
+	
+
+    //allow users to only add and edit on posts and widgets
+    $group->id = 3;
+    $this->Acl->deny($group, 'controllers');
+    $this->Acl->allow($group, 'controllers/Carreras');
+    $this->Acl->allow($group, 'controllers/Categorias');
+    $this->Acl->allow($group, 'controllers/Demandas');
+    $this->Acl->allow($group, 'controllers/Disponibilidades');
+    $this->Acl->allow($group, 'controllers/Paises');
+    $this->Acl->allow($group, 'controllers/Requisitos');
+    $this->Acl->allow($group, 'controllers/Universidades');
+
+
+    //we add an exit to avoid an ugly "missing views" error message
+    echo "all done";
+    exit;
+}
+	
 }

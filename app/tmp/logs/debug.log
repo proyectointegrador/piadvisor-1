@@ -12,3 +12,8 @@
 2013-04-11 18:44:02 Notice: Notice (8): Undefined variable: datos in [/opt/lampp/htdocs/piadvisor-1/piadvisor-1/app/controllers/pages_controller.php, line 149]
 2013-04-11 18:46:23 Notice: Notice (8): Undefined property: PagesController::$request in [/opt/lampp/htdocs/piadvisor-1/piadvisor-1/app/controllers/pages_controller.php, line 319]
 2013-04-11 18:46:23 Notice: Notice (8): Trying to get property of non-object in [/opt/lampp/htdocs/piadvisor-1/piadvisor-1/app/controllers/pages_controller.php, line 319]
+2013-04-19 21:31:18 Debug: Notice (8): Undefined index: continente in [C:\xampp\htdocs\piadvisor-1\app\views\paises\index.ctp, line 29]
+2013-04-19 21:57:19 Debug: Notice (8): Undefined index: continente in [C:\xampp\htdocs\piadvisor-1\app\views\paises\index.ctp, line 29]
+2013-04-19 21:59:36 Debug: Notice (8): Undefined index: continente in [C:\xampp\htdocs\piadvisor-1\app\views\paises\index.ctp, line 29]
+2013-04-21 00:54:02 Debug: Notice (8): Undefined index: continente in [C:\xampp\htdocs\piadvisor-1\app\views\paises\index.ctp, line 29]
+2013-04-21 00:55:37 Debug: Notice (8): Undefined index: continente in [C:\xampp\htdocs\piadvisor-1\app\views\paises\index.ctp, line 29]
