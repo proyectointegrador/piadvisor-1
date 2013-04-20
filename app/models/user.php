@@ -19,20 +19,7 @@ class User extends AppModel {
 	
 
 	var $hasMany = array(
-		'Post' => array(
-			'className' => 'Post',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Universidad' => array(
+			'Universidad' => array(
 			'className' => 'Universidad',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
