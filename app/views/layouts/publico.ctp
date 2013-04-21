@@ -34,11 +34,12 @@
     // <script src="js/bootstrap.min.js"></script>
     //echo $this->Html->script('bootstrap'); // Include jQuery library
     //Importacion de Javascripts
-    echo $this->Html->script('jquery-1.9.1.min');
+    echo $this->Html->script('elastic'); 
 
+        echo $this->Html->script('jquery-1.9.1.min');
 
     echo $this->Html->script('bootstrap.min'); 
-    echo $this->Html->script('elastic'); 
+
 /*
     echo $this->fetch('meta');
     echo $this->fetch('css');
