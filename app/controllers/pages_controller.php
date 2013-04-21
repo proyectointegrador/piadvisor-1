@@ -40,6 +40,8 @@ class PagesController extends AppController {
 	var $helpers = array('Js', 'Html');
 	var $components = array('RequestHandler');
 
+
+
 /**
  * Displays a view
  *
@@ -137,17 +139,48 @@ class PagesController extends AppController {
  * @return void
  */
 	function listado_universidades() {
+
+		$this->Session->write('estado',array(
+						'filtro'=>array(
+							'pais_id'=>'',
+							'region_id'=>'',
+							'carrera_id'=>'',
+							'name'=>''),
+						'orden'=>'Universidad.codigo ASC'));
+
+
+
 		if (!empty($this->data)) {
 			$datos = $this->data;
-			debug($datos);
+			
+			$name = '';
+			if(array_key_exists('name',$datos['Page'])){
+				$name = $datos['Page']['name'];
+			}
 
+			$estado = $this->Session->read('estado');
 
+			$estado['filtro'] = array(
+						'pais_id'=>$datos['Page']['pais_id'],
+						'region_id'=>$datos['Page']['continente_id'],
+						'carrera_id'=>$datos['Page']['carrera_id'],
+						'name'=>$datos['Page']['name']);
+			
+			//Actualiza sesion con el estado
+			$this->Session->write('estado',$estado);
+
+			$estado = $this->Session->read('estado');
+			debug($estado);
 			$continentes = Configure::read('Continentes');
 			
 			/** Generacion de query de filtrado */
-			$pais = $datos['Page']['pais_id'];
-			$continente = $datos['Page']['continente_id'];
-			$carrera =  $datos['Page']['carrera_id'];
+			$pais = $estado['filtro']['pais_id'];
+			$continente = $estado['filtro']['region_id'];
+			$carrera =  $estado['filtro']['carrera_id'];
+
+			//variable de orden para query
+			$order = $estado['orden'];
+
 			$joins = array();
 			$condiciones = array();
 			//Condiciones para el query
@@ -175,7 +208,8 @@ class PagesController extends AppController {
 				('conditions'=>$condiciones,
 				'fields'=>array('Universidad.codigo','Universidad.name','Universidad.idioma','Universidad.ciudad','Universidad.id'),
 				'joins' => $joins,
-				'group' => 'Universidad.id'
+				'group' => 'Universidad.id',
+				'order'=>$order
 					));
 			$this->set(compact('universidades'));
 
@@ -317,14 +351,31 @@ class PagesController extends AppController {
 			
 			if($this->RequestHandler->isAjax()){
 				$datos = $this->data;
-				debug($datos);
+				
+				$estado = $this->Session->read('estado');
+
+				$estado['filtro'] = array(
+							'pais_id'=>$datos['Page']['pais_id'],
+							'region_id'=>$datos['Page']['continente_id'],
+							'carrera_id'=>$datos['Page']['carrera_id'],
+							'name'=>$datos['Page']['name']);
+				
+				//Actualiza sesion con el estado
+				$this->Session->write('estado',$estado);
+
+				
+				debug($estado);
+
 				$continentes = Configure::read('Continentes');
 			
 				/** Generacion de query de filtrado */
-				$pais = $datos['Page']['pais_id'];
-				$continente = $datos['Page']['continente_id'];
-				$carrera =  $datos['Page']['carrera_id'];
-				$name = $datos['Page']['name'];
+				$pais = $estado['filtro']['pais_id'];
+				$continente = $estado['filtro']['region_id'];
+				$carrera =  $estado['filtro']['carrera_id'];
+				$name = $estado['filtro']['name'];
+
+				//variable de orden para query
+				$order = $estado['orden'];
 
 				$joins = array();
 				$condiciones = array();
@@ -361,12 +412,113 @@ class PagesController extends AppController {
 				('conditions'=>$condiciones,
 				'fields'=>array('Universidad.codigo','Universidad.name','Universidad.idioma','Universidad.ciudad','Universidad.id'),
 				'joins' => $joins,
-				'group' => 'Universidad.id'
+				'group' => 'Universidad.id',
+				'order'=>$order
 					));
 				
 				$this->set(compact('universidades'));
 
 				
+			
+				$this->render('listadoajax', 'ajax');
+			}
+		}
+		
+	}
+
+	/* Funcion que maneja la peticion ajax de busqueda redifinida.
+	 *
+	 * @return void
+	 */
+	function listadoajaxordena($ordena){
+		if ($this->RequestHandler->isPost() || $this->RequestHandler->isPut()) {
+			
+			if($this->RequestHandler->isAjax()){
+				
+				$estado = $this->Session->read('estado');
+
+
+				switch($ordena){
+					case 'codigo':
+
+						if($estado['orden'] == 'Universidad.codigo ASC'){
+							$estado['orden'] = 'Universidad.codigo DESC';
+						}else{
+							$estado['orden'] = 'Universidad.codigo ASC';
+						}
+					break;
+					case 'name':
+						if($estado['orden'] == 'Universidad.name ASC'){
+							$estado['orden'] = 'Universidad.name DESC';
+						}else{
+							$estado['orden'] = 'Universidad.name ASC';
+						}
+					break;
+					case 'idioma':
+						if($estado['orden'] == 'Universidad.idioma ASC'){
+							$estado['orden'] = 'Universidad.idioma DESC';
+						}else{
+							$estado['orden'] = 'Universidad.idioma ASC';
+						}
+					break;
+					case 'ciudad':
+						if($estado['orden'] == 'Universidad.ciudad ASC'){
+							$estado['orden'] = 'Universidad.ciudad DESC';
+						}else{
+							$estado['orden'] = 'Universidad.ciudad ASC';
+						}
+					break;
+				}
+				
+				//actualiza el estado en sesion
+				$this->Session->write('estado',$estado);
+
+				debug($estado);
+				$continentes = Configure::read('Continentes');
+			
+				/** Generacion de query de filtrado */
+				$pais = $estado['filtro']['pais_id'];
+				$continente = $estado['filtro']['region_id'];
+				$carrera =  $estado['filtro']['carrera_id'];
+				$name = $estado['filtro']['name'];
+
+				//variable de orden para query
+				$order = $estado['orden'];
+
+				$joins = array();
+				$condiciones = array();
+				//Condiciones para el query
+				if($pais != ''){
+					$condiciones['pais_id']=$pais;
+				}
+				if($continente != ''){
+					$condiciones['Pais.continente']=$continentes[$continente];
+				}
+				if($name != ''){
+					$condiciones['Universidad.name LIKE']="%$name%";
+				}
+				if($carrera != ''){
+					$joins = array ( 
+						array('table' => 'universidades_carreras',
+		                'alias' => 'universidadcarrera',
+		                'type' => 'INNER',
+		                'conditions' => array(
+		                    'universidadcarrera.carrera_id' => $carrera,
+		                    'universidadcarrera.universidad_id = Universidad.id'
+		                )
+						)
+						);
+				}
+				$this->Universidad->recursive = 0;
+				$universidades = $this->Universidad->find('all',array
+				('conditions'=>$condiciones,
+				'fields'=>array('Universidad.codigo','Universidad.name','Universidad.idioma','Universidad.ciudad','Universidad.id'),
+				'joins' => $joins,
+				'group' => 'Universidad.id',
+				'order'=>$order
+					));
+				
+				$this->set(compact('universidades'));
 			
 				$this->render('listadoajax', 'ajax');
 			}
