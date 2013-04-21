@@ -47,7 +47,7 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Menu'); ?></h3>
+	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Nueva Demanda',true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Lista Universidades',true), array('controller' => 'universidades', 'action' => 'index')); ?> </li>

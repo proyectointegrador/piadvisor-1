@@ -45,9 +45,9 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Menu'); ?></h3>
+	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Nueva Categoria',true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Requisitos',true), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Requisitos',true), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

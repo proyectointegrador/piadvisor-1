@@ -19,14 +19,14 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('Nombre','name'); ?></th>
-			<th><?php echo $this->Paginator->sort('Continente'); ?></th>
+			<th><?php echo $this->Paginator->sort('Region','region'); ?></th>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php foreach ($paises as $pais): ?>
 	<tr>
 		<td><?php echo h($pais['Pais']['id']); ?>&nbsp;</td>
 		<td><?php echo h($pais['Pais']['name']); ?>&nbsp;</td>
-		<td><?php echo h($pais['Pais']['continente']); ?>&nbsp;</td>
+		<td><?php echo h($pais['Region']['name']); ?>&nbsp;</td>
 		<td class="actions">
 			
 			<?php echo $this->Html->link(__('Editar',true), array('action' => 'edit', $pais['Pais']['id'])); ?>
@@ -50,7 +50,7 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Menu'); ?></h3>
+	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Nuevo País',true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Lista Universidades',true), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
