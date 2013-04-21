@@ -1,7 +1,8 @@
    body {
         padding-top: 40px;
         padding-bottom: 15%;
-        background-image:url('../img/back.gif');
+        /* background-image:url('../img/back.gif'); */
+
         background-repeat:repeat-x; 
       }
 
