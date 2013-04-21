@@ -79,12 +79,13 @@ class UsersController extends AppController {
 	
 	function beforeFilter() {
     parent::beforeFilter();
-  //  $this->Auth->allowedActions = array('*');
+    //$this->Auth->allowedActions = array('*');
+    //Se debe de comentar la linea de abajo cuando se use le linea de arriba
     $this->Auth->allowedActions = array('login', 'logout');
-
 
 	}
 	
+	//hace falta denegar el acceso a initDB para admin y user, solo disponible para superadmin
 	function initDB() {
     $group =& $this->User->Group;
     //Allow admins to everything
@@ -94,11 +95,14 @@ class UsersController extends AppController {
     //allow managers to posts and widgets
     $group->id = 2;
     $this->Acl->deny($group, 'controllers');
+	$this->Acl->allow($group, 'controllers/Areas');
     $this->Acl->allow($group, 'controllers/Carreras');
     $this->Acl->allow($group, 'controllers/Categorias');
     $this->Acl->allow($group, 'controllers/Demandas');
     $this->Acl->allow($group, 'controllers/Disponibilidades');
     $this->Acl->allow($group, 'controllers/Paises');
+	$this->Acl->allow($group, 'controllers/Regiones');
+ //   $this->Acl->allow($group, 'controllers/Programas');
     $this->Acl->allow($group, 'controllers/Requisitos');
     $this->Acl->allow($group, 'controllers/Universidades');
     $this->Acl->allow($group, 'controllers/Groups');
@@ -109,11 +113,14 @@ class UsersController extends AppController {
     //allow users to only add and edit on posts and widgets
     $group->id = 3;
     $this->Acl->deny($group, 'controllers');
+	$this->Acl->allow($group, 'controllers/Areas');
     $this->Acl->allow($group, 'controllers/Carreras');
     $this->Acl->allow($group, 'controllers/Categorias');
     $this->Acl->allow($group, 'controllers/Demandas');
     $this->Acl->allow($group, 'controllers/Disponibilidades');
     $this->Acl->allow($group, 'controllers/Paises');
+	$this->Acl->allow($group, 'controllers/Regiones');
+ //   $this->Acl->allow($group, 'controllers/Programas');
     $this->Acl->allow($group, 'controllers/Requisitos');
     $this->Acl->allow($group, 'controllers/Universidades');
 

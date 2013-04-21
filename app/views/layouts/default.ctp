@@ -93,7 +93,9 @@
             <span class="icon-bar"></span>
           </button>
           <a class="brand" href="<?php echo $this->webroot;?>">Intercambio Internacional</a>
+
           <div class="nav-collapse collapse">
+    	  <li align=right><?php echo $this->Html->link(__('Logout',true), array('controller' => 'users', 'action' => 'logout')); ?> </li>
 
           </div><!--/.nav-collapse -->
         </div>
