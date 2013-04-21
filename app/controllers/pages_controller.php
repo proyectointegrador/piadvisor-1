@@ -359,7 +359,7 @@ class PagesController extends AppController {
 				$this->Universidad->recursive = 0;
 				$universidades = $this->Universidad->find('all',array
 				('conditions'=>$condiciones,
-				'fields'=>array('Universidad.codigo','Universidad.name','Universidad.idioma','Universidad.id'),
+				'fields'=>array('Universidad.codigo','Universidad.name','Universidad.idioma','Universidad.ciudad','Universidad.id'),
 				'joins' => $joins,
 				'group' => 'Universidad.id'
 					));
@@ -374,8 +374,8 @@ class PagesController extends AppController {
 		
 	}
 	
-	  function beforeFilter() {
-
+	function beforeFilter() {
+		parent::beforeFilter();
     $this->Auth->allowedActions = array('*');
 	}
 	

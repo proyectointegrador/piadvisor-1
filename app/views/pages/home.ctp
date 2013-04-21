@@ -14,7 +14,8 @@
 $continentes = Configure::read('Continentes');
 
 ?>
-<?php echo $this->Form->create('Page',array('action'=>'listado_universidades')); ?>
+<?php echo $this->Form->create('Page',array('action'=>'listado_universidades'));
+ ?>
 
 
 

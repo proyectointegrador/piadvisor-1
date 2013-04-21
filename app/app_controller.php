@@ -12,7 +12,7 @@ class AppController extends Controller {
 	 $this->Auth->actionPath = 'controllers/';
 	
   //  $this->Auth->allowedActions = array('*');
-	
+	 
 	
 	//Autentificacion de usuarios
 	  $this->Auth->authorize = 'actions';
@@ -23,6 +23,7 @@ class AppController extends Controller {
 	
 	//Detectar movil
      $detect = new Mobile_Detect;
+    
      if ($detect->isMobile()){// && !$detect->isTablet()) {
         	$path = APP.'views/' . strtolower($this->name) . DS . 'movil/' . $this->action . '.ctp';
         	if (file_exists($path)) {
