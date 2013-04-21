@@ -34,14 +34,28 @@
       <?php echo __('Website'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['website'],'http://'.$universidad['Universidad']['website']); ?></br>
       <?php echo __('Más Información'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['codigo'],'http://mty116.mty.itesm.mx/temporal/pi/dyn/viewInfo.php?chUniCode='.$universidad['Universidad']['codigo']); ?></br>
 
- 
+        <a href="#myModal" role="button" class="btn" data-toggle="modal">Enviar correo</a>
+
 
     </div>
   </div>
 </div>
 </br>
 
-
+<div class="modal hide fade" id="myModal">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Enviar Oportunidad de Intercambio</h3>
+  </div>
+  <div class="modal-body">
+      <?php
+        echo $this->Form->input('Page.name',array('class'=>'input-block-level','label'=>'Correo:'));
+        ?>
+          </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary">Enviar correo</a>
+  </div>
+</div>
 
 <div class="related">
 	<h3><?php echo __('Consideraciones Importantes'); ?></h3>
@@ -144,4 +158,8 @@ $y++;
 </div>
 
 
-
+        <script>
+            $(function () {
+                $('#tooltip1').tooltip();
+            });
+        </script>

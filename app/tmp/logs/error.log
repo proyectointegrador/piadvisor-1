@@ -57,3 +57,6 @@
 2013-04-18 23:24:00 Warning: Warning (512): C:\xampp\htdocs\piadvisor-1\app\tmp\cache\persistent\ is not writable in [C:\xampp\htdocs\piadvisor-1\cake\libs\cache\file.php, line 281]
 2013-04-18 23:24:02 Warning: Warning (512): C:\xampp\htdocs\piadvisor-1\app\tmp\cache\persistent\ is not writable in [C:\xampp\htdocs\piadvisor-1\cake\libs\cache\file.php, line 281]
 2013-04-21 00:02:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [C:\xampp\htdocs\piadvisor-1\cake\libs\controller\components\acl.php, line 361]
+2013-04-21 19:02:52 Warning: Warning (512): C:\xampp2\htdocs\piadvisor-1\app\tmp\cache\persistent\ is not writable in [C:\xampp2\htdocs\piadvisor-1\cake\libs\cache\file.php, line 281]
+2013-04-21 19:02:52 Warning: Warning (512): C:\xampp2\htdocs\piadvisor-1\app\tmp\cache\models\ is not writable in [C:\xampp2\htdocs\piadvisor-1\cake\libs\cache\file.php, line 281]
+2013-04-21 19:03:39 Warning: Warning (512): C:\xampp2\htdocs\piadvisor-1\app\tmp\cache\models\ is not writable in [C:\xampp2\htdocs\piadvisor-1\cake\libs\cache\file.php, line 281]
