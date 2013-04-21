@@ -47,15 +47,38 @@
     <a class="close" data-dismiss="modal">×</a>
     <h3>Enviar Oportunidad de Intercambio</h3>
   </div>
-  <div class="modal-body">
-      <?php
-        echo $this->Form->input('Page.name',array('class'=>'input-block-level','label'=>'Correo:'));
+  <div id="resultCorreo">
+    <div class="modal-body">
+        <?php
+          echo $this->Form->create('Universidad');
+
+          echo $this->Form->input('Universidad.id', array('type'=>'hidden', 'value'=>$universidad['Universidad']['id']));
+          echo $this->Form->input('Page.correo',array('class'=>'input-block-level','label'=>'Correo:'));
+          ?>
+            </div>
+    <div class="modal-footer">
+
+      <a id="BtnEnviar" class="btn btn-primary">Enviar correo</a>
+      <?php 
+          $datos = $this->Js->get("#UniversidadVerUniversidadForm")->serializeForm(array('isForm' => true, 'inline' => true));
+
+          $this->Js->get('#BtnEnviar')->event('click', $this->Js->request( 
+          array('controller' => 'pages', 'action' => 'enviarcorreo'), 
+          array( 
+          'update' => '#resultCorreo',
+          'async' => true, 
+          'dataExpression' => true, 
+          'method' => 'post', 
+          'data' => $datos
+          ) ) );
         ?>
-          </div>
-  <div class="modal-footer">
-    <a href="#" class="btn btn-primary">Enviar correo</a>
+
+      <?php echo $this->Form->end(); ?>
+    </div>
   </div>
 </div>
+
+
 
 <div class="related">
 	<h3><?php echo __('Consideraciones Importantes'); ?></h3>
@@ -163,3 +186,6 @@ $y++;
                 $('#tooltip1').tooltip();
             });
         </script>
+<?php
+  echo $this->Js->writeBuffer();
+?>
