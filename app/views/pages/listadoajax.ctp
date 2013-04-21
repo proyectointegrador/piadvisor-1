@@ -10,8 +10,7 @@
 									'update' => '#listadoajax',
 									'async' => true, 
 									'dataExpression' => true, 
-									'method' => 'post', 
-									'data' => $this->data
+									'method' => 'post'
 									) ) );
 
 					?>
@@ -26,8 +25,7 @@
 									'update' => '#listadoajax',
 									'async' => true, 
 									'dataExpression' => true, 
-									'method' => 'post', 
-									'data' => $this->data
+									'method' => 'post'
 									) ) );
 
 					?>
@@ -42,8 +40,7 @@
 									'update' => '#listadoajax',
 									'async' => true, 
 									'dataExpression' => true, 
-									'method' => 'post', 
-									'data' => $this->data
+									'method' => 'post'
 									) ) );
 
 					?>
@@ -58,8 +55,7 @@
 									'update' => '#listadoajax',
 									'async' => true, 
 									'dataExpression' => true, 
-									'method' => 'post', 
-									'data' => $this->data
+									'method' => 'post'
 									) ) );
 
 					?>
@@ -79,3 +75,7 @@
 
 		<?php endforeach; ?>
 		</table>
+
+<?php
+  echo $this->Js->writeBuffer();
+?>

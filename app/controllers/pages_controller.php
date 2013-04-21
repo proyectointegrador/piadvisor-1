@@ -164,7 +164,7 @@ class PagesController extends AppController {
 						'pais_id'=>$datos['Page']['pais_id'],
 						'region_id'=>$datos['Page']['continente_id'],
 						'carrera_id'=>$datos['Page']['carrera_id'],
-						'name'=>$datos['Page']['name']);
+						'name'=>$name);
 			
 			//Actualiza sesion con el estado
 			$this->Session->write('estado',$estado);
