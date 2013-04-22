@@ -11,7 +11,6 @@
 ?>
 <?php
 
-$continentes = Configure::read('Continentes');
 
 ?>
 <?php echo $this->Form->create('Page',array('action'=>'listado_universidades')); ?>
@@ -24,12 +23,12 @@ $continentes = Configure::read('Continentes');
       <div class="form-signin">
 <?php
 	echo $this->Form->input('carrera_id',array('empty'=>'----', 'class'=>'input-block-level'));
-	echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----', 'class'=>'input-block-level'));
+	echo $this->Form->input('region_id',array('options' => $regiones,'empty'=>'----', 'class'=>'input-block-level'));
 ?>
 
 <?php
 
-	$this->Js->get('#PageContinenteId')->event('change', $this->Js->request( 
+	$this->Js->get('#PageRegionId')->event('change', $this->Js->request( 
 				array('controller' => 'pages', 'action' => 'paisajax'), 
 				array( 
 				'update' => '#paisajax',
@@ -52,7 +51,7 @@ $continentes = Configure::read('Continentes');
 		
 		
 <div style="color: gray;">
-  <p>Nota: Puedes buscar seleccionando una carrera y/o continente y/o país.</p>
+  <p>Nota: Puedes buscar seleccionando una carrera y/o región y/o país.</p>
 </div>
 
 

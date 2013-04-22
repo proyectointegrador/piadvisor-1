@@ -11,8 +11,6 @@
 ?>
 <?php
 
-$continentes = Configure::read('Continentes');
-
 ?>
 
 
@@ -44,7 +42,7 @@ $continentes = Configure::read('Continentes');
 	 			echo $this->Form->input('Page.carrera_id',array('empty'=>'----', 'class'=>'input-block-level'));
 	 			?>	
 	 			<?php
-	 			echo $this->Form->input('Page.continente_id',array('options' => $continentes,'empty'=>'----', 'class'=>'input-block-level'));
+	 			echo $this->Form->input('Page.region_id',array('options' => $regiones,'empty'=>'----', 'class'=>'input-block-level'));
 	 			?>	
 
 	 				 			<?php

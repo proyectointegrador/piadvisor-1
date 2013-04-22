@@ -11,7 +11,6 @@
 ?>
 <?php
 
-$continentes = Configure::read('Continentes');
 
 ?>
 
@@ -31,7 +30,7 @@ $continentes = Configure::read('Continentes');
 	 		</div>
 	 		<div class="campo column">
 	 			<?php
-	 			echo $this->Form->input('Page.continente_id',array('options' => $continentes,'empty'=>'----'));
+	 			echo $this->Form->input('Page.region_id',array('options' => $regiones,'empty'=>'----'));
 	 			?>
 	 		</div>
 	 		<div class="campo column">

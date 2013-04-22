@@ -121,15 +121,13 @@ class PagesController extends AppController {
 														'group'=>array('Universidad.pais_id'),
 														'recursive' => 0
 														));
-		/*$continentes = $this->Pais->find('list', array(
-													'fields' => array('Pais.continente'),
-													'order'=>array('Pais.continente ASC'),
-													'group'=>array('Pais.continente')
-													));*/
+		$regiones = $this->Pais->Region->find('list', array(
+											'order'=>array('name ASC')
+											));
 
 
 		
-		$this->set(compact('carreras','paises'));
+		$this->set(compact('carreras','paises','regiones'));
 		$this->set('title_for_layout', 'PIAdvisor');
 	}
 
@@ -162,7 +160,7 @@ class PagesController extends AppController {
 
 			$estado['filtro'] = array(
 						'pais_id'=>$datos['Page']['pais_id'],
-						'region_id'=>$datos['Page']['continente_id'],
+						'region_id'=>$datos['Page']['region_id'],
 						'carrera_id'=>$datos['Page']['carrera_id'],
 						'name'=>$name);
 			
@@ -171,11 +169,14 @@ class PagesController extends AppController {
 
 			$estado = $this->Session->read('estado');
 			debug($estado);
-			$continentes = Configure::read('Continentes');
 			
+			$regiones = $this->Pais->Region->find('list', array(
+											'order'=>array('name ASC')
+											));
+
 			/** Generacion de query de filtrado */
 			$pais = $estado['filtro']['pais_id'];
-			$continente = $estado['filtro']['region_id'];
+			$region = $estado['filtro']['region_id'];
 			$carrera =  $estado['filtro']['carrera_id'];
 
 			//variable de orden para query
@@ -187,8 +188,8 @@ class PagesController extends AppController {
 			if($pais != ''){
 				$condiciones['pais_id']=$pais;
 			}
-			if($continente != ''){
-				$condiciones['Pais.continente']=$continentes[$continente];
+			if($region != ''){
+				$condiciones['Pais.region_id']=$region;
 			}
 			if($carrera != ''){
 				$joins = array ( 
@@ -254,7 +255,7 @@ class PagesController extends AppController {
 														'group'=>array('Universidad.pais_id'),
 														'recursive' => 0
 														));
-		$this->set(compact('carreras','paises'));
+		$this->set(compact('carreras','paises','regiones'));
 		$this->set('title_for_layout', 'PIAdvisor');
 
 				
@@ -315,7 +316,7 @@ class PagesController extends AppController {
 	/*
 	AJAX
 	*/
-	/* Funcion que maneja la peticion ajax de os paise segun el continente
+	/* Funcion que maneja la peticion ajax de os paise segun la region
 	 * Seleccionado.
 	 *
 	 * @return void
@@ -324,13 +325,12 @@ class PagesController extends AppController {
 		if ($this->RequestHandler->isPost() || $this->RequestHandler->isPut()) {
 			
 			if($this->RequestHandler->isAjax()){
-				$continentes = Configure::read('Continentes');
 
-				$continente_id = $this->request->data['Page']['continente_id'];
+				$region_id = $this->data['Page']['region_id'];
 				$this->Pais->recursive= -1;
-				if($continente_id != ''){
+				if($region_id != ''){
 					$paises = $this->Pais->find('list',array(
-					'conditions'=>array('continente'=>$continentes[$continente_id])));	
+					'conditions'=>array('region_id'=>$region_id)));	
 				}else{
 					$paises = $this->Pais->find('list');
 				}
@@ -356,7 +356,7 @@ class PagesController extends AppController {
 
 				$estado['filtro'] = array(
 							'pais_id'=>$datos['Page']['pais_id'],
-							'region_id'=>$datos['Page']['continente_id'],
+							'region_id'=>$datos['Page']['region_id'],
 							'carrera_id'=>$datos['Page']['carrera_id'],
 							'name'=>$datos['Page']['name']);
 				
@@ -366,11 +366,14 @@ class PagesController extends AppController {
 				
 				debug($estado);
 
-				$continentes = Configure::read('Continentes');
+				$regiones = $this->Pais->Region->find('list', array(
+											'order'=>array('name ASC')
+											));
+
 			
 				/** Generacion de query de filtrado */
 				$pais = $estado['filtro']['pais_id'];
-				$continente = $estado['filtro']['region_id'];
+				$region= $estado['filtro']['region_id'];
 				$carrera =  $estado['filtro']['carrera_id'];
 				$name = $estado['filtro']['name'];
 
@@ -383,8 +386,8 @@ class PagesController extends AppController {
 				if($pais != ''){
 					$condiciones['pais_id']=$pais;
 				}
-				if($continente != ''){
-					$condiciones['Pais.continente']=$continentes[$continente];
+				if($region != ''){
+					$condiciones['Pais.region_id']=$region;
 				}
 				if($name != ''){
 					$condiciones['Universidad.name LIKE']="%$name%";
@@ -474,11 +477,15 @@ class PagesController extends AppController {
 				$this->Session->write('estado',$estado);
 
 				debug($estado);
-				$continentes = Configure::read('Continentes');
+
+				$regiones = $this->Pais->Region->find('list', array(
+											'order'=>array('name ASC')
+											));
+
 			
 				/** Generacion de query de filtrado */
 				$pais = $estado['filtro']['pais_id'];
-				$continente = $estado['filtro']['region_id'];
+				$region = $estado['filtro']['region_id'];
 				$carrera =  $estado['filtro']['carrera_id'];
 				$name = $estado['filtro']['name'];
 
@@ -491,8 +498,8 @@ class PagesController extends AppController {
 				if($pais != ''){
 					$condiciones['pais_id']=$pais;
 				}
-				if($continente != ''){
-					$condiciones['Pais.continente']=$continentes[$continente];
+				if($region!= ''){
+					$condiciones['Pais.region_id']=$region;
 				}
 				if($name != ''){
 					$condiciones['Universidad.name LIKE']="%$name%";
