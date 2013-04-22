@@ -90,7 +90,7 @@
 <div id="listadoajax">
 	<table class="table table-striped" >
 	<tr>
-			<th><?php echo _('Universidad'); ?></th>
+			<th><?php echo __('Universidad'); ?></th>
 	</tr>
 	<?php foreach ($universidades as $universidad): ?>
 <a href="/es/recipes/view/6">
@@ -101,7 +101,7 @@
 
 			<?php echo h($universidad['Universidad']['codigo']); ?>&nbsp; <?php echo h($universidad['Universidad']['name']); ?> <br/>
 
-<?php echo _('Idioma'); ?>:&nbsp;<?php echo h($universidad['Universidad']['idioma']); ?><br/>
+<?php echo __('Idioma'); ?>:&nbsp;<?php echo h($universidad['Universidad']['idioma']); ?><br/>
 
 
 
