@@ -21,6 +21,16 @@ class Universidad extends AppModel {
 	var $displayField = 'name';
 
 
+	//Validaciones de datos
+
+	var $validate = array(
+	    'codigo' => array(
+	        'rule' => 'isUnique',
+	        'message' => 'El código de la universidad debe ser único.'
+	    )
+	);
+
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

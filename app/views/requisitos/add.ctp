@@ -9,7 +9,7 @@
  * Descripción: Esta es la vista de administración
  * 				para listar Requisitos.
  */
-
+?>
 <div class="requisitos form">
 <?php echo $this->Form->create('Requisito'); ?>
 	<fieldset>

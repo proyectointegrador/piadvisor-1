@@ -9,7 +9,7 @@
  * Descripción: Esta es la vista de administración
  * 				para listar Requisitos.
  */
- 
+ ?>
  <div class="requisitos form">
 <?php echo $this->Form->create('Requisito'); ?>
 	<fieldset>
@@ -19,7 +19,6 @@
 		echo $this->Form->input('categoria_id');
 		echo $this->Form->input('clave');
 		echo $this->Form->input('descripcion');
-		echo $this->Form->input('descripcion2');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar',true)); ?>

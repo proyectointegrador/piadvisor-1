@@ -55,17 +55,6 @@ Inflector::rules('plural', array('rules' => array(), 'irregular' => array('unive
 																			'region'=>'regiones',
 																			'disponibilidad'=>'disponibilidades'), 'uninflected' => array()));
 
-//Variables de entorno
-Configure::write(
-    'Continentes',array (
-		'1' => 'África',
-		'2' => 'Asia',
-		'3' => 'Europa',
-		'4' => 'Norteamérica',
-		'5' => 'Oceanía',
-		'6' => 'Sudamérica'
-		)
-);
 		
 /*
  * The model name used for the user role (typically 'Role' or 'Group')

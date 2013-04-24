@@ -9,8 +9,6 @@
  * Descripción: Esta es la vista de administración
  * 				para listar paises.
  */
-
-
 ?>
 
 <div class="paises index">
@@ -44,8 +42,8 @@
 
 	<div class="paging">
 		<?php echo $this->Paginator->prev('<< ' . __('anterior', true), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
+	  	<?php echo $this->Paginator->numbers();?>
+ 
 		<?php echo $this->Paginator->next(__('siguiente', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>

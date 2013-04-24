@@ -26,6 +26,9 @@ class PaisesController extends AppController {
 				$this->Session->setFlash(__('The pais could not be saved. Please, try again.', true));
 			}
 		}
+
+		$regiones = $this->Pais->Region->find('list');
+		$this->set(compact('regiones'));
 	}
 
 	function edit($id = null) {
@@ -44,6 +47,8 @@ class PaisesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Pais->read(null, $id);
 		}
+		$regiones = $this->Pais->Region->find('list');
+		$this->set(compact('regiones'));
 	}
 /*
 	function delete($id = null) {

@@ -15,6 +15,14 @@ class Requisito extends AppModel {
 
 	var $displayField = 'clave';
 
+	//Validaciones de datos
+
+	var $validate = array(
+	    'clave' => array(
+	        'rule' => 'isUnique',
+	        'message' => 'La clave de la consideración debe ser única.'
+	    )
+	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

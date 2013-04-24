@@ -19,7 +19,7 @@
 		echo $this->Form->input('name',array('label' => 'Nombre'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Enviar')); ?>
+<?php echo $this->Form->end(__('Enviar',true)); ?>
 </div>
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>

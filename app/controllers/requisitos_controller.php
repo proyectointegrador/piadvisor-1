@@ -26,7 +26,7 @@ class RequisitosController extends AppController {
 				$this->Session->setFlash(__('The requisito could not be saved. Please, try again.', true));
 			}
 		}
-		$categorias = $this->Requisito->Categorium->find('list');
+		$categorias = $this->Requisito->Categoria->find('list');
 		$this->set(compact('categorias'));
 	}
 
@@ -46,7 +46,7 @@ class RequisitosController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Requisito->read(null, $id);
 		}
-		$categorias = $this->Requisito->Categorium->find('list');
+		$categorias = $this->Requisito->Categoria->find('list');
 		$this->set(compact('categorias'));
 	}
 /*

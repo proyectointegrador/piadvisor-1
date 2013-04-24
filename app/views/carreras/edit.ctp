@@ -20,6 +20,7 @@
 		echo $this->Form->input('name',array('label'=>'Carrera (Siglas)'));
 		echo $this->Form->input('name2',array('label'=>'Nombre'));
 		echo $this->Form->input('area_id');
+		echo $this->Form->input('activo');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar',true)); ?>

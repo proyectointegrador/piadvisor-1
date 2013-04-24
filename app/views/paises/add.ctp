@@ -10,8 +10,6 @@
  * 				para agregar paises.
  */
 
-$continentes = Configure::read('Continentes');
-
 ?>
 <div class="paises form">
 <?php echo $this->Form->create('Pais'); ?>
@@ -19,7 +17,7 @@ $continentes = Configure::read('Continentes');
 		<legend><?php echo __('Nuevo Pais'); ?></legend>
 	<?php
 		echo $this->Form->input('name',array('label'=>'Nombre'));
-		echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----'));
+		echo $this->Form->input('region_id');
 		echo $this->Form->input('activo', array('value'=> '1', 'type' =>'hidden'));
 	?>
 	</fieldset>

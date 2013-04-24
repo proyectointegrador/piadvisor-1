@@ -1,5 +1,6 @@
 /app/tmp/cache/
 /app/tmp/cache/persistent/*
+/app/tmp/logs/*
 /lib/Cake/Console/Templates/skel/tmp/
 /build
 /dist

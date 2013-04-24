@@ -19,6 +19,7 @@
 			<th><?php echo $this->Paginator->sort('Carrera','name'); ?></th>
 			<th><?php echo $this->Paginator->sort('Nombre','name2'); ?></th>
 			<th><?php echo $this->Paginator->sort('area_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('activo'); ?></th>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php foreach ($carreras as $carrera): ?>
@@ -27,7 +28,10 @@
 		<td><?php echo h($carrera['Carrera']['name']); ?>&nbsp;</td>
 		<td><?php echo h($carrera['Carrera']['name2']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($carrera['Area']['name'], array('controller' => 'areas', 'action' => 'view', $carrera['Area']['id'])); ?>
+			<?php echo h($carrera['Area']['name']); ?>
+		</td>
+		<td>
+			<?php echo h($carrera['Carrera']['activo']); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Editar',true), array('action' => 'edit', $carrera['Carrera']['id'])); ?>

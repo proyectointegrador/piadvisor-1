@@ -28,7 +28,7 @@ class UniversidadesController extends AppController {
 				$this->Session->setFlash(__('The universidad has been saved',true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The universidad could not be saved. Please, try again.',true));
+				$this->Session->setFlash(__('No se pudo guardar la universidad, favor de verificar los datos.',true));
 			}
 		}
 		$disponibilidades = $this->Universidad->Disponibilidad->find('list');
