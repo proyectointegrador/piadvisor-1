@@ -54,6 +54,5 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Nuevo Requisito',true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Lista Categorias',true), array('controller' => 'categorias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nueva Categoria',true), array('controller' => 'categorias', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

@@ -17,7 +17,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('Nombre','name'); ?></th>
-			<th><?php echo $this->Paginator->sort('Region','region'); ?></th>
+			<th><?php echo $this->Paginator->sort('Región','region'); ?></th>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php foreach ($paises as $pais): ?>

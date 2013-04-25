@@ -5,9 +5,7 @@
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('Usuario');?></th>
 			<th><?php echo $this->Paginator->sort('Contraseña');?></th>
-			<th><?php echo $this->Paginator->sort('group_id');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
+			<th><?php echo $this->Paginator->sort('Grupo','group_id');?></th>
 			<th class="actions"><?php __('Acciones');?></th>
 	</tr>
 	<?php
@@ -25,8 +23,6 @@
 		<td>
 			<?php echo $this->Html->link($user['Group']['name'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?>
 		</td>
-		<td><?php echo $user['User']['created']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['modified']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $user['User']['id'])); ?>
 		</td>
@@ -52,6 +48,5 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Nuevo Usuario', true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Lista Grupos', true), array('controller' => 'groups', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista Universidades', true), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

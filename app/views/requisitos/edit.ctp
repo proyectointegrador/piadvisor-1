@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  *Autores:
  *  Edgar Garc�a Camarillo
@@ -18,7 +18,7 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('categoria_id');
 		echo $this->Form->input('clave');
-		echo $this->Form->input('descripcion');
+		echo $this->Form->input('descripcion', array('label'=>'Descripción'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar',true)); ?>
@@ -30,6 +30,5 @@
 		
 		<li><?php echo $this->Html->link(__('Lista Requisitos',true), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('Lista Categorias',true), array('controller' => 'categorias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nueva Categoria',true), array('controller' => 'categorias', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

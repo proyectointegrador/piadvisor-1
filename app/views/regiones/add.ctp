@@ -1,20 +1,19 @@
-<div class="regiones form">
+﻿<div class="regiones form">
 <?php echo $this->Form->create('Region');?>
 	<fieldset>
-		<legend><?php __('Add Region'); ?></legend>
+		<legend><?php __('Nueva Región'); ?></legend>
 	<?php
-		echo $this->Form->input('name');
-		echo $this->Form->input('activo');
+		echo $this->Form->input('name', array('label'=>'Nombre'));
+		echo $this->Form->input('activo', array('value'=> '1', 'type' =>'hidden'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('Enviar', true));?>
 </div>
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Regiones', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Paises', true), array('controller' => 'paises', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Pais', true), array('controller' => 'paises', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Regiones', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('Lista Paises', true), array('controller' => 'paises', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

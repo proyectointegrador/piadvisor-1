@@ -1,10 +1,10 @@
-<div class="universidades form">
+﻿<div class="universidades form">
 <?php echo $this->Form->create('Universidad'); ?>
 	<fieldset>
 		<legend><?php echo __('Nueva Universidad'); ?></legend>
 	<?php
 	    echo $this->Form->input('activo',array('type'=>'checkbox','checked'=>true));
-		echo $this->Form->input('codigo');
+		echo $this->Form->input('codigo', array('label'=>'Código'));
 		echo $this->Form->input('name',array('label' => 'Nombre'));
 		echo $this->Form->input('ciudad');
 		echo $this->Form->input('calendario');
@@ -12,7 +12,7 @@
 		echo $this->Form->input('demanda_id');
 		echo $this->Form->input('website',array('label' => 'Pagina Web'));
 		echo $this->Form->input('user_id',array('label' => 'Usuario'));
-		echo $this->Form->input('pais_id');
+		echo $this->Form->input('pais_id', array('label'=>'País'));
 		echo $this->Form->input('activo', array('value'=> '1', 'type' =>'hidden'));
 		
 			
