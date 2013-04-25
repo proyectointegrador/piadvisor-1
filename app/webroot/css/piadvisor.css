@@ -21,8 +21,8 @@ div.pais_content{
 	cursor: default;
 }	
 .iaminline{
-	/*float: left; 
-	display: inline;*/
+	float: left; 
+	display: inline;
 	clear:none;
 	width:60px;
 }
