@@ -28,3 +28,4 @@
 2013-04-22 00:16:47 Debug: Notice (8): Undefined index: continente in [C:\xampp\htdocs\piadvisor-1\app\views\paises\index.ctp, line 29]
 2013-04-22 19:17:48 Debug: Notice (8): Undefined variable: regiones in [C:\xampp2\htdocs\piadvisor-1\app\views\pages\movil\listado_universidades.ctp, line 45]
 2013-04-22 19:17:48 Debug: Notice (8): Undefined variable: universidades in [C:\xampp2\htdocs\piadvisor-1\app\views\pages\movil\listado_universidades.ctp, line 95]
+2013-04-22 19:30:55 Debug: Notice (8): Undefined index: region_id in [C:\xampp2\htdocs\piadvisor-1\app\controllers\pages_controller.php, line 163]
