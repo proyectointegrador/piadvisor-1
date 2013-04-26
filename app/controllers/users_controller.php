@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class UsersController extends AppController {
 
 	var $name = 'Users';
@@ -67,19 +67,19 @@ class UsersController extends AppController {
 	
 	function login() {
 		if ($this->Session->read('Auth.User')) {
-			$this->Session->setFlash('You are logged in!');
-			$this->redirect('/', null, false);
+			$this->Session->setFlash('Has iniciado sesión!');
+			$this->redirect(array ('controller' => 'universidades', 'action' => 'index'), null, false);
 		}
 	}
 
 	function logout() {
-		$this->Session->setFlash('Good-Bye');
+		$this->Session->setFlash('Has cerrado sesión');
 		$this->redirect($this->Auth->logout());
 	}
 	
 	function beforeFilter() {
     parent::beforeFilter();
-   // $this->Auth->allowedActions = array('*');
+    //$this->Auth->allowedActions = array('*');
     //Se debe de comentar la linea de abajo cuando se use le linea de arriba
     $this->Auth->allowedActions = array('login', 'logout');
 
@@ -87,132 +87,50 @@ class UsersController extends AppController {
 	
 	//hace falta denegar el acceso a initDB para admin y user, solo disponible para superadmin
 	function initDB() {
-    $group =& $this->User->Group;
-    //Allow admins to everything
-    $group->id = 1;
-    $this->Acl->allow($group, 'controllers');
+		$group =& $this->User->Group;
+		//Allow admins to everything
+		$group->id = 1;
+		$this->Acl->allow($group, 'controllers');
 
-    //allow managers to posts and widgets
-    $group->id = 2;
-    $this->Acl->deny($group, 'controllers');
-	$this->Acl->allow($group, 'controllers/Areas');
-    $this->Acl->allow($group, 'controllers/Carreras');
-    $this->Acl->allow($group, 'controllers/Categorias');
-    $this->Acl->allow($group, 'controllers/Demandas');
-    $this->Acl->allow($group, 'controllers/Disponibilidades');
-    $this->Acl->allow($group, 'controllers/Paises');
-	$this->Acl->allow($group, 'controllers/Regiones');
- //   $this->Acl->allow($group, 'controllers/Programas');
-    $this->Acl->allow($group, 'controllers/Requisitos');
-    $this->Acl->allow($group, 'controllers/Universidades');
-    $this->Acl->allow($group, 'controllers/Groups');
-    $this->Acl->allow($group, 'controllers/Users');
-
+		//allow managers to posts and widgets
+		$group->id = 2;
+		$this->Acl->deny($group, 'controllers');
+		$this->Acl->deny($group, 'controllers/Groups/build_acl');
+		$this->Acl->deny($group, 'controllers/Users/initDB');
+		$this->Acl->allow($group, 'controllers/Areas');
+		$this->Acl->allow($group, 'controllers/Carreras');
+		$this->Acl->allow($group, 'controllers/Categorias');
+		$this->Acl->allow($group, 'controllers/Demandas');
+		$this->Acl->allow($group, 'controllers/Disponibilidades');
+		$this->Acl->allow($group, 'controllers/Paises');
+		$this->Acl->allow($group, 'controllers/Regiones');
+	 //   $this->Acl->allow($group, 'controllers/Programas');
+		$this->Acl->allow($group, 'controllers/Requisitos');
+		$this->Acl->allow($group, 'controllers/Universidades');
+		$this->Acl->allow($group, 'controllers/Groups');
+		$this->Acl->allow($group, 'controllers/Users');
 	
 
-    //allow users to only add and edit on posts and widgets
-    $group->id = 3;
-    $this->Acl->deny($group, 'controllers');
-	$this->Acl->allow($group, 'controllers/Areas');
-    $this->Acl->allow($group, 'controllers/Carreras');
-    $this->Acl->allow($group, 'controllers/Categorias');
-    $this->Acl->allow($group, 'controllers/Demandas');
-    $this->Acl->allow($group, 'controllers/Disponibilidades');
-    $this->Acl->allow($group, 'controllers/Paises');
-	$this->Acl->allow($group, 'controllers/Regiones');
- //   $this->Acl->allow($group, 'controllers/Programas');
-    $this->Acl->allow($group, 'controllers/Requisitos');
-    $this->Acl->allow($group, 'controllers/Universidades');
+		//allow users to only add and edit on posts and widgets
+		$group->id = 3;
+		$this->Acl->deny($group, 'controllers');
+		$this->Acl->deny($group, 'controllers/Groups/build_acl');
+		$this->Acl->deny($group, 'controllers/Users/initDB');
+		$this->Acl->allow($group, 'controllers/Areas');
+		$this->Acl->allow($group, 'controllers/Carreras');
+		$this->Acl->allow($group, 'controllers/Categorias');
+		$this->Acl->allow($group, 'controllers/Demandas');
+		$this->Acl->allow($group, 'controllers/Disponibilidades');
+		$this->Acl->allow($group, 'controllers/Paises');
+		$this->Acl->allow($group, 'controllers/Regiones');
+	 //   $this->Acl->allow($group, 'controllers/Programas');
+		$this->Acl->allow($group, 'controllers/Requisitos');
+		$this->Acl->allow($group, 'controllers/Universidades');
 
 
-    //we add an exit to avoid an ugly "missing views" error message
-    echo "all done";
-    exit;
-}
-
-function build_acl() {
-        if (!Configure::read('debug')) {
-            return $this->_stop();
-        }
-        $log = array();
-
-        $aco =& $this->Acl->Aco;
-        $root = $aco->node('controllers');
-        if (!$root) {
-            $aco->create(array('parent_id' => null, 'model' => null, 'alias' => 'controllers'));
-            $root = $aco->save();
-            $root['Aco']['id'] = $aco->id;
-            $log[] = 'Created Aco node for controllers';
-        } else {
-            $root = $root[0];
-        }
-
-        App::import('Core', 'File');
-        $Controllers = App::objects('controller');
-        $appIndex = array_search('App', $Controllers);
-        if ($appIndex !== false ) {
-            unset($Controllers[$appIndex]);
-        }
-        $baseMethods = get_class_methods('Controller');
-        $baseMethods[] = 'build_acl';
-
-        $Plugins = $this->_getPluginControllerNames();
-        $Controllers = array_merge($Controllers, $Plugins);
-
-        // look at each controller in app/controllers
-        foreach ($Controllers as $ctrlName) {
-            $methods = $this->_getClassMethods($this->_getPluginControllerPath($ctrlName));
-
-            // Do all Plugins First
-            if ($this->_isPlugin($ctrlName)){
-                $pluginNode = $aco->node('controllers/'.$this->_getPluginName($ctrlName));
-                if (!$pluginNode) {
-                    $aco->create(array('parent_id' => $root['Aco']['id'], 'model' => null, 'alias' => $this->_getPluginName($ctrlName)));
-                    $pluginNode = $aco->save();
-                    $pluginNode['Aco']['id'] = $aco->id;
-                    $log[] = 'Created Aco node for ' . $this->_getPluginName($ctrlName) . ' Plugin';
-                }
-            }
-            // find / make controller node
-            $controllerNode = $aco->node('controllers/'.$ctrlName);
-            if (!$controllerNode) {
-                if ($this->_isPlugin($ctrlName)){
-                    $pluginNode = $aco->node('controllers/' . $this->_getPluginName($ctrlName));
-                    $aco->create(array('parent_id' => $pluginNode['0']['Aco']['id'], 'model' => null, 'alias' => $this->_getPluginControllerName($ctrlName)));
-                    $controllerNode = $aco->save();
-                    $controllerNode['Aco']['id'] = $aco->id;
-                    $log[] = 'Created Aco node for ' . $this->_getPluginControllerName($ctrlName) . ' ' . $this->_getPluginName($ctrlName) . ' Plugin Controller';
-                } else {
-                    $aco->create(array('parent_id' => $root['Aco']['id'], 'model' => null, 'alias' => $ctrlName));
-                    $controllerNode = $aco->save();
-                    $controllerNode['Aco']['id'] = $aco->id;
-                    $log[] = 'Created Aco node for ' . $ctrlName;
-                }
-            } else {
-                $controllerNode = $controllerNode[0];
-            }
-
-            //clean the methods. to remove those in Controller and private actions.
-            foreach ($methods as $k => $method) {
-                if (strpos($method, '_', 0) === 0) {
-                    unset($methods[$k]);
-                    continue;
-                }
-                if (in_array($method, $baseMethods)) {
-                    unset($methods[$k]);
-                    continue;
-                }
-                $methodNode = $aco->node('controllers/'.$ctrlName.'/'.$method);
-                if (!$methodNode) {
-                    $aco->create(array('parent_id' => $controllerNode['Aco']['id'], 'model' => null, 'alias' => $method));
-                    $methodNode = $aco->save();
-                    $log[] = 'Created Aco node for '. $method;
-                }
-            }
-        }
-        if(count($log)>0) {
-            debug($log);
-        }
-    }
+		//we add an exit to avoid an ugly "missing views" error message
+		echo "all done";
+		exit;
+		}
 	
 }

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 App::import('Vendor','Mobile_Detect'); 
 App::import('Vendor', 'Mobile_Detect', array('file' => 'Mobile_Detect.php'));
