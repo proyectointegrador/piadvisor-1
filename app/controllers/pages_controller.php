@@ -555,19 +555,21 @@ class PagesController extends AppController {
 		  <title>Intercambio Internacional</title>
 		</head>
 		<body>
-		  <p>'.$universidad['Universidad']['name'].'</p>
-		  <table>
-		    <tr>
-		      <th>Quien</th><th>Día</th><th>Mes</th><th>Año</th>
-		    </tr>
-		    <tr>
-		      <td>Joe</td><td>3</td><td>Agosto</td><td>1970</td>
-		    </tr>
-		    <tr>
-		      <td>Sally</td><td>17</td><td>Agosto</td><td>1973</td>
-		    </tr>
-		  </table>
-		</body>
+		  <p>Nombre: '.$universidad['Universidad']['name'].'</p>
+
+		  <p>Codigo: '.$universidad['Universidad']['codigo'].'</p>
+		  <p>Ciudad: '.$universidad['Universidad']['ciudad'].'</p>
+		  <p>Idioma: '.$universidad['Universidad']['idioma'].'</p>
+		  <p>Calendario: '.$universidad['Universidad']['calendario'].'</p>
+		  <p>Disponibilidad: '.$universidad['Disponibilidad']['name'].'</p>
+		  <p>Demanda: '.$universidad['Demanda']['name'].'</p>
+		  <p>Website: '.$universidad['Universidad']['website'].'</p>';
+		  
+
+
+
+
+		$mensaje =$mensaje +'</body>
 		</html>
 		';
 
