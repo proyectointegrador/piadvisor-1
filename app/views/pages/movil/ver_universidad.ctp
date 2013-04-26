@@ -34,10 +34,52 @@
 
        <?php echo __('Más Información'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['codigo'],'http://mty116.mty.itesm.mx/temporal/pi/dyn/viewInfo.php?chUniCode='.$universidad['Universidad']['codigo']); ?><br/>
 
+        <a href="#myModal" role="button" class="btn" data-toggle="modal">Enviar correo</a>
+
+
 
   </div>
 </div>
 <br/>
+
+
+<div class="modal hide fade" id="myModal">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Enviar Oportunidad de Intercambio</h3>
+  </div>
+  <div id="resultCorreo">
+    <div class="modal-body">
+        <?php
+          echo $this->Form->create('Universidad');
+
+          echo $this->Form->input('Universidad.id', array('type'=>'hidden', 'value'=>$universidad['Universidad']['id']));
+          echo $this->Form->input('Page.correo',array('class'=>'input-block-level','label'=>'Correo:'));
+          ?>
+            </div>
+    <div class="modal-footer">
+
+      <a id="BtnEnviar" class="btn btn-primary">Enviar correo</a>
+      <?php 
+          $datos = $this->Js->get("#UniversidadVerUniversidadForm")->serializeForm(array('isForm' => true, 'inline' => true));
+
+          $this->Js->get('#BtnEnviar')->event('click', $this->Js->request( 
+          array('controller' => 'pages', 'action' => 'enviarcorreo'), 
+          array( 
+          'update' => '#resultCorreo',
+          'async' => true, 
+          'dataExpression' => true, 
+          'method' => 'post', 
+          'data' => $datos
+          ) ) );
+        ?>
+
+      <?php echo $this->Form->end(); ?>
+    </div>
+  </div>
+</div>
+
+
 
 
 
@@ -143,3 +185,11 @@ $y++;
 
 
 
+        <script>
+            $(function () {
+                $('#tooltip1').tooltip();
+            });
+        </script>
+<?php
+  echo $this->Js->writeBuffer();
+?>

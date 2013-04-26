@@ -35,7 +35,12 @@
    // <script src="js/bootstrap.min.js"></script>
 //echo $this->Html->script('bootstrap'); // Include jQuery library
 
-echo $this->Html->script('bootstrap.min'); // Include jQuery library
+    echo $this->Html->script('elastic'); 
+
+        echo $this->Html->script('jquery-1.9.1.min');
+
+    echo $this->Html->script('bootstrap.min'); 
+
 
 /*
 		echo $this->fetch('meta');
@@ -119,8 +124,7 @@ padding-left:0px;
 	<?php echo $this->element('sql_dump'); ?>
 
 
-   <script src="http://code.jquery.com/jquery.js"></script>
-<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+
 <script>
 
 
