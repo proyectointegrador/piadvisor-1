@@ -89,14 +89,15 @@ class PagesController extends AppController {
 										'hasAndBelongsToMany' => array('Requisito')));
 		$carreras = $this->Universidad->find('list',array(
 												'fields'=>array('Carrera.id','Carrera.name'),
-												'conditions' => array('Universidad.activo'=>true),
+												'conditions' => array('Universidad.activo'=>true,'Carrera.activo'=>true),
 												'joins' => array(
 														array(
 												            'table' => 'universidades_carreras',
 												            'alias' => 'universidadcarrera',
 												            'type' => 'INNER',
 												            'conditions' => array(
-												                'universidadcarrera.universidad_id = Universidad.id'
+												                'universidadcarrera.universidad_id = Universidad.id',
+												                'Universidad.activo'=>true
 												            )
 														),
 														array(
@@ -183,7 +184,8 @@ class PagesController extends AppController {
 			$order = $estado['orden'];
 
 			$joins = array();
-			$condiciones = array();
+			$condiciones = array(
+				'Universidad.activo'=>true);
 			//Condiciones para el query
 			if($pais != ''){
 				$condiciones['pais_id']=$pais;
@@ -223,7 +225,7 @@ class PagesController extends AppController {
 										'hasAndBelongsToMany' => array('Requisito')));
 		$carreras = $this->Universidad->find('list',array(
 												'fields'=>array('Carrera.id','Carrera.name'),
-												'conditions' => array('Universidad.activo'=>true),
+												'conditions' => array('Universidad.activo'=>true,'Carrera.activo'=>true),
 												'joins' => array(
 														array(
 												            'table' => 'universidades_carreras',
@@ -381,7 +383,8 @@ class PagesController extends AppController {
 				$order = $estado['orden'];
 
 				$joins = array();
-				$condiciones = array();
+				$condiciones = array(
+				'Universidad.activo'=>true);
 				//Condiciones para el query
 				if($pais != ''){
 					$condiciones['pais_id']=$pais;
@@ -493,7 +496,8 @@ class PagesController extends AppController {
 				$order = $estado['orden'];
 
 				$joins = array();
-				$condiciones = array();
+				$condiciones = array(
+				'Universidad.activo'=>true);
 				//Condiciones para el query
 				if($pais != ''){
 					$condiciones['pais_id']=$pais;
@@ -580,7 +584,7 @@ class PagesController extends AppController {
 	
 	function beforeFilter() {
 		parent::beforeFilter();
-    $this->Auth->allowedActions = array('*');
+    	$this->Auth->allowedActions = array('*');
 	}
 	
 }
