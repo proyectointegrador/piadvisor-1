@@ -20,9 +20,16 @@ class Requisito extends AppModel {
 	var $validate = array(
 	    'clave' => array(
 	        'rule' => 'isUnique',
-	        'message' => 'La clave de la consideración debe ser única.'
+	        'message' => 'La clave de la consideración debe ser única.',
+	        'allowEmpty' => false
+	    ),
+	    'descripcion' => array(
+	    	'rule' => 'notEmpty',
+	        'message' => 'El nombre del requisito es obligatorio.',
+	        'allowEmpty' => false
 	    )
 	);
+
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

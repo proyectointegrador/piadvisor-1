@@ -2,6 +2,16 @@
 class Pais extends AppModel {
 	var $name = 'Pais';
 	var $displayField = 'name';
+
+	//Validaciones de datos
+
+	var $validate = array(
+	    'name' => array(
+	    	'rule' => 'alphaNumeric',
+	        'message' => 'El nombre del país es obligatorio y debe ser alfanúmerico.',
+	        'allowEmpty' => false
+	    )
+	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(

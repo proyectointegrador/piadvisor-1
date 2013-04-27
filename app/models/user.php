@@ -4,6 +4,23 @@ class User extends AppModel {
 	var $displayField = 'username';
 //	var $belongsTo = array('Group');
 	var $actsAs = array('Acl' => array('requester'));
+
+
+	//Validaciones de datos
+
+	var $validate = array(
+	    'username' => array(
+	    	'rule' => 'notEmpty',
+	        'message' => 'El nombre del usuario es obligatorio.',
+	        'allowEmpty' => false
+	    ),
+	    'password' => array(
+            'rule' => array('minLength', '6'),
+            'message' => 'El password tiene que ser de 6 caracteres minimo'
+        )
+	);
+	    
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	

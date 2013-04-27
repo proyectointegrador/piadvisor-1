@@ -19,7 +19,13 @@ class Carrera extends AppModel {
 	var $validate = array(
 	    'name' => array(
 	        'rule' => 'isUnique',
-	        'message' => 'El nombre(siglas) de la carrera debe ser único.'
+	        'message' => 'El nombre(siglas) de la carrera debe ser único.',
+	        'allowEmpty' => false
+	    ),
+	    'name2' => array(
+	    	'rule' => 'alphaNumeric',
+	        'message' => 'El nombre de la carrera es obligatorio.',
+	        'allowEmpty' => false
 	    )
 	);
 

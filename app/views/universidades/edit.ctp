@@ -12,12 +12,13 @@
 		echo $this->Form->input('disponibilidad_id');
 		echo $this->Form->input('demanda_id');
 		echo $this->Form->input('website');
+		echo $this->Form->input('idioma',array('label'=> 'Requisito de Idioma'));
 		echo $this->Form->input('user_id',array('type'=>'hidden'));
 		echo $this->Form->input('pais_id');
 
 		
 		echo $this->Form->input('Carrera',array('label'=>'Carreras Relacionadas','multiple'=>'checkbox','class'=>'iaminline'));
-		echo $this->Form->input('Requisito',array('label'=>'Requisitos Relacionados','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
+		echo $this->Form->input('Requisito',array('label'=>'Consideraciones Relacionadas','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar',true)); ?>

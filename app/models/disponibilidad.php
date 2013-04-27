@@ -14,6 +14,20 @@ class Disponibilidad extends AppModel {
 	var $name='Disponibilidad';
 	var $displayField = 'name';
 
+	//Validaciones de datos
+
+	var $validate = array(
+	    'name' => array(
+	    	'rule' => 'alphaNumeric',
+	        'message' => 'El nombre de la disponibilidad es obligatorio y debe ser alfanúmerico.',
+	        'allowEmpty' => false
+	    ),
+	    'descripcion' => array(
+	    	'rule' => 'notEmpty',
+	        'message' => 'La descripción de la disponibilidad es obligatorio.',
+	        'allowEmpty' => false
+	    )
+	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

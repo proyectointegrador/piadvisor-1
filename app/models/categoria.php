@@ -14,6 +14,16 @@ class Categoria extends AppModel {
 	var $name = 'Categoria';
 	var $displayField = 'name';
 
+	//Validaciones de datos
+
+	var $validate = array(
+	    'name' => array(
+	    	'rule' => 'alphaNumeric',
+	        'message' => 'El nombre de la categoría es obligatorio.',
+	        'allowEmpty' => false
+	    )
+	);
+
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

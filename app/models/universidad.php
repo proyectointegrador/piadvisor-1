@@ -27,7 +27,33 @@ class Universidad extends AppModel {
 	    'codigo' => array(
 	        'rule' => 'isUnique',
 	        'message' => 'El código de la universidad debe ser único.'
-	    )
+	    ),
+	    'name' => array(
+	    	'rule' => 'notEmpty',
+	        'message' => 'El nombre de la universidad es obligatorio.',
+	        'allowEmpty' => false
+	    ),
+	    'ciudad' => array(
+	    	'rule' => 'notEmpty',
+	        'message' => 'La ciudad de la universidad es obligatorio.',
+	        'allowEmpty' => false
+	    ),
+	    'calendario' => array(
+	    	'rule' => 'notEmpty',
+	        'message' => 'El calendario de la universidad es obligatorio.',
+	        'allowEmpty' => false
+	    ),
+	    'website' => array(
+	    	'rule' => 'notEmpty',
+	        'message' => 'El website de la universidad es obligatorio.',
+	        'allowEmpty' => false
+	    ),
+	    'idioma' => array(
+	    	'rule' => 'notEmpty',
+	        'message' => 'El idioma de la universidad es obligatorio.',
+	        'allowEmpty' => false
+	    ),
+
 	);
 
 

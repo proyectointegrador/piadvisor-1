@@ -11,14 +11,15 @@
 		echo $this->Form->input('disponibilidad_id');
 		echo $this->Form->input('demanda_id');
 		echo $this->Form->input('website',array('label' => 'Pagina Web'));
-		echo $this->Form->input('user_id',array('label' => 'Usuario'));
+		echo $this->Form->input('idioma',array('label'=> 'Requisito de Idioma'));
+		echo $this->Form->input('user_id',array('type' => 'hidden'));
 		echo $this->Form->input('pais_id', array('label'=>'País'));
 		echo $this->Form->input('activo', array('value'=> '1', 'type' =>'hidden'));
 		
 			
 		echo $this->Form->input('Carrera',array('label'=>'Carreras Relacionadas','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
 
-		echo $this->Form->input('Requisito',array('label'=>'Requisitos Relacionados','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
+		echo $this->Form->input('Requisito',array('label'=>'Consideraciones Relacionadas','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
 		
 	?>
 	</fieldset>
