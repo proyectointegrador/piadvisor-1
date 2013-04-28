@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Editar Universidad'); ?></legend>
 	<?php
-	    echo $this->Form->input('activo');
+	    echo $this->Form->input('activo',array('label'=>'Publicar'));
 		echo $this->Form->input('id');
 		echo $this->Form->input('codigo',array('type'=>'hidden'));
 		echo $this->Form->input('name',array('label' => 'Nombre'));

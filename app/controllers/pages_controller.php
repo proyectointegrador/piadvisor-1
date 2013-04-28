@@ -204,6 +204,16 @@ class PagesController extends AppController {
 	                )
 					)
 					);
+			}else{
+				$joins = array ( 
+					array('table' => 'universidades_carreras',
+	                'alias' => 'universidadcarrera',
+	                'type' => 'INNER',
+	                'conditions' => array(
+	                    'universidadcarrera.universidad_id = Universidad.id'
+	                )
+					)
+					);
 			}
 		
 			$this->Universidad->recursive = 0;
@@ -406,13 +416,17 @@ class PagesController extends AppController {
 		                )
 						)
 						);
+				}else{
+					$joins = array ( 
+						array('table' => 'universidades_carreras',
+		                'alias' => 'universidadcarrera',
+		                'type' => 'INNER',
+		                'conditions' => array(
+		                    'universidadcarrera.universidad_id = Universidad.id'
+		                )
+						)
+						);
 				}
-
-				
-				
-				
-
-
 				$this->Universidad->recursive = 0;
 				$universidades = $this->Universidad->find('all',array
 				('conditions'=>$condiciones,
@@ -515,6 +529,16 @@ class PagesController extends AppController {
 		                'type' => 'INNER',
 		                'conditions' => array(
 		                    'universidadcarrera.carrera_id' => $carrera,
+		                    'universidadcarrera.universidad_id = Universidad.id'
+		                )
+						)
+						);
+				}else{
+					$joins = array ( 
+						array('table' => 'universidades_carreras',
+		                'alias' => 'universidadcarrera',
+		                'type' => 'INNER',
+		                'conditions' => array(
 		                    'universidadcarrera.universidad_id = Universidad.id'
 		                )
 						)

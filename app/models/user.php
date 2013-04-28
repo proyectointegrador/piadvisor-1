@@ -14,6 +14,10 @@ class User extends AppModel {
 	        'message' => 'El nombre del usuario es obligatorio.',
 	        'allowEmpty' => false
 	    ),
+	    'username' => array(
+	    	'rule' => 'isUnique',
+	        'message' => 'El nombre del usuario debe de ser único.',
+	    ),
 	    'password' => array(
             'rule' => array('minLength', '6'),
             'message' => 'El password tiene que ser de 6 caracteres minimo'

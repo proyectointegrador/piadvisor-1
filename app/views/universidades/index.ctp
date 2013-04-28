@@ -19,30 +19,31 @@
 			<th><?php echo $this->Paginator->sort('código'); ?></th>
 			<th><?php echo $this->Paginator->sort('Nombre','name'); ?></th>
 			<th><?php echo $this->Paginator->sort('ciudad'); ?></th>
-			<th><?php echo $this->Paginator->sort('calendario'); ?></th>
-			<th><?php echo $this->Paginator->sort('disponibilidad_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('demanda_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('página web'); ?></th>
 			<th><?php echo $this->Paginator->sort('País','pais_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('Publicado','activo'); ?></th>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php foreach ($universidades as $universidad): ?>
 	<tr>
 		<td><?php echo h($universidad['Universidad']['id']); ?>&nbsp;</td>
-		<td><?php echo h($universidad['Universidad']['codigo']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link(h($universidad['Universidad']['codigo']), array('action' => 'view', $universidad['Universidad']['id'])); ?>
+		</td>
 		<td><?php echo h($universidad['Universidad']['name']); ?>&nbsp;</td>
 		<td><?php echo h($universidad['Universidad']['ciudad']); ?>&nbsp;</td>
-		<td><?php echo h($universidad['Universidad']['calendario']); ?>&nbsp;</td>
-		<td>
-			<?php echo h($universidad['Disponibilidad']['name']); ?>
-		</td>
-		<td>
-			<?php echo h($universidad['Demanda']['name']); ?>
-		</td>
-		<td><?php echo h($universidad['Universidad']['website']); ?>&nbsp;</td>
 		<td>
 			<?php echo h($universidad['Pais']['name']); ?>
 		</td>
+		<td style="text-align:center;">
+				<?php 
+					if($universidad['Universidad']['activo'] == '1'){
+						echo $this->Html->image('activo.png',array('alt'=>'Activo','width'=>'30px'));
+					}else{
+						echo $this->Html->image('inactivo.png',array('alt'=>'Inactivo','width'=>'30px'));
+					}
+				?>
+		</td>
+
 		<td class="actions">
 			<?php echo $this->Html->link(__('Editar',true), array('action' => 'edit', $universidad['Universidad']['id'])); ?>
 		</td>

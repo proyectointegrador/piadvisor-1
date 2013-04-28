@@ -10,7 +10,7 @@ class UniversidadesController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid universidad', true));
+			$this->Session->setFlash(__('Universidad invalida', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('universidad', $this->Universidad->read(null, $id));
@@ -23,13 +23,34 @@ class UniversidadesController extends AppController {
  */
  function add() {
 		if (!empty($this->data)) {
-			$this->Universidad->create();
-			if ($this->Universidad->save($this->data)) {
-				$this->Session->setFlash(__('The universidad has been saved',true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('No se pudo guardar la universidad, favor de verificar los datos.',true));
-			}
+			//Checa si esta activo y valida
+			$activo = $this->data['Universidad']['activo'];
+			//usuario loggeado
+			$this->data['Universidad']['user_id'] = $this->Auth->user('id');
+			$this->Universidad->set($this->data);
+			if($activo == 1){
+				if($this->Universidad->validates()){
+					//Validado
+					//$this->Universidad->create();
+					if ($this->Universidad->save($this->data, array('validate'=>false))) {
+						$this->Session->setFlash(__('La universidad ha sido guardada',true));
+						$this->redirect(array('action' => 'index'));
+					} else {
+						$this->Session->setFlash(__('No se pudo guardar la universidad, favor de verificar los datos.',true));
+					}
+				}else{
+					//No paso la validación
+					$this->Session->setFlash(__('No se pudo guardar la universidad, todos los datos son obligatorios cuando se marca publicar.',true));
+				}
+			}else{
+				//Los campos no son obligatorios siempre y cuando no se guarde como activo
+				if ($this->Universidad->save($this->data, array('validate'=>false))) {
+					$this->Session->setFlash(__('La universidad ha sido guardada',true));
+					$this->redirect(array('action' => 'index'));
+				} else {
+					$this->Session->setFlash(__('No se pudo guardar la universidad, favor de verificar los datos.',true));
+				}
+			}			
 		}
 		$disponibilidades = $this->Universidad->Disponibilidad->find('list');
 		$demandas = $this->Universidad->Demanda->find('list');
@@ -73,15 +94,37 @@ class UniversidadesController extends AppController {
  */
  function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid universidad', true));
+			$this->Session->setFlash(__('Universidad invalida', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Universidad->save($this->data)) {
-				$this->Session->setFlash(__('The universidad has been saved',true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The universidad could not be saved. Please, try again.',true));
+			//Checa si esta activo y valida
+			$activo = $this->data['Universidad']['activo'];
+			//usuario loggeado
+			$this->data['Universidad']['user_id'] = $this->Auth->user('id');
+			$this->Universidad->set($this->data);
+			if($activo == 1){
+				if($this->Universidad->validates()){
+					//Validado
+					//$this->Universidad->create();
+					if ($this->Universidad->save($this->data, array('validate'=>false))) {
+						$this->Session->setFlash(__('La universidad ha sido guardada',true));
+						$this->redirect(array('action' => 'index'));
+					} else {
+						$this->Session->setFlash(__('No se pudo guardar la universidad, favor de verificar los datos.',true));
+					}
+				}else{
+					//No paso la validación
+					$this->Session->setFlash(__('No se pudo guardar la universidad, todos los datos son obligatorios cuando se marca publicar.',true));
+				}
+			}else{
+				//Los campos no son obligatorios siempre y cuando no se guarde como activo
+				if ($this->Universidad->save($this->data, array('validate'=>false))) {
+					$this->Session->setFlash(__('La universidad ha sido guardada',true));
+					$this->redirect(array('action' => 'index'));
+				} else {
+					$this->Session->setFlash(__('No se pudo guardar la universidad, favor de verificar los datos.',true));
+				}
 			}
 		} else {
 			$options = array('conditions' => array('Universidad.' . $this->Universidad->primaryKey => $id));

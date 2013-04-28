@@ -28,6 +28,11 @@ class Universidad extends AppModel {
 	        'rule' => 'isUnique',
 	        'message' => 'El código de la universidad debe ser único.'
 	    ),
+	    'codigo' => array(
+	    	'rule' => 'notEmpty',
+	        'message' => 'El código de la universidad es obligatorio.',
+	        'allowEmpty' => false
+	    ),
 	    'name' => array(
 	    	'rule' => 'notEmpty',
 	        'message' => 'El nombre de la universidad es obligatorio.',
