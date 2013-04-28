@@ -17,6 +17,13 @@
 			
 		echo $this->Form->input('Carrera',array('label'=>'Carreras Relacionadas','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
 
+		/*
+		foreach ($carreras as $area => $carrerassub) {
+			echo $area;
+
+				echo $this->Form->checkbox('Carrera',$carrerassub);
+		}*/
+
 		echo $this->Form->input('Requisito',array('label'=>'Consideraciones Relacionadas','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
 		
 	?>
