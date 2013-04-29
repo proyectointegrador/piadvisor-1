@@ -49,8 +49,8 @@ class Universidad extends AppModel {
 	        'allowEmpty' => false
 	    ),
 	    'website' => array(
-	    	'rule' => 'notEmpty',
-	        'message' => 'El website de la universidad es obligatorio.',
+	    	'rule' => '/^((?!http).)/',
+	        'message' => 'El website de la universidad debe de no contener http.',
 	        'allowEmpty' => false
 	    ),
 	    'idioma' => array(
