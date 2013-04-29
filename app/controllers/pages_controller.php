@@ -393,7 +393,7 @@ class PagesController extends AppController {
 		
 	}
 
-	function enviarcorreo(){
+function enviarcorreo(){
 
 		$this->Universidad->recursive = 0;
 		$universidad = $this->Universidad->read(null, $this->data['Universidad']['id']);
@@ -408,6 +408,8 @@ class PagesController extends AppController {
 		$mensaje = '
 		<html>
 		<head>
+			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
 		  <title>Intercambio Internacional</title>
 		</head>
 		<body>
@@ -419,15 +421,8 @@ class PagesController extends AppController {
 		  <p>Calendario: '.$universidad['Universidad']['calendario'].'</p>
 		  <p>Disponibilidad: '.$universidad['Disponibilidad']['name'].'</p>
 		  <p>Demanda: '.$universidad['Demanda']['name'].'</p>
-		  <p>Website: '.$universidad['Universidad']['website'].'</p>';
-		  
-
-
-
-
-		$mensaje =$mensaje +'</body>
-		</html>
-		';
+		  <p>Website: '.$universidad['Universidad']['website'].'</p></body>
+		</html>';
 
 		// Para enviar un correo HTML mail, la cabecera Content-type debe fijarse
 		$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
