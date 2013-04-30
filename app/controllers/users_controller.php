@@ -104,7 +104,7 @@ class UsersController extends AppController {
 		$this->Acl->allow($group, 'controllers/Disponibilidades');
 		$this->Acl->allow($group, 'controllers/Paises');
 		$this->Acl->allow($group, 'controllers/Regiones');
-	 //   $this->Acl->allow($group, 'controllers/Programas');
+	  //$this->Acl->allow($group, 'controllers/Programas');
 		$this->Acl->allow($group, 'controllers/Requisitos');
 		$this->Acl->allow($group, 'controllers/Universidades');
 		$this->Acl->allow($group, 'controllers/Groups');
@@ -123,10 +123,27 @@ class UsersController extends AppController {
 		$this->Acl->allow($group, 'controllers/Disponibilidades');
 		$this->Acl->allow($group, 'controllers/Paises');
 		$this->Acl->allow($group, 'controllers/Regiones');
-	 //   $this->Acl->allow($group, 'controllers/Programas');
+      //$this->Acl->allow($group, 'controllers/Programas');
 		$this->Acl->allow($group, 'controllers/Requisitos');
 		$this->Acl->allow($group, 'controllers/Universidades');
 
+		$this->Acl->deny($group, 'controllers/Areas/add');
+		$this->Acl->deny($group, 'controllers/Carreras/add');
+		$this->Acl->deny($group, 'controllers/Categorias/add');
+		$this->Acl->deny($group, 'controllers/Demandas/add');
+		$this->Acl->deny($group, 'controllers/Disponibilidades/add');
+		$this->Acl->deny($group, 'controllers/Paises/add');
+		$this->Acl->deny($group, 'controllers/Regiones/add');
+		$this->Acl->deny($group, 'controllers/Requisitos/add');
+		
+		$this->Acl->deny($group, 'controllers/Areas/edit');
+		$this->Acl->deny($group, 'controllers/Carreras/edit');
+		$this->Acl->deny($group, 'controllers/Categorias/edit');
+		$this->Acl->deny($group, 'controllers/Demandas/edit');
+		$this->Acl->deny($group, 'controllers/Disponibilidades/edit');
+		$this->Acl->deny($group, 'controllers/Paises/edit');
+		$this->Acl->deny($group, 'controllers/Regiones/edit');
+		$this->Acl->deny($group, 'controllers/Requisitos/edit');
 
 		//we add an exit to avoid an ugly "missing views" error message
 		echo "all done";
