@@ -125,10 +125,11 @@ class PagesController extends AppController {
 		$regiones = $this->Pais->Region->find('list', array(
 											'order'=>array('name ASC')
 											));
+		$programas = $this->Universidad->Programa->find('list', array(
+												'order'=>array('name ASC')
+												));
 
-
-		
-		$this->set(compact('carreras','paises','regiones'));
+		$this->set(compact('carreras','paises','regiones','programas'));
 		$this->set('title_for_layout', 'PIAdvisor');
 	}
 
@@ -144,7 +145,8 @@ class PagesController extends AppController {
 							'pais_id'=>'',
 							'region_id'=>'',
 							'carrera_id'=>'',
-							'name'=>''),
+							'name'=>'',
+							'programa_id'=>''),
 						'orden'=>'Universidad.codigo ASC'));
 
 
@@ -163,7 +165,8 @@ class PagesController extends AppController {
 						'pais_id'=>$datos['Page']['pais_id'],
 						'region_id'=>$datos['Page']['region_id'],
 						'carrera_id'=>$datos['Page']['carrera_id'],
-						'name'=>$name);
+						'name'=>$name,
+						'programa_id'=>$datos['Page']['programa_id']);
 			
 			//Actualiza sesion con el estado
 			$this->Session->write('estado',$estado);
@@ -218,10 +221,12 @@ class PagesController extends AppController {
 														'group'=>array('Universidad.pais_id'),
 														'recursive' => 0
 														));
-		$this->set(compact('carreras','paises','regiones'));
-		$this->set('title_for_layout', 'PIAdvisor');
 
-				
+		$programas = $this->Universidad->Programa->find('list', array(
+												'order'=>array('name ASC')
+												));
+		$this->set(compact('carreras','paises','regiones','programas'));
+		$this->set('title_for_layout', 'PIAdvisor');
 	}
 
 	/**
@@ -321,7 +326,8 @@ class PagesController extends AppController {
 							'pais_id'=>$datos['Page']['pais_id'],
 							'region_id'=>$datos['Page']['region_id'],
 							'carrera_id'=>$datos['Page']['carrera_id'],
-							'name'=>$datos['Page']['name']);
+							'name'=>$datos['Page']['name'],
+							'programa_id'=>$datos['Page']['programa_id']);
 				
 				//Actualiza sesion con el estado
 				$this->Session->write('estado',$estado);
@@ -447,10 +453,12 @@ function enviarcorreo(){
 	function _getUniversidades(){
 			$estado = $this->Session->read('estado');
 
+			debug($estado);
 			/** Generacion de query de filtrado */
 			$pais = $estado['filtro']['pais_id'];
 			$region = $estado['filtro']['region_id'];
 			$carrera =  $estado['filtro']['carrera_id'];
+			$programa = $estado['filtro']['programa_id'];
 
 			//variable de orden para query
 			$order = $estado['orden'];
@@ -464,6 +472,9 @@ function enviarcorreo(){
 			}
 			if($region != ''){
 				$condiciones['Pais.region_id']=$region;
+			}
+			if($programa != ''){
+				$condiciones['programa_id']=$programa;
 			}
 			if($carrera != ''){
 				$joins = array ( 

@@ -23,6 +23,7 @@
 </br>
       <div class="form-signin">
 <?php
+	echo $this->Form->input('programa_id',array('empty'=>'----'));
 	echo $this->Form->input('carrera_id',array('empty'=>'----'));
 	echo $this->Form->input('region_id',array('options' => $regiones,'empty'=>'----'));
 ?>

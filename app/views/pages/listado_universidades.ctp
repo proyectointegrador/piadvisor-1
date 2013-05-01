@@ -17,7 +17,7 @@
 
 
 	 	<?php echo $this->Form->create('Page',array('action'=>'')); ?>
-	 	<div class="forma on-5 columns">
+	 	<div class="forma on-6 columns">
 	 		<div class="campo column" style="">
 	 			<?php
 	 			echo $this->Form->input('Page.name',array('class'=>'input-block-level','label'=>'Nombre'));
@@ -25,19 +25,38 @@
 	 		</div>
 	 		<div class="campo column">
 	 			<?php
-	 			echo $this->Form->input('Page.carrera_id',array('empty'=>'----'));
+	 			echo $this->Form->input('Page.carrera_id',array('class'=>'input-block-level','empty'=>'----'));
 	 			?>
 	 		</div>
 	 		<div class="campo column">
 	 			<?php
-	 			echo $this->Form->input('Page.region_id',array('options' => $regiones,'empty'=>'----'));
+	 			echo $this->Form->input('Page.region_id',array('class'=>'input-block-level','options' => $regiones,'empty'=>'----'));
 	 			?>
 	 		</div>
 	 		<div class="campo column">
+	 			<div id="paisajax" class="paislistado">
+					<?php
+
+						echo $this->Form->input('Page.pais_id',array('class'=>'input-block-level','empty'=>'----','label'=>'País'));
+					  ?>
+				 </div>
+	 		</div>
+	 		<div class="campo column" style="">
 	 			<?php
-	 			echo $this->Form->input('Page.pais_id',array('empty'=>'----'));
+	 			echo $this->Form->input('Page.programa_id',array('class'=>'input-block-level','empty'=>'----'));
 	 			?>
 	 		</div>
+	 		<?php
+				$this->Js->get('#PageRegionId')->event('change', $this->Js->request( 
+							array('controller' => 'pages', 'action' => 'paisajax'), 
+							array( 
+							'update' => '#paisajax',
+							'async' => true, 
+							'dataExpression' => true, 
+							'method' => 'post', 
+							'data' => $this->Js->serializeForm(array('isForm' => true, 'inline' => true))
+							) ) );
+			?>
 	 		<div class="campo column">
 	 		
 	 		<br/>

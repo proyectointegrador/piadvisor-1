@@ -10,7 +10,7 @@
 div.pais_content{
 	padding: 0px;
 }
-.forma div {
+.forma div.campo {
 	clear: none;
 	margin: 5px;
 	padding: .5em;
@@ -30,4 +30,8 @@ div.pais_content{
 	margin-left:auto;
 	margin-right:auto;
 	display: inline;
+}
+.paislistado{
+	margin:0px;
+	padding: 0px;
 }
