@@ -45,7 +45,7 @@ class ParametrosController extends AppController {
 			$this->data = $this->Parametro->read(null, $id);
 		}
 	}
-
+/*
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for parametro', true));
@@ -57,5 +57,5 @@ class ParametrosController extends AppController {
 		}
 		$this->Session->setFlash(__('Parametro was not deleted', true));
 		$this->redirect(array('action' => 'index'));
-	}
+	}*/
 }
