@@ -56,6 +56,7 @@ class UniversidadesController extends AppController {
 		$demandas = $this->Universidad->Demanda->find('list');
 		$users = $this->Universidad->User->find('list');
 		$paises = $this->Universidad->Pais->find('list');
+		$programas = $this->Universidad->Programa->find('list');
 		$joins = array ( 
 					array('table' => 'areas',
 	                'alias' => 'Area',
@@ -82,7 +83,7 @@ class UniversidadesController extends AppController {
 													'fields'=>array('id', 'clave', 'Categoria.name'),
 													'joins' => $joins,
 													'order'=>'categoria_id'));
-		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos'));
+		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos','programas'));
 	}
 
 /**
@@ -134,6 +135,7 @@ class UniversidadesController extends AppController {
 		$demandas = $this->Universidad->Demanda->find('list');
 		$users = $this->Universidad->User->find('list');
 		$paises = $this->Universidad->Pais->find('list');
+		$programas = $this->Universidad->Programa->find('list');
 
 		$joins = array ( 
 					array('table' => 'areas',
@@ -161,7 +163,7 @@ class UniversidadesController extends AppController {
 													'fields'=>array('id', 'clave', 'Categoria.name'),
 													'joins' => $joins,
 													'order'=>'clave'));
-		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos'));
+		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos','programas'));
 	}
 /*
 	function delete($id = null) {

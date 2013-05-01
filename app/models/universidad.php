@@ -97,6 +97,13 @@ class Universidad extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Programa' => array(
+			'className' => 'Programa',
+			'foreignKey' => 'programa_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 

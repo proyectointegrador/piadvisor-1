@@ -15,6 +15,8 @@
 		echo $this->Form->input('idioma',array('label'=> 'Requisito de Idioma'));
 		echo $this->Form->input('user_id',array('type'=>'hidden'));
 		echo $this->Form->input('pais_id');
+		echo $this->Form->input('programa_id', array('label'=>'Programa'));		
+
 	
 	?>
 	<div id="Carrera">

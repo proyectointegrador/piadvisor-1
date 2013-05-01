@@ -515,3 +515,20 @@ Aco: controllers/Regiones/index in [C:\xampp\htdocs\piadvisor-1\cake\libs\contro
 2013-04-26 21:33:25 Warning: Warning (512): C:\xampp\htdocs\piadvisor-1\app\tmp\cache\models\ is not writable in [C:\xampp\htdocs\piadvisor-1\cake\libs\cache\file.php, line 281]
 2013-04-26 21:34:50 Warning: Warning (512): C:\xampp\htdocs\piadvisor-1\app\tmp\cache\persistent\ is not writable in [C:\xampp\htdocs\piadvisor-1\cake\libs\cache\file.php, line 281]
 2013-04-26 21:34:50 Warning: Warning (512): C:\xampp\htdocs\piadvisor-1\app\tmp\cache\models\ is not writable in [C:\xampp\htdocs\piadvisor-1\cake\libs\cache\file.php, line 281]
+2013-05-01 20:27:10 Warning: Warning (512): DbAcl::allow() - Invalid node in [C:\xampp\htdocs\piadvisor-1\cake\libs\controller\components\acl.php, line 361]
+2013-05-01 20:30:20 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [username] => superadmin
+            [group_id] => 1
+            [created] => 2013-04-19 00:11:41
+            [modified] => 2013-04-19 00:11:41
+        )
+
+)
+
+Aco: controllers/Programas/index in [C:\xampp\htdocs\piadvisor-1\cake\libs\controller\components\acl.php, line 273]
+2013-05-01 20:31:13 Warning: Warning (512): DbAcl::allow() - Invalid node in [C:\xampp\htdocs\piadvisor-1\cake\libs\controller\components\acl.php, line 361]

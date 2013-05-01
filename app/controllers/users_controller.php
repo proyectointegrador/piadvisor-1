@@ -104,7 +104,8 @@ class UsersController extends AppController {
 		$this->Acl->allow($group, 'controllers/Disponibilidades');
 		$this->Acl->allow($group, 'controllers/Paises');
 		$this->Acl->allow($group, 'controllers/Regiones');
-	  //$this->Acl->allow($group, 'controllers/Programas');
+	    $this->Acl->allow($group, 'controllers/Programas');
+		$this->Acl->allow($group, 'controllers/Paramaetros');
 		$this->Acl->allow($group, 'controllers/Requisitos');
 		$this->Acl->allow($group, 'controllers/Universidades');
 		$this->Acl->allow($group, 'controllers/Groups');
@@ -123,7 +124,8 @@ class UsersController extends AppController {
 		$this->Acl->allow($group, 'controllers/Disponibilidades');
 		$this->Acl->allow($group, 'controllers/Paises');
 		$this->Acl->allow($group, 'controllers/Regiones');
-      //$this->Acl->allow($group, 'controllers/Programas');
+	    $this->Acl->allow($group, 'controllers/Programas');
+		$this->Acl->allow($group, 'controllers/Paramaetros');
 		$this->Acl->allow($group, 'controllers/Requisitos');
 		$this->Acl->allow($group, 'controllers/Universidades');
 
@@ -134,6 +136,8 @@ class UsersController extends AppController {
 		$this->Acl->deny($group, 'controllers/Disponibilidades/add');
 		$this->Acl->deny($group, 'controllers/Paises/add');
 		$this->Acl->deny($group, 'controllers/Regiones/add');
+		$this->Acl->allow($group, 'controllers/Paramaetros/add');
+		$this->Acl->allow($group, 'controllers/Requisitos/add');
 		$this->Acl->deny($group, 'controllers/Requisitos/add');
 		
 		$this->Acl->deny($group, 'controllers/Areas/edit');
@@ -143,6 +147,8 @@ class UsersController extends AppController {
 		$this->Acl->deny($group, 'controllers/Disponibilidades/edit');
 		$this->Acl->deny($group, 'controllers/Paises/edit');
 		$this->Acl->deny($group, 'controllers/Regiones/edit');
+		$this->Acl->allow($group, 'controllers/Paramaetros/edit');
+		$this->Acl->allow($group, 'controllers/Requisitos/edit');
 		$this->Acl->deny($group, 'controllers/Requisitos/edit');
 
 		//we add an exit to avoid an ugly "missing views" error message
