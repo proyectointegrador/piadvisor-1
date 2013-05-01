@@ -36,7 +36,7 @@ class ParametrosController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Parametro->save($this->data)) {
 				$this->Session->setFlash(__('The parametro has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'universidades', 'action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The parametro could not be saved. Please, try again.', true));
 			}
