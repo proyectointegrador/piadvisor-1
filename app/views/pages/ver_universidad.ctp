@@ -33,7 +33,7 @@
      </br>
        <?php echo __('Programa'); ?>: &nbsp;<?php echo h($universidad['Programa']['name']); ?>
        </br>
-      <?php echo __('Website'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['website'],'http://'.$universidad['Universidad']['website']); ?></br>
+      <?php echo __('Website'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['website'],'http://'.$universidad['Universidad']['website'],array('target'=>'_blank')); ?></br>
       <?php echo __('Más Información'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['codigo'],'http://mty116.mty.itesm.mx/temporal/pi/dyn/viewInfo.php?chUniCode='.$universidad['Universidad']['codigo']); ?></br>
 
         <a href="#myModal" role="button" class="btn" data-toggle="modal">Enviar información a mi correo</a>
