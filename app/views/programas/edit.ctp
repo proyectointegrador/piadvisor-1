@@ -1,24 +1,22 @@
-<div class="programas form">
+﻿<div class="programas form">
 <?php echo $this->Form->create('Programa');?>
 	<fieldset>
-		<legend><?php __('Edit Programa'); ?></legend>
+		<legend><?php __('Editar Programa'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('name');
-		echo $this->Form->input('name2');
-		echo $this->Form->input('descripcion');
+		echo $this->Form->input('name',array('label' => 'Programa'));
+		echo $this->Form->input('name2',array('label' => 'Nombre'));
+		echo $this->Form->input('descripcion',array('label' => 'Descripción'));
 		echo $this->Form->input('activo');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('Enviar', true));?>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Programa.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Programa.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Programas', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Universidades', true), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Universidad', true), array('controller' => 'universidades', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Programas', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('Lista Universidades', true), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

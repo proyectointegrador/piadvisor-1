@@ -68,16 +68,18 @@
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Nueva Universidad',true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('Lista Disponibilidades',true), array('controller' => 'disponibilidades', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista Demandas',true), array('controller' => 'demandas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista Categorias',true), array('controller' => 'categorias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista Paises',true), array('controller' => 'paises', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista Regiones',true), array('controller' => 'regiones', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista Carreras',true), array('controller' => 'carreras', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista Areas',true), array('controller' => 'areas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista Requisitos',true), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista Usuarios',true), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista Grupos',true), array('controller' => 'groups', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Disponibilidades',true), array('controller' => 'disponibilidades', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Demandas',true), array('controller' => 'demandas', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Categorias',true), array('controller' => 'categorias', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Paises',true), array('controller' => 'paises', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Regiones',true), array('controller' => 'regiones', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Carreras',true), array('controller' => 'carreras', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Areas',true), array('controller' => 'areas', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Requisitos',true), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Programas',true), array('controller' => 'programas', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Configuraciones',true), array('controller' => 'parametros', 'action' => 'edit',1)); ?> </li>
+		<li><?php echo $this->Html->link(__('Grupos',true), array('controller' => 'groups', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Usuarios',true), array('controller' => 'users', 'action' => 'index')); ?> </li>
 
 	</ul>
 </div>
