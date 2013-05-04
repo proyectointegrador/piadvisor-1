@@ -35,3 +35,8 @@ div.pais_content{
 	margin:0px;
 	padding: 0px;
 }
+.filtrouni{
+	color: #0088CC;
+	cursor: hand;
+	cursor:pointer;
+}

@@ -18,10 +18,23 @@ class User extends AppModel {
 	    	'rule' => 'isUnique',
 	        'message' => 'El nombre del usuario debe de ser único.',
 	    ),
-	    'password' => array(
-            'rule' => array('minLength', '6'),
-            'message' => 'El password tiene que ser de 6 caracteres minimo'
-        )
+	    'passwd' => array(
+	      'min' => array(
+	        'rule' => array('minLength', 6),
+	        'message' => 'La contraseña debe ser al menos de 6 caracteres.'
+	      ),
+	      'required' => array(
+	        'rule' => 'notEmpty',
+	        'message'=>'Porfavor ingrese una contraseña.'
+	      ),
+	    ),
+	    'passwd_confirm' => array(
+	      'required'=>'notEmpty',
+	      'match'=>array(
+	        'rule' => 'validatePasswdConfirm',
+	        'message' => 'Las contraseñas no coinciden'
+	      )
+	    )
 	);
 	    
 
@@ -74,6 +87,31 @@ function parentNode() {
 
 function bindNode($user) {
     return array('model' => 'Group', 'foreign_key' => $user['User']['group_id']);
+}
+
+function validatePasswdConfirm($data)
+  {
+    if ($this->data['User']['passwd'] !== $data['passwd_confirm'])
+    {
+      return false;
+    }
+    return true;
+  }
+
+function beforeSave()
+  {
+    if (isset($this->data['User']['passwd']))
+    {
+      $this->data['User']['password'] = Security::hash($this->data['User']['passwd'], null, true);
+      unset($this->data['User']['passwd']);
+    }
+
+    if (isset($this->data['User']['passwd_confirm']))
+    {
+      unset($this->data['User']['passwd_confirm']);
+    }
+
+    return true;
 }
 
 }

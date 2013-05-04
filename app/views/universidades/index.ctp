@@ -15,7 +15,7 @@
 	<h2><?php echo __('Universidades'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Paginator->sort('programa_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('código'); ?></th>
 			<th><?php echo $this->Paginator->sort('Nombre','name'); ?></th>
 			<th><?php echo $this->Paginator->sort('ciudad'); ?></th>
@@ -25,7 +25,7 @@
 	</tr>
 	<?php foreach ($universidades as $universidad): ?>
 	<tr>
-		<td><?php echo h($universidad['Universidad']['id']); ?>&nbsp;</td>
+		<td><?php echo h($universidad['Programa']['name']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link(h($universidad['Universidad']['codigo']), array('action' => 'view', $universidad['Universidad']['id'])); ?>
 		</td>

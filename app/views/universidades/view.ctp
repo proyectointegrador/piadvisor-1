@@ -1,6 +1,11 @@
 <div class="universidades view">
 <h2><?php  echo __('Universidad'); ?></h2>
 	<dl>
+		<dt><?php echo __('Programa'); ?></dt>
+		<dd>
+			<?php echo h($universidad['Programa']['name']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Codigo'); ?></dt>
 		<dd>
 			<?php echo h($universidad['Universidad']['codigo']); ?>

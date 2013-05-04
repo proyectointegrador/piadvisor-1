@@ -1,7 +1,7 @@
 <table class="table table-striped" >
 		<tr>
 				<th>
-					<a id="Codigo" >Codigo</a>
+					<a id="Codigo" class="filtrouni">Codigo</a>
 					<?php
 			  			
 						$this->Js->get('#Codigo')->event('click', $this->Js->request( 
@@ -16,7 +16,7 @@
 					?>
 				</th>
 				<th>
-					<a id="Universidad" >Universidad</a>
+					<a id="Universidad" class="filtrouni">Universidad</a>
 					<?php
 			  			
 						$this->Js->get('#Universidad')->event('click', $this->Js->request( 
@@ -31,7 +31,7 @@
 					?>
 				</th>
 				<th>
-					<a id="Idioma" >Idioma</a>
+					<a id="Idioma" class="filtrouni">Idioma</a>
 					<?php
 			  			
 						$this->Js->get('#Idioma')->event('click', $this->Js->request( 
@@ -46,7 +46,7 @@
 					?>
 				</th>
 				<th>
-					<a id="Ciudad" >Ciudad</a>
+					<a id="Ciudad" class="filtrouni">Ciudad</a>
 					<?php
 			  			
 						$this->Js->get('#Ciudad')->event('click', $this->Js->request( 

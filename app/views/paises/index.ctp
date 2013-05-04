@@ -18,6 +18,7 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('Nombre','name'); ?></th>
 			<th><?php echo $this->Paginator->sort('Región','region'); ?></th>
+			<th><?php echo $this->Paginator->sort('bandera'); ?></th>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php foreach ($paises as $pais): ?>
@@ -25,6 +26,13 @@
 		<td><?php echo h($pais['Pais']['id']); ?>&nbsp;</td>
 		<td><?php echo h($pais['Pais']['name']); ?>&nbsp;</td>
 		<td><?php echo h($pais['Region']['name']); ?>&nbsp;</td>
+		<td style="text-align:center;">
+			<?php
+			if(!empty($pais['Pais']['bandera'])){
+				echo $this->Html->image('paises/'.$pais['Pais']['bandera'],array('width'=>'20px','height'=>'20px'));
+			}
+			?>
+		</td>
 		<td class="actions">
 			
 			<?php echo $this->Html->link(__('Editar',true), array('action' => 'edit', $pais['Pais']['id'])); ?>
