@@ -95,7 +95,7 @@
           <!--a class="brand" href="/pages/home">Intercambio Internacional</a-->
 
           <?php
-            echo $this->Html->link('PIAdvisor Administration', '/pages/home', array('class' => 'brand'));
+            echo $this->Html->link('PIAdvisor Administration', '/universidades', array('class' => 'brand'));
           ?>
           <div class="pull-right">
             <?php

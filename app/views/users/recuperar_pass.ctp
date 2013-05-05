@@ -1,4 +1,4 @@
-
+<div class="form-signin" style="margin-top:10px">
 <?php echo $this->Form->create('User');?>
 	<fieldset>
 		<legend><?php __('Recuperar Contraseña'); ?></legend>
@@ -7,3 +7,4 @@
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Recuperar', true));?>
+</div>
