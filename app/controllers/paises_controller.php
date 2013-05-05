@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class PaisesController extends AppController {
 
 	var $name = 'Paises';
@@ -10,7 +10,7 @@ class PaisesController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid pais', true));
+			$this->Session->setFlash(__('País inválido', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('pais', $this->Pais->read(null, $id));
@@ -30,10 +30,10 @@ class PaisesController extends AppController {
 
 				$this->Pais->create();
 				if ($this->Pais->save($this->data)) {
-					$this->Session->setFlash(__('The pais has been saved', true));
+					$this->Session->setFlash(__('El país se ha guardado', true));
 					$this->redirect(array('action' => 'index'));
 				} else {
-					$this->Session->setFlash(__('The pais could not be saved. Please, try again.', true));
+					$this->Session->setFlash(__('El país no se ha podido guardar, intentelo de nuevo.', true));
 				}
 			}else{
 				$this->Session->setFlash(__('La Bandera del país es obligatoria.', true));
@@ -46,7 +46,7 @@ class PaisesController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid pais', true));
+			$this->Session->setFlash(__('País inválido', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
@@ -67,10 +67,10 @@ class PaisesController extends AppController {
 			}
 
 			if ($this->Pais->save($this->data)) {
-				$this->Session->setFlash(__('The pais has been saved', true));
+				$this->Session->setFlash(__('El país se ha guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The pais could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('El país no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 		if (empty($this->data)) {
@@ -156,24 +156,24 @@ Funciones de soporte
 							// save the url of the file
 							$result['urls'][] = $url;
 						} else {
-							$result['errors'][] = "Error uploaded $filename. Please try again.";
+							$result['errors'][] = "Error al subir $filename. intentelo de nuevo.";
 						}
 						break;
 					case 3:
 						// an error occured
-						$result['errors'][] = "Error uploading $filename. Please try again.";
+						$result['errors'][] = "Error al subir $filename. intentelo de nuevo.";
 						break;
 					default:
 						// an error occured
-						$result['errors'][] = "System error uploading $filename. Contact webmaster.";
+						$result['errors'][] = "System error al subir $filename. Contacte al administrador.";
 						break;
 				}
 			} elseif($file['error'] == 4) {
 				// no file was selected for upload
-				$result['nofiles'][] = "No file Selected";
+				$result['nofiles'][] = "No selecciono un archivo";
 			} else {
 				// unacceptable file type
-				$result['errors'][] = "$filename cannot be uploaded. Acceptable file types: gif, jpg, png.";
+				$result['errors'][] = "$filename no puede ser cargado. Solo archivos de tipo: gif, jpg, png.";
 			}
 		}
 		return $result;

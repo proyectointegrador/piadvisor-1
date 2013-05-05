@@ -10,7 +10,7 @@ class ProgramasController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid programa', true));
+			$this->Session->setFlash(__(Programa inválido', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('programa', $this->Programa->read(null, $id));
@@ -20,25 +20,25 @@ class ProgramasController extends AppController {
 		if (!empty($this->data)) {
 			$this->Programa->create();
 			if ($this->Programa->save($this->data)) {
-				$this->Session->setFlash(__('The programa has been saved', true));
+				$this->Session->setFlash(__('El programa se ha guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The programa could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('El programa no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid programa', true));
+			$this->Session->setFlash(__('Programa inválido', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Programa->save($this->data)) {
-				$this->Session->setFlash(__('The programa has been saved', true));
+				$this->Session->setFlash(__('El programa se ha guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The programa could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('El programa no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 		if (empty($this->data)) {

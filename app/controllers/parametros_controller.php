@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class ParametrosController extends AppController {
 
 	var $name = 'Parametros';
@@ -10,7 +10,7 @@ class ParametrosController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid parametro', true));
+			$this->Session->setFlash(__('Configuración inválida', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('parametro', $this->Parametro->read(null, $id));
@@ -20,25 +20,25 @@ class ParametrosController extends AppController {
 		if (!empty($this->data)) {
 			$this->Parametro->create();
 			if ($this->Parametro->save($this->data)) {
-				$this->Session->setFlash(__('The parametro has been saved', true));
+				$this->Session->setFlash(__('La configuración se ha guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The parametro could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('La configuración no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid parametro', true));
+			$this->Session->setFlash(__('Configuración inválida', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Parametro->save($this->data)) {
-				$this->Session->setFlash(__('The parametro has been saved', true));
+				$this->Session->setFlash(__('La configuración se ha guardado', true));
 				$this->redirect(array('controller' => 'universidades', 'action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The parametro could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('La configuración no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 		if (empty($this->data)) {

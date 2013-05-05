@@ -11,7 +11,7 @@ class GroupsController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid group', true));
+			$this->Session->setFlash(__(Grupo inválido', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('group', $this->Group->read(null, $id));
@@ -21,25 +21,25 @@ class GroupsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Group->create();
 			if ($this->Group->save($this->data)) {
-				$this->Session->setFlash(__('The group has been saved', true));
+				$this->Session->setFlash(__('El grupo se ha guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The group could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('El grupo no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid group', true));
+			$this->Session->setFlash(__('Grupo inválido', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Group->save($this->data)) {
-				$this->Session->setFlash(__('The group has been saved', true));
+				$this->Session->setFlash(__('El grupo se ha guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The group could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('El grupo no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 		if (empty($this->data)) {
@@ -49,14 +49,14 @@ class GroupsController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for group', true));
+			$this->Session->setFlash(__('ID inválida para el grupo', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Group->delete($id)) {
-			$this->Session->setFlash(__('Group deleted', true));
+			$this->Session->setFlash(__('Grupo eliminado', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Group was not deleted', true));
+		$this->Session->setFlash(__('Grupo no fue eliminado', true));
 		$this->redirect(array('action' => 'index'));
 	}
 	

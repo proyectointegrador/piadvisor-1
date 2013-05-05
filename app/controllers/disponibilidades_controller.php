@@ -10,7 +10,7 @@ class DisponibilidadesController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid disponibilidad', true));
+			$this->Session->setFlash(__('Disponibilidad inválida', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('disponibilidad', $this->Disponibilidad->read(null, $id));
@@ -20,25 +20,25 @@ class DisponibilidadesController extends AppController {
 		if (!empty($this->data)) {
 			$this->Disponibilidad->create();
 			if ($this->Disponibilidad->save($this->data)) {
-				$this->Session->setFlash(__('The disponibilidad has been saved', true));
+				$this->Session->setFlash(__('La disponibilidad se ha guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The disponibilidad could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('La disponibilidad no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid disponibilidad', true));
+			$this->Session->setFlash(__('Disponibilidad inválida', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Disponibilidad->save($this->data)) {
-				$this->Session->setFlash(__('The disponibilidad has been saved', true));
+				$this->Session->setFlash(__('La disponibilidad se ha guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The disponibilidad could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('La disponibilidad no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 		if (empty($this->data)) {

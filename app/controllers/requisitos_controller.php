@@ -10,7 +10,7 @@ class RequisitosController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid requisito', true));
+			$this->Session->setFlash(__('Requisito inválido', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('requisito', $this->Requisito->read(null, $id));
@@ -20,10 +20,10 @@ class RequisitosController extends AppController {
 		if (!empty($this->data)) {
 			$this->Requisito->create();
 			if ($this->Requisito->save($this->data)) {
-				$this->Session->setFlash(__('The requisito has been saved', true));
+				$this->Session->setFlash(__('El requisito se ha guardado, true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The requisito could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('El requisito no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 		$categorias = $this->Requisito->Categoria->find('list');
@@ -32,15 +32,15 @@ class RequisitosController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid requisito', true));
+			$this->Session->setFlash(__('Requisito inválido', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Requisito->save($this->data)) {
-				$this->Session->setFlash(__('The requisito has been saved', true));
+				$this->Session->setFlash(__('El requisito se ha guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The requisito could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('El requisito no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 		if (empty($this->data)) {

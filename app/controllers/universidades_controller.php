@@ -10,7 +10,7 @@ class UniversidadesController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Universidad invalida', true));
+			$this->Session->setFlash(__('Universidad inválida', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('universidad', $this->Universidad->read(null, $id));
@@ -33,7 +33,7 @@ class UniversidadesController extends AppController {
 					//Validado
 					//$this->Universidad->create();
 					if ($this->Universidad->save($this->data, array('validate'=>false))) {
-						$this->Session->setFlash(__('La universidad ha sido guardada',true));
+						$this->Session->setFlash(__('La universidad se ha guardado',true));
 						$this->redirect(array('action' => 'index'));
 					} else {
 						$this->Session->setFlash(__('No se pudo guardar la universidad, favor de verificar los datos.',true));
@@ -95,7 +95,7 @@ class UniversidadesController extends AppController {
  */
  function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Universidad invalida', true));
+			$this->Session->setFlash(__('Universidad inválida', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
@@ -109,7 +109,7 @@ class UniversidadesController extends AppController {
 					//Validado
 					//$this->Universidad->create();
 					if ($this->Universidad->save($this->data, array('validate'=>false))) {
-						$this->Session->setFlash(__('La universidad ha sido guardada',true));
+						$this->Session->setFlash(__('La universidad se ha guardado',true));
 						$this->redirect(array('action' => 'index'));
 					} else {
 						$this->Session->setFlash(__('No se pudo guardar la universidad, favor de verificar los datos.',true));

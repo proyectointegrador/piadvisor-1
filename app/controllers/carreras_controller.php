@@ -10,7 +10,7 @@ class CarrerasController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid carrera', true));
+			$this->Session->setFlash(__('Carrera inválida', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('carrera', $this->Carrera->read(null, $id));
@@ -20,10 +20,10 @@ class CarrerasController extends AppController {
 		if (!empty($this->data)) {
 			$this->Carrera->create();
 			if ($this->Carrera->save($this->data)) {
-				$this->Session->setFlash(__('The carrera has been saved', true));
+				$this->Session->setFlash(__('La carrera se ha guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The carrera could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('La carrera no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 		$areas = $this->Carrera->Area->find('list');
@@ -32,15 +32,15 @@ class CarrerasController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid carrera', true));
+			$this->Session->setFlash(__('Carrera inválida', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Carrera->save($this->data)) {
-				$this->Session->setFlash(__('The carrera has been saved', true));
+				$this->Session->setFlash(__('La carrera se ha guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The carrera could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('La carrera no se ha podido guardar, intentelo de nuevo.', true));
 			}
 		}
 		if (empty($this->data)) {
