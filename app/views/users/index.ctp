@@ -6,6 +6,7 @@
 			<th><?php echo $this->Paginator->sort('Usuario');?></th>
 			<th><?php echo $this->Paginator->sort('Contraseña');?></th>
 			<th><?php echo $this->Paginator->sort('Grupo','group_id');?></th>
+			<th><?php echo $this->Paginator->sort('activo');?></th>
 			<th class="actions"><?php __('Acciones');?></th>
 	</tr>
 	<?php
@@ -22,6 +23,15 @@
 		<td><?php echo $user['User']['password']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($user['Group']['name'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?>
+		</td>
+		<td style="text-align:center;">
+				<?php 
+					if($user['User']['activo'] == '1'){
+						echo $this->Html->image('activo.png',array('alt'=>'Activo','width'=>'30px'));
+					}else{
+						echo $this->Html->image('inactivo.png',array('alt'=>'Inactivo','width'=>'30px'));
+					}
+				?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $user['User']['id'])); ?>

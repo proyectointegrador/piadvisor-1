@@ -80,6 +80,7 @@
 		<li><?php echo $this->Html->link(__('Configuraciones',true), array('controller' => 'parametros', 'action' => 'edit',1)); ?> </li>
 		<li><?php echo $this->Html->link(__('Grupos',true), array('controller' => 'groups', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Usuarios',true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Cambiar Contraseña',true), array('controller' => 'users', 'action' => 'cambiar_pass')); ?> </li>
 
 	</ul>
 </div>

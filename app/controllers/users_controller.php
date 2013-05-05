@@ -64,7 +64,7 @@ class UsersController extends AppController {
 	    }
 	}
 
-
+	/*
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for user', true));
@@ -77,13 +77,14 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	
+	*/
 	
 	function login() {
 		if ($this->Session->read('Auth.User')) {
 			$this->Session->setFlash('Has iniciado sesión!');
 			$this->redirect(array ('controller' => 'universidades', 'action' => 'index'), null, false);
 		}
+
 	}
 
 	function logout() {
@@ -92,11 +93,10 @@ class UsersController extends AppController {
 	}
 	
 	function beforeFilter() {
-    parent::beforeFilter();
-    //$this->Auth->allowedActions = array('*');
-    //Se debe de comentar la linea de abajo cuando se use le linea de arriba
-    $this->Auth->allowedActions = array('login', 'logout');
-
+	    parent::beforeFilter();
+	    //$this->Auth->allowedActions = array('*');
+	    //Se debe de comentar la linea de abajo cuando se use le linea de arriba
+	    $this->Auth->allowedActions = array('login', 'logout');
 	}
 	
 	//hace falta denegar el acceso a initDB para admin y user, solo disponible para superadmin

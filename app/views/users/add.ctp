@@ -7,6 +7,7 @@
 		echo $this->Form->input('passwd', array('label'=>'Contraseña'));
 		echo $this->Form->input('passwd_confirm', array('label'=>'Confirmar Contraseña','type'=>'password'));
 		echo $this->Form->input('group_id', array('label'=>'Grupo'));
+		echo $this->Form->input('activo', array('type'=>'hidden','value'=>'1'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar', true));?>

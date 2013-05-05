@@ -95,10 +95,25 @@
           <!--a class="brand" href="/pages/home">Intercambio Internacional</a-->
 
           <?php
-            echo $this->Html->link('Intercambio Internacional', '/pages/home', array('class' => 'brand'));
+            echo $this->Html->link('PIAdvisor Administration', '/pages/home', array('class' => 'brand'));
           ?>
-          <div class="nav-collapse collapse">
-    	  <li align=right><?php echo $this->Html->link(__('Logout',true), array('controller' => 'users', 'action' => 'logout')); ?> </li>
+          <div class="pull-right">
+            <?php
+            if ($this->Session->read('Auth.User')) {
+                echo '<span class="label label-success">';
+                echo $this->Session->read('Auth.User.username');
+                echo '</span>';
+              ?>
+
+    	           <?php 
+                 echo "<button class=\"btn btn-mini btn-danger\" type=\"button\" onClick=\"location.href='users/logout'\">";
+                 //echo $this->Html->link(__('Logout',true), array('controller' => 'users', 'action' => 'logout')); 
+                 echo 'Cerrar sesión';
+                 echo '</button>';
+                 ?>
+            <?php 
+            } 
+            ?>
 
           </div><!--/.nav-collapse -->
         </div>

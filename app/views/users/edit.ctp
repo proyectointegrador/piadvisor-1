@@ -3,10 +3,9 @@
 	<fieldset>
 		<legend><?php __('Editar Usuario'); ?></legend>
 	<?php
+		echo $this->Form->input('activo',array('type'=>'checkbox'));
 		echo $this->Form->input('id');
 		echo $this->Form->input('username', array('label'=>'Usuario'));
-		echo $this->Form->input('passwd', array('label'=>'Contraseña'));
-		echo $this->Form->input('passwd_confirm', array('label'=>'Confirmar Contraseña','type'=>'password'));
 		echo $this->Form->input('group_id', array('label'=>'Grupo'));
 	?>
 	</fieldset>

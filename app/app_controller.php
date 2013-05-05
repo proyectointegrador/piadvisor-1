@@ -16,6 +16,7 @@ class AppController extends Controller {
 	
 	//Autentificacion de usuarios
 	  $this->Auth->authorize = 'actions';
+      $this->Auth->userScope = array('User.activo' => true);
       $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
       $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
       $this->Auth->loginRedirect = array('controller' => 'universidades', 'action' => 'index');
