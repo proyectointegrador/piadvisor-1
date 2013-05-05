@@ -11,7 +11,7 @@ class GroupsController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__(Grupo inválido', true));
+			$this->Session->setFlash(__('Grupo inválido', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('group', $this->Group->read(null, $id));

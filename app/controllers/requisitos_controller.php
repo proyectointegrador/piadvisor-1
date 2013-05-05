@@ -20,7 +20,7 @@ class RequisitosController extends AppController {
 		if (!empty($this->data)) {
 			$this->Requisito->create();
 			if ($this->Requisito->save($this->data)) {
-				$this->Session->setFlash(__('El requisito se ha guardado, true));
+				$this->Session->setFlash(__('El requisito se ha guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('El requisito no se ha podido guardar, intentelo de nuevo.', true));

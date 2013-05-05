@@ -10,7 +10,7 @@ class ProgramasController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__(Programa inválido', true));
+			$this->Session->setFlash(__('Programa inválido', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('programa', $this->Programa->read(null, $id));
