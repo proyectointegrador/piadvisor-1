@@ -51,6 +51,20 @@ class UsersController extends AppController {
 		$this->set(compact('groups'));
 	}
 
+	function cambiar_pass() {
+	    if (!empty($this->data)) {
+	        if ($this->User->save($this->data)) {
+	            $this->Session->setFlash('La contraseña ha sido cambiada.');
+	            $this->redirect(array('action'=>'index','controller'=>'universidades'));
+	        } else {
+	            $this->Session->setFlash('No se pudo cambiar la ocntraseña.');
+	        }
+	    } else {
+	        $this->data = $this->User->findById($this->Auth->user('id'));
+	    }
+	}
+
+
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for user', true));
@@ -117,6 +131,7 @@ class UsersController extends AppController {
 		$this->Acl->deny($group, 'controllers');
 		$this->Acl->deny($group, 'controllers/Groups/build_acl');
 		$this->Acl->deny($group, 'controllers/Users/initDB');
+		$this->Acl->allow($group, 'controllers/Users/cambiar_pass');
 		$this->Acl->allow($group, 'controllers/Areas');
 		$this->Acl->allow($group, 'controllers/Carreras');
 		$this->Acl->allow($group, 'controllers/Categorias');

@@ -175,7 +175,7 @@ class GroupsController extends AppController {
         return $arr;
     }
 		
-			function build_acl() {
+	function build_acl() {
         if (!Configure::read('debug')) {
             return $this->_stop();
         }

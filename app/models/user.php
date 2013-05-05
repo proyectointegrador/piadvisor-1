@@ -1,7 +1,11 @@
 <?php
+
+
 class User extends AppModel {
 	var $name = 'User';
 	var $displayField = 'username';
+	var $uses = array('CakeSession', 'Model/Datasource');
+
 //	var $belongsTo = array('Group');
 	var $actsAs = array('Acl' => array('requester'));
 
@@ -32,9 +36,13 @@ class User extends AppModel {
 	      'required'=>'notEmpty',
 	      'match'=>array(
 	        'rule' => 'validatePasswdConfirm',
-	        'message' => 'Las contraseñas no coinciden'
+	        'message' => 'Las contraseñas no coinciden.'
 	      )
-	    )
+	    ),
+	    'current_password' => array(
+        'rule' => 'checkCurrentPassword',
+        'message' => 'La contraseña es incorrecta.'
+    	)
 	);
 	    
 
@@ -97,6 +105,14 @@ function validatePasswdConfirm($data)
     }
     return true;
   }
+
+function checkCurrentPassword($data) {
+	
+	$this->id = CakeSession::read('Auth.User.id');
+    //$this->id = AuthComponent::user('id');
+    $password = $this->field('password');
+    return(AuthComponent::password($data['current_password']) == $password);
+}
 
 function beforeSave()
   {

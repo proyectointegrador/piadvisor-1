@@ -1,9 +1,14 @@
 <table class="table table-striped" >
 		<tr>
 				<th>
-					<a id="Codigo" class="filtrouni">Codigo</a>
+					<a id="Codigo" class="filtrouni">Codigo
 					<?php
-			  			
+
+			  			if($estado['orden'] == 'Universidad.codigo ASC'){
+			  				echo $this->Html->image("flecha_azul_abajo.png",array('class'=>'imgfiltroorder'));
+			  			}else if($estado['orden'] == 'Universidad.codigo DESC'){
+			  				echo $this->Html->image("flecha_azul_arriba.png",array('class'=>'imgfiltroorder'));
+			  			}
 						$this->Js->get('#Codigo')->event('click', $this->Js->request( 
 									array('controller' => 'pages', 'action' => 'listadoajaxordena','codigo'), 
 									array( 
@@ -14,11 +19,16 @@
 									) ) );
 
 					?>
+					</a>
 				</th>
 				<th>
-					<a id="Universidad" class="filtrouni">Universidad</a>
+					<a id="Universidad" class="filtrouni">Universidad
 					<?php
-			  			
+			  			if($estado['orden'] == 'Universidad.name ASC'){
+			  				echo $this->Html->image("flecha_azul_abajo.png",array('class'=>'imgfiltroorder'));
+			  			}else if($estado['orden'] == 'Universidad.name DESC'){
+			  				echo $this->Html->image("flecha_azul_arriba.png",array('class'=>'imgfiltroorder'));
+			  			}
 						$this->Js->get('#Universidad')->event('click', $this->Js->request( 
 									array('controller' => 'pages', 'action' => 'listadoajaxordena','name'), 
 									array( 
@@ -29,11 +39,16 @@
 									) ) );
 
 					?>
+					</a>
 				</th>
 				<th>
-					<a id="Idioma" class="filtrouni">Idioma</a>
+					<a id="Idioma" class="filtrouni">Idioma
 					<?php
-			  			
+			  			if($estado['orden'] == 'Universidad.idioma ASC'){
+			  				echo $this->Html->image("flecha_azul_abajo.png",array('class'=>'imgfiltroorder'));
+			  			}else if($estado['orden'] == 'Universidad.idioma DESC'){
+			  				echo $this->Html->image("flecha_azul_arriba.png",array('class'=>'imgfiltroorder'));
+			  			}
 						$this->Js->get('#Idioma')->event('click', $this->Js->request( 
 									array('controller' => 'pages', 'action' => 'listadoajaxordena','idioma'), 
 									array( 
@@ -44,11 +59,16 @@
 									) ) );
 
 					?>
+					</a>
 				</th>
 				<th>
-					<a id="Ciudad" class="filtrouni">Ciudad</a>
+					<a id="Ciudad" class="filtrouni">Ciudad
 					<?php
-			  			
+			  			if($estado['orden'] == 'Universidad.ciudad ASC'){
+			  				echo $this->Html->image("flecha_azul_abajo.png",array('class'=>'imgfiltroorder'));
+			  			}else if($estado['orden'] == 'Universidad.ciudad DESC'){
+			  				echo $this->Html->image("flecha_azul_arriba.png",array('class'=>'imgfiltroorder'));
+			  			}
 						$this->Js->get('#Ciudad')->event('click', $this->Js->request( 
 									array('controller' => 'pages', 'action' => 'listadoajaxordena','ciudad'), 
 									array( 
@@ -59,6 +79,7 @@
 									) ) );
 
 					?>
+					</a>
 				</th>
 				<th><?php echo __('Detalles'); ?></th>
 		</tr>

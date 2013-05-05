@@ -331,10 +331,11 @@ class PagesController extends AppController {
 				
 				//Actualiza sesion con el estado
 				$this->Session->write('estado',$estado);
+				$estado = $this->Session->read('estado');
 
 				$universidades = $this->_getUniversidades();
 				
-				$this->set(compact('universidades'));
+				$this->set(compact('universidades','estado'));
 			
 				$this->render('listadoajax', 'ajax');
 			}
@@ -389,9 +390,11 @@ class PagesController extends AppController {
 				//actualiza el estado en sesion
 				$this->Session->write('estado',$estado);
 
+				$estado = $this->Session->read('estado');
+
 				$universidades = $this->_getUniversidades();
 				
-				$this->set(compact('universidades'));
+				$this->set(compact('universidades','estado'));
 			
 				$this->render('listadoajax', 'ajax');
 			}
