@@ -64,6 +64,28 @@ class UsersController extends AppController {
 	    }
 	}
 
+	function recuperar_pass() {
+	   if(!empty($this->data)) {
+	     $this->User->recursive = -1;
+	     $user = $this->User->find('first',array('conditions' => array('username'=>$this->data['User']['email'])));
+
+
+
+	     if($user) {
+	       $user['User']['tmp_password'] = $this->_createTempPassword(7);
+	       $user['User']['password'] = $this->Auth->password($user['User']['tmp_password']);
+	      
+	       if($this->User->save($user)) {
+	         $this->__sendPasswordEmail($user, $user['User']['tmp_password']);
+	         $this->Session->setFlash('Se ha enviado un correo con su nuevo password.');
+	         $this->redirect($this->referer());
+	       }
+	     } else {
+	       $this->Session->setFlash('No se enocntro usuario con el correo seleccionado.');
+	     }
+	   }
+	}
+
 	/*
 	function delete($id = null) {
 		if (!$id) {
@@ -96,7 +118,7 @@ class UsersController extends AppController {
 	    parent::beforeFilter();
 	    //$this->Auth->allowedActions = array('*');
 	    //Se debe de comentar la linea de abajo cuando se use le linea de arriba
-	    $this->Auth->allowedActions = array('login', 'logout');
+	    $this->Auth->allowedActions = array('login', 'logout','recuperar_pass');
 	}
 	
 	//hace falta denegar el acceso a initDB para admin y user, solo disponible para superadmin
@@ -169,6 +191,67 @@ class UsersController extends AppController {
 		//we add an exit to avoid an ugly "missing views" error message
 		echo "all done";
 		exit;
-		}
+	}
+
+	/*
+	*
+	*	Funciones Privadas
+	*
+	*/
+
+	function _createTempPassword($len) {
+	   $pass = '';
+	   $lchar = 0;
+	   $char = 0;
+	   for($i = 0; $i < $len; $i++) {
+	     while($char == $lchar) {
+	       $char = rand(48, 109);
+	       if($char > 57) $char += 7;
+	       if($char > 90) $char += 6;
+	     }
+
+
+	     $pass .= chr($char);
+	     $lchar = $char;
+	   }
+
+
+	   return $pass;
+	}
+
+	function __sendPasswordEmail($user, $password) {
+	  if ($user === false) {
+	     debug(__METHOD__." failed to retrieve User data for user.id: {$user['User']['id']}");
+	     return false;
+	  }
+
+	  // Varios destinatarios
+		$para = $user['User']['username'];
+
+		// subject
+		$titulo = 'Recuperación de Contraseña';
+
+		// message
+		$mensaje = '
+		<html>
+		<head>
+			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+		  <title>'.__('Contraseña Temporal').'</title>
+
+		  '.__('Contraseña:').$password.' 
+		</head>
+		<body>
+		  
+		</html>';
+
+		// Para enviar un correo HTML mail, la cabecera Content-type debe fijarse
+		$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+		$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+		// Mail it
+		mail($para, $titulo, $mensaje, $cabeceras);
+
+	}
 	
 }
