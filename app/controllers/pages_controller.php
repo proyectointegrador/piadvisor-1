@@ -33,7 +33,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Universidad','Carrera', 'Pais');
+	public $uses = array('Universidad','Carrera', 'Pais','Parametro');
 
 	
 
@@ -407,6 +407,7 @@ function enviarcorreo(){
 		$this->Universidad->recursive = 0;
 		$universidad = $this->Universidad->read(null, $this->data['Universidad']['id']);
 
+		$parametro = $this->Parametro->find('first',array('conditions'=>array('name'=>'Correo')));
 		// Varios destinatarios
 		$para = $this->data['Page']['correo'];
 
@@ -422,15 +423,25 @@ function enviarcorreo(){
 		  <title>Intercambio Internacional</title>
 		</head>
 		<body>
-		  <p>Nombre: '.$universidad['Universidad']['name'].'</p>
 
-		  <p>Codigo: '.$universidad['Universidad']['codigo'].'</p>
-		  <p>Ciudad: '.$universidad['Universidad']['ciudad'].'</p>
-		  <p>Idioma: '.$universidad['Universidad']['idioma'].'</p>
-		  <p>Calendario: '.$universidad['Universidad']['calendario'].'</p>
-		  <p>Disponibilidad: '.$universidad['Disponibilidad']['name'].'</p>
-		  <p>Demanda: '.$universidad['Demanda']['name'].'</p>
-		  <p>Website: '.$universidad['Universidad']['website'].'</p></body>
+			<br/>
+			'.$parametro['Parametro']['texto1'].'
+
+			<br />
+			<p>Nombre: '.$universidad['Universidad']['name'].'</p>
+
+			<p>Codigo: '.$universidad['Universidad']['codigo'].'</p>
+			<p>Ciudad: '.$universidad['Universidad']['ciudad'].'</p>
+			<p>Idioma: '.$universidad['Universidad']['idioma'].'</p>
+			<p>Calendario: '.$universidad['Universidad']['calendario'].'</p>
+			<p>Disponibilidad: '.$universidad['Disponibilidad']['name'].'</p>
+			<p>Demanda: '.$universidad['Demanda']['name'].'</p>
+			<p>Website: '.$universidad['Universidad']['website'].'</p>
+
+			</br>
+			'.$parametro['Parametro']['texto2'].'
+			</br>
+		  </body>
 		</html>';
 
 		// Para enviar un correo HTML mail, la cabecera Content-type debe fijarse

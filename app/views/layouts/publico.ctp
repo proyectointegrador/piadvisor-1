@@ -57,7 +57,12 @@
      <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <?php echo $this->Html->link(__('Programas Internacionales',true), array('controller' => 'pages', 'action' => 'home', 'class'=>'brand')); ?>
+          <?php echo $this->Html->image('LogoPI_Blanco.png',array('class'=>'imgpi','url'=>array('controller' => 'pages', 'action' => 'home'))); ?>
+          <?php //echo $this->Html->link(__('Programas Internacionales',true), array('controller' => 'pages', 'action' => 'home', 'class'=>'brand')); ?>
+
+          <div class="pull-right">
+            <?php echo $this->Html->image('TecMonterrey.png',array('class'=>'imgtec','url'=>'http://www.itesm.edu')); ?>
+          </div>
         </div>
       </div>
     </div>
@@ -66,11 +71,11 @@
 
 
 
-
+    <div style="padding-top:60px;">
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $content_for_layout; ?>
-
+    <div>
 
 
 
