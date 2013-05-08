@@ -22,6 +22,12 @@ class User extends AppModel {
 	    	'rule' => 'isUnique',
 	        'message' => 'El nombre del usuario debe de ser único.',
 	    ),
+	    'username' => array(
+	    	'rule' => array('email',true),
+	        'message' => 'El usuario debe de ser una cuenta de correo',
+	    )
+	    ,
+
 	    'passwd' => array(
 	      'min' => array(
 	        'rule' => array('minLength', 6),

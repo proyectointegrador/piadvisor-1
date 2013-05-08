@@ -237,7 +237,7 @@ class UsersController extends AppController {
 		<head>
 			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-		  <title>'.__('Contraseña Temporal').'</title>
+		  Contraseña Temporal: </br>
 
 		  '.__('Contraseña:').$password.' 
 		</head>
