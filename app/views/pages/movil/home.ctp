@@ -22,6 +22,9 @@
 <div class="container">
       <div class="form-signin">
 <?php
+	//echo $this->Form->input('programa_id'array('empty'=>'----', 'class'=>'input-block-level'));
+	echo $this->Form->input('programa_id',array('empty'=>'----', 'class'=>'input-block-level'));
+
 	echo $this->Form->input('carrera_id',array('empty'=>'----', 'class'=>'input-block-level'));
 	echo $this->Form->input('region_id',array('options' => $regiones,'empty'=>'----', 'class'=>'input-block-level'));
 ?>

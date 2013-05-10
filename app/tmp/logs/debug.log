@@ -29,3 +29,7 @@
 2013-04-22 19:17:48 Debug: Notice (8): Undefined variable: regiones in [C:\xampp2\htdocs\piadvisor-1\app\views\pages\movil\listado_universidades.ctp, line 45]
 2013-04-22 19:17:48 Debug: Notice (8): Undefined variable: universidades in [C:\xampp2\htdocs\piadvisor-1\app\views\pages\movil\listado_universidades.ctp, line 95]
 2013-04-22 19:30:55 Debug: Notice (8): Undefined index: region_id in [C:\xampp2\htdocs\piadvisor-1\app\controllers\pages_controller.php, line 163]
+2013-05-10 20:04:43 Debug: Notice (8): Undefined index: programa_id in [C:\xampp2\htdocs\piadvisor-1\app\controllers\pages_controller.php, line 169]
+2013-05-10 20:47:18 Debug: Notice (8): Undefined index: name in [C:\xampp2\htdocs\piadvisor-1\app\controllers\pages_controller.php, line 329]
+2013-05-10 20:47:43 Debug: Notice (8): Undefined index: name in [C:\xampp2\htdocs\piadvisor-1\app\controllers\pages_controller.php, line 329]
+2013-05-10 20:57:13 Debug: Notice (8): Undefined index: name in [C:\xampp2\htdocs\piadvisor-1\app\controllers\pages_controller.php, line 329]
