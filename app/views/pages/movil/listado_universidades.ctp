@@ -35,9 +35,14 @@
 
 
 	 	<?php echo $this->Form->create('Page',array('action'=>'listado_universidades')); ?>
+	 			<?php
+	 			echo $this->Form->input('Page.programa_id',array('class'=>'input-block-level','empty'=>'----'));
+	 			?>
 
-	 			<label>Nombre</label>
-	 			<input  type="text" class="input-block-level" id="appendedInputButton" style="text-align:right;" >
+
+	 			<?php
+	 			echo $this->Form->input('Page.name',array('class'=>'input-block-level','label'=>'Nombre'));
+	 			?>
 	 			<?php
 	 			echo $this->Form->input('Page.carrera_id',array('empty'=>'----', 'class'=>'input-block-level'));
 	 			?>	
@@ -50,10 +55,11 @@
 	 			?>
 
 <button id="Filtrar" class="btn btn-large btn-block btn-primary" type="submit">Filtrar</button>
+
 		  		<?php
 		  			$datos = $this->Js->get("#PageListadoUniversidadesForm")->serializeForm(array('isForm' => true, 'inline' => true));
 					$this->Js->get('#Filtrar')->event('click', $this->Js->request( 
-								array('controller' => 'pages', 'action' => 'listadoajax'), 
+								array('controller' => 'pages', 'action' => './listadoajax'), 
 								array( 
 								'update' => '#listadoajax',
 								'async' => true, 

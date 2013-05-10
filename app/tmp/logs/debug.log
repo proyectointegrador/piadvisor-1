@@ -33,3 +33,5 @@
 2013-05-10 20:47:18 Debug: Notice (8): Undefined index: name in [C:\xampp2\htdocs\piadvisor-1\app\controllers\pages_controller.php, line 329]
 2013-05-10 20:47:43 Debug: Notice (8): Undefined index: name in [C:\xampp2\htdocs\piadvisor-1\app\controllers\pages_controller.php, line 329]
 2013-05-10 20:57:13 Debug: Notice (8): Undefined index: name in [C:\xampp2\htdocs\piadvisor-1\app\controllers\pages_controller.php, line 329]
+2013-05-10 21:00:10 Debug: Notice (8): Undefined index: name in [C:\xampp2\htdocs\piadvisor-1\app\controllers\pages_controller.php, line 329]
+2013-05-10 21:00:10 Debug: Notice (8): Undefined index: programa_id in [C:\xampp2\htdocs\piadvisor-1\app\controllers\pages_controller.php, line 330]
