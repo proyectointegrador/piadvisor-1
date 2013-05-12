@@ -1,15 +1,15 @@
 ï»¿<?php
 /**
  *Autores:
- *  Edgar García Camarillo
- *  Eugenio Rafael García García
+ *  Edgar GarcÃ­a Camarillo
+ *  Eugenio Rafael GarcÃ­a GarcÃ­a
  *  Luis Galeana Peralta
  *  Luis Eduardo Torres 
  *
- * Descripción: Esta es la vista de administración
- * 				para listar Requisitos.
+ * DescripciÃ³n: Esta es la vista de administraciÃ³n
+ * 				para editar requisitos.
  */
- ?>
+?>
  <div class="requisitos form">
 <?php echo $this->Form->create('Requisito'); ?>
 	<fieldset>
@@ -26,8 +26,6 @@
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
-
-		
 		<li><?php echo $this->Html->link(__('Lista Requisitos',true), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('Lista Categorias',true), array('controller' => 'categorias', 'action' => 'index')); ?> </li>
 	</ul>

@@ -9,7 +9,6 @@
  * Descripción: Esta es la vista de administración
  * 				para editar areas.
  */
-
 ?>
 <div class="areas form">
 <?php echo $this->Form->create('Area'); ?>

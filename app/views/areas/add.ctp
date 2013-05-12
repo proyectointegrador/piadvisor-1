@@ -9,7 +9,6 @@
  * Descripción: Esta es la vista de administración
  * 				para agregar areas.
  */
-
 ?>
 <div class="areas form">
 <?php echo $this->Form->create('Area'); ?>
@@ -24,7 +23,6 @@
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
-
 		<li><?php echo $this->Html->link(__('Lista Areas',true), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('Lista Carreras',true), array('controller' => 'carreras', 'action' => 'index')); ?> </li>
 	</ul>

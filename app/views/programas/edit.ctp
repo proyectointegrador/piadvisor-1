@@ -1,4 +1,16 @@
-﻿<div class="programas form">
+﻿<?php
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres 
+ *
+ * Descripción: Esta es la vista de administración
+ * 				para editar programas.
+ */
+?>
+<div class="programas form">
 <?php echo $this->Form->create('Programa');?>
 	<fieldset>
 		<legend><?php __('Editar Programa'); ?></legend>
@@ -15,7 +27,6 @@
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
-
 		<li><?php echo $this->Html->link(__('Lista Programas', true), array('action' => 'index'));?></li>
 		<li><?php echo $this->Html->link(__('Lista Universidades', true), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
 	</ul>

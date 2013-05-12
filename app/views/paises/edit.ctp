@@ -9,7 +9,6 @@
  * Descripción: Esta es la vista de administración
  * 				para editar paises.
  */
-
 ?>
 <div class="paises form">
 <?php echo $this->Form->create('Pais',array('type'=>'file')); ?>
@@ -32,6 +31,5 @@
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Lista Paises',true), array('action' => 'index')); ?></li>
-
 	</ul>
 </div>

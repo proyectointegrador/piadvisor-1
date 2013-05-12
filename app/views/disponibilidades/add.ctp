@@ -9,7 +9,6 @@
  * Descripción: Esta es la vista de administración
  * 				para agregar Disponibilidades.
  */
-
 ?>
 <div class="disponibilidades form">
 <?php echo $this->Form->create('Disponibilidad'); ?>

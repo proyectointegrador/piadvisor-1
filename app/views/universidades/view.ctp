@@ -1,4 +1,4 @@
-<div class="universidades view">
+﻿<div class="universidades view">
 <h2><?php  echo __('Universidad'); ?></h2>
 	<dl>
 		<dt><?php echo __('Programa'); ?></dt>
@@ -6,12 +6,12 @@
 			<?php echo h($universidad['Programa']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Codigo'); ?></dt>
+		<dt><?php echo __('Código'); ?></dt>
 		<dd>
 			<?php echo h($universidad['Universidad']['codigo']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Name'); ?></dt>
+		<dt><?php echo __('Nombre'); ?></dt>
 		<dd>
 			<?php echo h($universidad['Universidad']['name']); ?>
 			&nbsp;
@@ -41,7 +41,7 @@
 			<?php echo h($universidad['Demanda']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Website'); ?></dt>
+		<dt><?php echo __('Página Web'); ?></dt>
 		<dd>
 			<?php echo h($universidad['Universidad']['website']); ?>
 			&nbsp;
@@ -90,7 +90,7 @@
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Universidad',true), array('action' => 'edit', $universidad['Universidad']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Editar Universidad',true), array('action' => 'edit', $universidad['Universidad']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Lista Universidades',true), array('action' => 'index')); ?> </li>
 	</ul>
 </div>
@@ -99,7 +99,7 @@
 	<?php if (!empty($universidad['Carrera'])): ?>
 		<table cellpadding = "0" cellspacing = "0">
 		<tr>
-			<th><?php echo __('Siglas'); ?></th>
+			<th><?php echo __('Carrera'); ?></th>
 			<th><?php echo __('Nombre'); ?></th>
 		</tr>
 		<?php
@@ -119,7 +119,7 @@
 		<table cellpadding = "0" cellspacing = "0">
 		<tr>
 			<th><?php echo __('Clave'); ?></th>
-			<th><?php echo __('Descripcion'); ?></th>
+			<th><?php echo __('Descripción'); ?></th>
 		</tr>
 		<?php
 			$i = 0;

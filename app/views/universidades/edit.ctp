@@ -1,3 +1,15 @@
+<?php
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres 
+ *
+ * Descripción: Esta es la vista de administración
+ * 				para editar universidades.
+ */
+?>
 <div class="universidades form">
 <?php echo $this->Form->create('Universidad'); ?>
 	<fieldset>
@@ -16,8 +28,6 @@
 		echo $this->Form->input('user_id',array('type'=>'hidden'));
 		echo $this->Form->input('pais_id');
 		echo $this->Form->input('programa_id', array('label'=>'Programa'));		
-
-	
 	?>
 	<div id="Carrera">
 		<?php
@@ -31,13 +41,7 @@
 			
 			var fieldsets = divInter.getElementsByTagName("fieldset");
 
-			
-						
-
-
 			for(var i = 0;i< fieldsets.length;i++){
-
-				
 
 				var div = document.createElement('div');
 				//creamos el checkbox
@@ -89,7 +93,6 @@
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Lista Universidades',true), array('action' => 'index')); ?></li>
-		
+	<li><?php echo $this->Html->link(__('Lista Universidades',true), array('action' => 'index')); ?></li>
 	</ul>
 </div>

@@ -1,4 +1,16 @@
-﻿<div class="universidades form">
+﻿<?php
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres 
+ *
+ * Descripción: Esta es la vista de administración
+ * 				para agregar Universidades.
+ */
+?>
+<div class="universidades form">
 <?php echo $this->Form->create('Universidad'); ?>
 	<fieldset>
 		<legend><?php echo __('Nueva Universidad'); ?></legend>
@@ -14,9 +26,7 @@
 		echo $this->Form->input('idioma',array('label'=> 'Requisito de Idioma'));
 		echo $this->Form->input('user_id',array('type' => 'hidden'));
 		echo $this->Form->input('pais_id', array('label'=>'País'));		
-		echo $this->Form->input('programa_id', array('label'=>'Programa'));		
-
-			
+		echo $this->Form->input('programa_id', array('label'=>'Programa'));			
 	?>
 	<div id="Carrera">
 		<?php
@@ -68,7 +78,6 @@
 				label.appendChild(document.createTextNode('label'));
 				label.innerHTML = "Seleccionar Todos";
 
-
 				var legend = fieldsets[i].childNodes[0];
 				div.appendChild(checkbox);
 				div.appendChild(label);
@@ -79,7 +88,6 @@
 	</script>
 	<?php
 		echo $this->Form->input('Requisito',array('label'=>'Consideraciones Relacionadas','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
-		
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar',true)); ?>
@@ -87,7 +95,6 @@
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
-
 		<li><?php echo $this->Html->link(__('Lista Universidades',true), array('action' => 'index')); ?></li>
 	</ul>
 </div> 

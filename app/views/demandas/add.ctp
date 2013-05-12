@@ -9,7 +9,6 @@
  * Descripción: Esta es la vista de administración
  * 				para agregar demandas.
  */
-
 ?>
 <div class="demandas form">
 <?php echo $this->Form->create('Demanda'); ?>
@@ -25,7 +24,6 @@
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
-
 		<li><?php echo $this->Html->link(__('Lista Demandas',true), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('Lista Universidades',true), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
 	</ul>
