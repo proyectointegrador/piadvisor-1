@@ -9,8 +9,14 @@
  * Descripción: Esta es la vista de administración
  * 				para editar una Categoría.
  */
-
 ?>
+
+<?php
+/**
+ * Campos para editar los datos de categorias
+ */
+?>
+
 <div class="categorias form">
 <?php echo $this->Form->create('Categoria'); ?>
 	<fieldset>
@@ -22,6 +28,13 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar',true)); ?>
 </div>
+
+<?php
+/**
+ * Menú principal con la lista de todas las áreas disponibles para usar por el usuario
+ */
+?>
+
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>

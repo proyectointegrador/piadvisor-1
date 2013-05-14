@@ -1,9 +1,15 @@
 <?php
 /**
- * Disponibilidad Model
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres 
  *
- * @property Universidad $Universidad
+ * Descripción: Código del modelo de disponibilidades
+ * 				
  */
+ 
 class Disponibilidad extends AppModel {
 
 /**

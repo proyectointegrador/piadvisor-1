@@ -1,13 +1,19 @@
 <?php
 /**
- * Area Model
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres 
  *
- * @property Carrera $Carrera
+ * Descripción: Código del modelo de areas
+ * 				
  */
+ 
 class Area extends AppModel {
 
 /**
- * Display field
+ * Despliega los campos
  *
  * @var string
  */
@@ -18,33 +24,30 @@ class Area extends AppModel {
 
 	var $validate = array(
 	    'name' => array(
-	    	'rule' => 'alphaNumeric',
-	        'message' => 'El nombre del area es obligatorio.',
-	        'allowEmpty' => false
+		'rule' => 'alphaNumeric',
+		'message' => 'El nombre del area es obligatorio.',
+		'allowEmpty' => false
 	    )
 	);
 
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
 /**
- * hasMany associations
+ * Asociaciones hasMany
  *
  * @var array
  */
 	public $hasMany = array(
 		'Carrera' => array(
-			'className' => 'Carrera',
-			'foreignKey' => 'area_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
+		'className' => 'Carrera',
+		'foreignKey' => 'area_id',
+		'dependent' => false,
+		'conditions' => '',
+		'fields' => '',
+		'order' => '',
+		'limit' => '',
+		'offset' => '',
+		'exclusive' => '',
+		'finderQuery' => '',
+		'counterQuery' => ''
 		)
 	);
 

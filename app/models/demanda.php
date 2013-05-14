@@ -1,13 +1,19 @@
 <?php
 /**
- * Demanda Model
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres 
  *
- * @property Universidad $Universidad
+ * Descripción: Código del modelo de demandas
+ * 				
  */
+ 
 class Demanda extends AppModel {
 
 /**
- * Display field
+ * Despliega los campos
  *
  * @var string
  */

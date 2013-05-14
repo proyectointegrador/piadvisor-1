@@ -1,13 +1,19 @@
 <?php
 /**
- * Carrera Model
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres 
  *
- * @property Area $Area
+ * Descripción: Código del modelo de carreras
+ * 				
  */
+ 
 class Carrera extends AppModel {
 
 /**
- * Display field
+ * Despliega los campos
  *
  * @var string
  */

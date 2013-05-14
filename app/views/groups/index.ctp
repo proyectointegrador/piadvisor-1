@@ -66,7 +66,7 @@
 
 <?php
 /**
- * Menu principial con la lista de todas las areas disponibles para usar por el usuario
+ * Menú principal con la lista de todas las áreas disponibles para usar por el usuario
  */
 ?>
 
