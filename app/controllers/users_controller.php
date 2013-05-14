@@ -229,18 +229,28 @@ class UsersController extends AppController {
 		$para = $user['User']['username'];
 
 		// subject
-		$titulo = 'Recuperación de Contraseña';
+		$titulo = 'Recuperaci&oacute;n de Contrase&ntilde;a';
 
 		// message
 		$mensaje = '
 		<html>
 		<head>
 			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		  
 
 		  <p>
-		  Contraseña Temporal:
+		  	Hemos recibido un mensaje en el que nos pides que restablescamos tu contraseña
+		  </p>
+		  <p>
+		 Tu nueva contraseña es:
 
 		  '.$password.' 
+
+		  </p>
+
+		  <p>
+		  	Puedes "cambiar contraseña" en la  adminitración de PIAdvisor
+		  	Saludos,
 
 		  </p>
 		</head>
