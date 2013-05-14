@@ -10,15 +10,35 @@
  */
 
 class GroupsController extends AppController {
-
+    /**
+     * Nombre del Controlador
+     *
+     * @var string
+     */
 	var $name = 'Groups';
+
+    /*
+    * Componentes agergados al controlador
+    *
+    * @var array
+    */
 	var $components = array('Acl');
 
+    /**
+     * Despliega la lista de grupos
+     *
+     * @return void
+     */
 	function index() {
 		$this->Group->recursive = 0;
 		$this->set('groups', $this->paginate());
 	}
 
+    /**
+     * Despliega la vista de grupos
+     * @param string $id
+     * @return void
+     */
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Grupo inválido', true));

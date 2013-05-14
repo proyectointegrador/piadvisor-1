@@ -229,7 +229,7 @@ class UsersController extends AppController {
 		$para = $user['User']['username'];
 
 		// subject
-		$titulo = 'Recuperaci&oacute;n de Contrase&ntilde;a';
+		$titulo = 'Nueva clave de acceso PIAdvisor';
 
 		// message
 		$mensaje = '
@@ -239,7 +239,7 @@ class UsersController extends AppController {
 		  
 
 		  <p>
-		  	Hemos recibido un mensaje en el que nos pides que restablescamos tu contraseña
+		  	Hemos recibido un mensaje en el que nos pides que restablezcamos tu contraseña
 		  </p>
 		  <p>
 		 Tu nueva contraseña es:
