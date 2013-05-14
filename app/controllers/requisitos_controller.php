@@ -1,13 +1,37 @@
 <?php
-class RequisitosController extends AppController {
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Controlador de los requisitos en la parte de administración.
+ */
 
+class RequisitosController extends AppController {
+	/**
+	 * Nombre del Controlador
+	 *
+	 * @var string
+	 */
 	var $name = 'Requisitos';
 
+	/**
+	 * Despliega la lista de requisito
+	 *
+	 * @return void
+	 */
 	function index() {
 		$this->Requisito->recursive = 0;
 		$this->set('requisitos', $this->paginate());
 	}
 
+	/**
+	 * Despliega la vista de requisto
+	 * @param string $id
+	 * @return void
+	 */
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Requisito inválido', true));
@@ -16,6 +40,11 @@ class RequisitosController extends AppController {
 		$this->set('requisito', $this->Requisito->read(null, $id));
 	}
 
+	/**
+	 * Despliega la vista de nuevo registro de requisito
+	 * 
+	 * @return void
+	 */
 	function add() {
 		if (!empty($this->data)) {
 			$this->Requisito->create();
@@ -30,6 +59,11 @@ class RequisitosController extends AppController {
 		$this->set(compact('categorias'));
 	}
 
+	/**
+	 * Despliega la vista de editar requisito
+	 * @param string $id
+	 * @return void
+	 */
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Requisito inválido', true));
@@ -49,17 +83,4 @@ class RequisitosController extends AppController {
 		$categorias = $this->Requisito->Categoria->find('list');
 		$this->set(compact('categorias'));
 	}
-/*
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for requisito', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Requisito->delete($id)) {
-			$this->Session->setFlash(__('Requisito deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Requisito was not deleted', true));
-		$this->redirect(array('action' => 'index'));
-	}*/
 }

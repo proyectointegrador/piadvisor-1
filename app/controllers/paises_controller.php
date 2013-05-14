@@ -1,13 +1,38 @@
 ﻿<?php
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Controlador de las paises en la parte de administración.
+ */
+
 class PaisesController extends AppController {
 
+	/**
+	 * Nombre del Controlador
+	 *
+	 * @var string
+	 */
 	var $name = 'Paises';
 
+	/**
+	 * Despliega la lista de paises
+	 *
+	 * @return void
+	 */
 	function index() {
 		$this->Pais->recursive = 0;
 		$this->set('paises', $this->paginate());
 	}
 
+	/**
+	 * Despliega la vista de pais
+	 * @param string $id
+	 * @return void
+	 */
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('País inválido', true));
@@ -16,6 +41,11 @@ class PaisesController extends AppController {
 		$this->set('pais', $this->Pais->read(null, $id));
 	}
 
+	/**
+	 * Despliega la vista de nuevo registro de pais
+	 * 
+	 * @return void
+	 */
 	function add() {
 		if (!empty($this->data)) {
 
@@ -44,6 +74,11 @@ class PaisesController extends AppController {
 		$this->set(compact('regiones'));
 	}
 
+	/**
+	 * Despliega la vista de editar area
+	 * @param string $id
+	 * @return void
+	 */
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('País inválido', true));
@@ -79,33 +114,19 @@ class PaisesController extends AppController {
 		$regiones = $this->Pais->Region->find('list');
 		$this->set(compact('regiones'));
 	}
-/*
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for pais', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Pais->delete($id)) {
-			$this->Session->setFlash(__('Pais deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Pais was not deleted', true));
-		$this->redirect(array('action' => 'index'));
-	}*/
 
-/*
-
-Funciones de soporte
-*/	
+	/*
+	Funciones de soporte
+	*/	
 
 	/**
-	 * uploads files to the server
+	 * alta de archivos
 	 * @params:
 	 *		$folder 	= the folder to upload the files e.g. 'img/files'
 	 *		$formdata 	= the array containing the form files
 	 *		$itemId 	= id of the item (optional) will create a new sub folder
 	 * @return:
-	 *		will return an array with the success of each file upload
+	 *		regresa un array de resultados exitosos
 	 */
 	function _uploadFiles($folder, $formdata, $itemId = null) {
 		// setup dir names absolute and relative

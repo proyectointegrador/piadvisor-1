@@ -23,7 +23,7 @@
 		<th><?php echo $this->Paginator->sort('id');?></th>
 		<th><?php echo $this->Paginator->sort('Programa','name');?></th>
 		<th><?php echo $this->Paginator->sort('Nombre','name2');?></th>
-		<th><?php echo $this->Paginator->sort('Descripción','descripcion');?></th>
+		<th><?php echo $this->Paginator->sort('Publicado','activo'); ?></th>
 		<th class="actions"><?php __('Acciones');?></th>
 	</tr>
 
@@ -45,7 +45,15 @@
 		<td><?php echo $programa['Programa']['id']; ?>&nbsp;</td>
 		<td><?php echo $programa['Programa']['name']; ?>&nbsp;</td>
 		<td><?php echo $programa['Programa']['name2']; ?>&nbsp;</td>
-		<td><?php echo $programa['Programa']['descripcion']; ?>&nbsp;</td>
+		<td style="text-align:center;">
+		<?php 
+			if($programa['Programa']['activo'] == '1'){
+				echo $this->Html->image('activo.png',array('alt'=>'Activo','width'=>'30px'));
+			}else{
+				echo $this->Html->image('inactivo.png',array('alt'=>'Inactivo','width'=>'30px'));
+			}
+		?>
+		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $programa['Programa']['id'])); ?>
 		</td>

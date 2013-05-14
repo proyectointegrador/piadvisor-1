@@ -1,13 +1,38 @@
 ﻿<?php
-class ParametrosController extends AppController {
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Controlador de los parametros en la parte de administración.
+ */
 
+class ParametrosController extends AppController {
+	/**
+	 * Nombre del Controlador
+	 *
+	 * @var string
+	 */
 	var $name = 'Parametros';
 
+	/**
+	 * Despliega la lista de parametros
+	 *
+	 * @return void
+	 */
 	function index() {
 		$this->Parametro->recursive = 0;
 		$this->set('parametros', $this->paginate());
 	}
 
+	/**
+	 * Despliega la vista de parametros
+	 *
+	 * @param string $id
+	 * @return void
+	 */
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Configuración inválida', true));
@@ -16,6 +41,11 @@ class ParametrosController extends AppController {
 		$this->set('parametro', $this->Parametro->read(null, $id));
 	}
 
+	/**
+	 * Despliega la vista de nuevo registro de parametros
+	 * 
+	 * @return void
+	 */
 	function add() {
 		if (!empty($this->data)) {
 			$this->Parametro->create();
@@ -28,6 +58,12 @@ class ParametrosController extends AppController {
 		}
 	}
 
+	/**
+	 * Despliega la vista de editar parametros
+	 *
+	 * @param string $id
+	 * @return void
+	 */
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Configuración inválida', true));
@@ -45,17 +81,4 @@ class ParametrosController extends AppController {
 			$this->data = $this->Parametro->read(null, $id);
 		}
 	}
-/*
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for parametro', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Parametro->delete($id)) {
-			$this->Session->setFlash(__('Parametro deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Parametro was not deleted', true));
-		$this->redirect(array('action' => 'index'));
-	}*/
 }

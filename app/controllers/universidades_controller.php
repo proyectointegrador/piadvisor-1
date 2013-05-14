@@ -1,13 +1,37 @@
 <?php
-class UniversidadesController extends AppController {
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Controlador de las universidades en la parte de administración.
+ */
 
+class UniversidadesController extends AppController {
+	/**
+	 * Nombre del Controlador
+	 *
+	 * @var string
+	 */
 	var $name = 'Universidades';
 
+	/**
+	 * Despliega la lista de las universidades
+	 *
+	 * @return void
+	 */
 	function index() {
 		$this->Universidad->recursive = 0;
 		$this->set('universidades', $this->paginate());
 	}
 
+	/**
+	 * Despliega la vista de las universidad
+	 * @param string $id
+	 * @return void
+	 */
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Universidad inválida', true));
@@ -16,12 +40,12 @@ class UniversidadesController extends AppController {
 		$this->set('universidad', $this->Universidad->read(null, $id));
 	}
 
-/**
- * add method
- *
- * @return void
- */
- function add() {
+	/**
+	 * Despliega la vista de nuevo registro de universidad
+	 *
+	 * @return void
+	 */
+ 	function add() {
 		if (!empty($this->data)) {
 			//Checa si esta activo y valida
 			$activo = $this->data['Universidad']['activo'];
@@ -86,14 +110,13 @@ class UniversidadesController extends AppController {
 		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos','programas'));
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
- function edit($id = null) {
+	/**
+	 * Despliega la vista de editar universidad
+	 * 
+	 * @param string $id
+	 * @return void
+	 */
+	 function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Universidad inválida', true));
 			$this->redirect(array('action' => 'index'));
@@ -165,18 +188,4 @@ class UniversidadesController extends AppController {
 													'order'=>'clave'));
 		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos','programas'));
 	}
-/*
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for universidad', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Universidad->delete($id)) {
-			$this->Session->setFlash(__('Universidad deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Universidad was not deleted', true));
-		$this->redirect(array('action' => 'index'));
-	}*/
-
 }

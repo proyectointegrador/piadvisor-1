@@ -1,14 +1,45 @@
 ﻿<?php
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Controlador de los usuarios en la parte de administración.
+ */
+
 class UsersController extends AppController {
 
+	/**
+	 * Nombre del Controlador
+	 *
+	 * @var string
+	 */
 	var $name = 'Users';
+
+	/**
+	* Componentes agergados al controlador
+	*
+	* @var array
+	*/
 	var $components = array('Acl');
 
+	/**
+	 * Despliega la lista de usuarios
+	 *
+	 * @return void
+	 */
 	function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
 
+	/**
+	 * Despliega la vista de usuario
+	 * @param string $id
+	 * @return void
+	 */
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Usuario inválido', true));
@@ -17,6 +48,10 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->read(null, $id));
 	}
 
+	/**
+	 * Despliega la vista de nuevo registro de usuarios
+	 * @return void
+	 */
 	function add() {
 		if (!empty($this->data)) {
 			$this->User->create();
@@ -31,6 +66,11 @@ class UsersController extends AppController {
 		$this->set(compact('groups'));
 	}
 
+	/**
+	 * Despliega la vista de editar usuarios
+	 * @param string $id
+	 * @return void
+	 */
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Usuario inválido', true));
@@ -51,6 +91,12 @@ class UsersController extends AppController {
 		$this->set(compact('groups'));
 	}
 
+	/**
+	 * Despliega la vista para cambiar el password
+	 * del usuario loggeado.
+	 * 
+	 * @return void
+	 */
 	function cambiar_pass() {
 	    if (!empty($this->data)) {
 	        if ($this->User->save($this->data)) {
@@ -64,6 +110,11 @@ class UsersController extends AppController {
 	    }
 	}
 
+	/**
+	 * Despliega la vista para resetear el password.
+	 * 
+	 * @return void
+	 */
 	function recuperar_pass() {
 	   if(!empty($this->data)) {
 	     $this->User->recursive = -1;
@@ -85,22 +136,13 @@ class UsersController extends AppController {
 	     }
 	   }
 	}
-
-	/*
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for user', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->User->delete($id)) {
-			$this->Session->setFlash(__('User deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('User was not deleted', true));
-		$this->redirect(array('action' => 'index'));
-	}
-	*/
 	
+	/**
+	 * Despliega la vista para ingresar los datos
+	 * para autentificarse en la administración.
+	 * 
+	 * @return void
+	 */
 	function login() {
 		if ($this->Session->read('Auth.User')) {
 			$this->Session->setFlash('Has iniciado sesión!');
@@ -109,6 +151,12 @@ class UsersController extends AppController {
 
 	}
 
+	/**
+	 * Funcion que se encarga de cerrar la session del
+	 * usuario.
+	 * 
+	 * @return void
+	 */
 	function logout() {
 		$this->Session->setFlash('Has cerrado sesión');
 		$this->redirect($this->Auth->logout());
@@ -121,7 +169,12 @@ class UsersController extends AppController {
 	    $this->Auth->allowedActions = array('login', 'logout','recuperar_pass');
 	}
 	
-	//hace falta denegar el acceso a initDB para admin y user, solo disponible para superadmin
+	/**
+	 * Funcion que maneja los permisos de los grupos
+	 * de usuarios.
+	 * 
+	 * @return void
+	 */
 	function initDB() {
 		$group =& $this->User->Group;
 		//Allow admins to everything
@@ -199,6 +252,14 @@ class UsersController extends AppController {
 	*
 	*/
 
+	/**
+	 * Función que se encarga de generar una
+	 * contraseña aleatoria para el reseto
+	 * de password.
+	 *
+	 * @param int $len
+	 * @return string
+	 */
 	function _createTempPassword($len) {
 	   $pass = '';
 	   $lchar = 0;
@@ -219,6 +280,16 @@ class UsersController extends AppController {
 	   return $pass;
 	}
 
+	/**
+	 * Función que se encarga de mandar el correo
+	 * al correo del usuario y con el password 
+	 * generado anteriormente.
+	 *
+	 * @param 
+	 *		string $user,
+	 *		string $password
+	 * @return string
+	 */
 	function __sendPasswordEmail($user, $password) {
 	  if ($user === false) {
 	     debug(__METHOD__." failed to retrieve User data for user.id: {$user['User']['id']}");

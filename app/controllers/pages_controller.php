@@ -18,7 +18,7 @@ class PagesController extends AppController {
 	 */
 	var $name = 'Pages';
 
-	/*
+	/**
 	* Modelos agregados al controlador
 	*
 	* @var array
@@ -26,7 +26,7 @@ class PagesController extends AppController {
 
 	public $uses = array('Universidad','Carrera', 'Pais','Parametro');
 
-	/*
+	/**
 	* Helpers agergados al controlador
 	*
 	* @var array
@@ -34,7 +34,7 @@ class PagesController extends AppController {
 
 	var $helpers = array('Js', 'Html');
 
-	/*
+	/**
 	* Componentes agergados al controlador
 	*
 	* @var array
@@ -90,6 +90,7 @@ class PagesController extends AppController {
 											'order'=>array('name ASC')
 											));
 		$programas = $this->Universidad->Programa->find('list', array(
+												'conditions'=>array('activo'=>true),
 												'order'=>array('name ASC')
 												));
 
@@ -187,6 +188,7 @@ class PagesController extends AppController {
 														));
 
 		$programas = $this->Universidad->Programa->find('list', array(
+												'conditions'=>array('activo'=>true),
 												'order'=>array('name ASC')
 												));
 		$this->set(compact('carreras','paises','regiones','programas'));
@@ -430,7 +432,7 @@ class PagesController extends AppController {
 
 	/*
 	*	Regresa Las universidades dependiendo del estado en Session
-	*	
+	*	@return void
 	*/
 	function _getUniversidades(){
 			$estado = $this->Session->read('estado');
