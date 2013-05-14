@@ -237,8 +237,6 @@ class UsersController extends AppController {
 		<head>
 			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-		  Contraseña Temporal: </br>
-
 		  <p>
 		  Contraseña Temporal:
 
@@ -252,7 +250,7 @@ class UsersController extends AppController {
 
 		// Para enviar un correo HTML mail, la cabecera Content-type debe fijarse
 		$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-		$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
 		// Mail it
 		mail($para, $titulo, $mensaje, $cabeceras);

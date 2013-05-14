@@ -1,4 +1,14 @@
 <?php
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Controlador de los grupos en la parte de administración.
+ */
+
 class GroupsController extends AppController {
 
 	var $name = 'Groups';

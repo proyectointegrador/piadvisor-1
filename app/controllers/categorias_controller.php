@@ -1,5 +1,4 @@
 <?php
-
 /**
  *Autores:
  *  Edgar García Camarillo
@@ -7,18 +6,34 @@
  *  Luis Galeana Peralta
  *  Luis Eduardo Torres
  *
- * Descripción: Controlador de las carreras en la parte de administración.
+ * Descripción: Controlador de las categorias en la parte de administración.
  */
- 
+
 class CategoriasController extends AppController {
 
+	/**
+	 * Nombre del Controlador
+	 *
+	 * @var string
+	 */
 	var $name = 'Categorias';
 
+	/**
+	 * Despliega la lista de categorias
+	 * 
+	 * @return void
+	 */
 	function index() {
 		$this->Categoria->recursive = 0;
 		$this->set('categorias', $this->paginate());
 	}
 
+	/**
+	 * Despliega la vista de categoria
+	 *
+	 * @param string $id
+	 * @return void
+	 */
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Categoria inválida', true));
@@ -27,6 +42,11 @@ class CategoriasController extends AppController {
 		$this->set('categoria', $this->Categoria->read(null, $id));
 	}
 
+	/**
+	 * Despliega la vista de nuevo registro de categorias
+	 *
+	 * @return void
+	 */
 	function add() {
 		if (!empty($this->data)) {
 			$this->Categoria->create();
@@ -39,6 +59,12 @@ class CategoriasController extends AppController {
 		}
 	}
 
+	/**
+	 * Despliega la vista de editar categoria
+	 *
+	 * @param string $id
+	 * @return void
+	 */
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Categoria inválida', true));
@@ -56,17 +82,4 @@ class CategoriasController extends AppController {
 			$this->data = $this->Categoria->read(null, $id);
 		}
 	}
-/*
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for categoria', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Categoria->delete($id)) {
-			$this->Session->setFlash(__('Categoria deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Categoria was not deleted', true));
-		$this->redirect(array('action' => 'index'));
-	}*/
 }

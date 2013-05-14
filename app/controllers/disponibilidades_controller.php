@@ -1,13 +1,39 @@
 <?php
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Controlador de las disponibilidades en la parte de administración.
+ */
+
 class DisponibilidadesController extends AppController {
 
+	/**
+	 * Nombre del Controlador
+	 *
+	 * @var string
+	 */
 	var $name = 'Disponibilidades';
 
+	/**
+	 * Despliega la lista de disponibilidades
+	 * 
+	 * @return void
+	 */
 	function index() {
 		$this->Disponibilidad->recursive = 0;
 		$this->set('disponibilidades', $this->paginate());
 	}
 
+	/**
+	 * Despliega la vista de disponibilidades
+	 *
+	 * @param string $id
+	 * @return void
+	 */
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Disponibilidad inválida', true));
@@ -16,6 +42,11 @@ class DisponibilidadesController extends AppController {
 		$this->set('disponibilidad', $this->Disponibilidad->read(null, $id));
 	}
 
+	/**
+	 * Despliega la vista de nuevo registro disponibilidades
+	 *
+	 * @return void
+	 */
 	function add() {
 		if (!empty($this->data)) {
 			$this->Disponibilidad->create();
@@ -28,6 +59,12 @@ class DisponibilidadesController extends AppController {
 		}
 	}
 
+	/**
+	 * Despliega la vista de editar demandas
+	 *
+	 * @param string $id
+	 * @return void
+	 */
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Disponibilidad inválida', true));
@@ -45,17 +82,4 @@ class DisponibilidadesController extends AppController {
 			$this->data = $this->Disponibilidad->read(null, $id);
 		}
 	}
-/*
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for disponibilidad', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Disponibilidad->delete($id)) {
-			$this->Session->setFlash(__('Disponibilidad deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Disponibilidad was not deleted', true));
-		$this->redirect(array('action' => 'index'));
-	}*/
 }
