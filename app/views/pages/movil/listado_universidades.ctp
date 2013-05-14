@@ -94,7 +94,7 @@
 
 
 <div id="listadoajax">
-	<table class="table table-striped" >
+<table class="table table-striped" >
 	<tr>
 			<th><?php echo __('Universidad'); ?></th>
 	</tr>
@@ -108,6 +108,7 @@
 			<?php echo h($universidad['Universidad']['codigo']); ?>&nbsp; <?php echo h($universidad['Universidad']['name']); ?> <br/>
 
 <?php echo __('Idioma'); ?>:&nbsp;<?php echo h($universidad['Universidad']['idioma']); ?><br/>
+<?php echo __('Programa'); ?>: &nbsp;<?php echo h($universidad['Programa']['name']); ?><br/>
 
 
 
