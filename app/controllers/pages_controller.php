@@ -9,82 +9,46 @@
  * Descripción: Controlador de la parte pública de la aplicación.
  */
 
-
-
-/**
- * Static content controller
- *
- * Override this controller by placing a copy in controllers directory of an application
- *
- * @package       app.Controller
- * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
- */
 class PagesController extends AppController {
 
-/**
- * Controller name
- *
- * @var string
- */
+	/**
+	 * Nombre del Controlador
+	 *
+	 * @var string
+	 */
 	var $name = 'Pages';
 
-/**
- * This controller does not use a model
- *
- * @var array
- */
+	/*
+	* Modelos agregados al controlador
+	*
+	* @var array
+	*/
+
 	public $uses = array('Universidad','Carrera', 'Pais','Parametro');
 
-	
+	/*
+	* Helpers agergados al controlador
+	*
+	* @var array
+	*/
 
 	var $helpers = array('Js', 'Html');
+
+	/*
+	* Componentes agergados al controlador
+	*
+	* @var array
+	*/
 	var $components = array('RequestHandler');
 
-
-
-/**
- * Displays a view
- *
- * @param mixed What page to display
- * @return void
- */
-	/*public function display() {
-		$path = func_get_args();
-
-		$count = count($path);
-		if (!$count) {
-			$this->redirect('/');
-		}
-		$page = $subpage = $title_for_layout = null;
-
-		if (!empty($path[0])) {
-			$page = $path[0];
-		}
-		if (!empty($path[1])) {
-			$subpage = $path[1];
-		}
-		if (!empty($path[$count - 1])) {
-			$title_for_layout = Inflector::humanize($path[$count - 1]);
-		}
-		$this->set(compact('page', 'subpage', 'title_for_layout'));
-		$this->render(implode('/', $path));
-	}*/
-
 	/**
- * home method
- *
- * @return void
- */
+	 * Despliega la vista inicial
+	 *
+	 * @return void
+	 */
 	function home() {
 		
 		$this->Carrera->recursive = 0;
-		/*$carreras = $this->Universidad->find('all',array(
-													'fields'=>array('Carrera.id','Carrera.name'),
-													'conditions' => array('Universidad.activo'=>true),
-													'order'=>array('Carrera.name ASC'),
-													'group'=>array('Carrera.id'),
-													'contain'=> array('Carrera')
-													));*/
 		$this->Universidad->unbindModel(array('belongsTo'=> array('Disponibilidad','Demanda','User','Pais'),
 										'hasAndBelongsToMany' => array('Requisito')));
 		$carreras = $this->Universidad->find('list',array(
@@ -133,11 +97,11 @@ class PagesController extends AppController {
 		$this->set('title_for_layout', 'PIAdvisor');
 	}
 
-		/**
- * listado method
- *
- * @return void
- */
+	/**
+	 * Despliega la vista de listado de universidades
+	 *
+	 * @return void
+	 */
 	function listado_universidades() {
 
 		$this->Session->write('estado',array(

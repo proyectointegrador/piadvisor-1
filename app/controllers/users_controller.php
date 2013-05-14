@@ -239,7 +239,12 @@ class UsersController extends AppController {
 
 		  Contraseña Temporal: </br>
 
-		  '.__('Contraseña:').$password.' 
+		  <p>
+		  Contraseña Temporal:
+
+		  '.$password.' 
+
+		  </p>
 		</head>
 		<body>
 		  

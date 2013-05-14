@@ -1,4 +1,15 @@
 <?php
+
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Controlador de las carreras en la parte de administración.
+ */
+ 
 class CategoriasController extends AppController {
 
 	var $name = 'Categorias';

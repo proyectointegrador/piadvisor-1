@@ -1,8 +1,27 @@
 ﻿<?php
-class AreasController extends AppController {
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Controlador de las areas en la parte de administración.
+ */
 
+class AreasController extends AppController {
+	/**
+	 * Nombre del Controlador
+	 *
+	 * @var string
+	 */
 	var $name = 'Areas';
 
+	/**
+	 * Despliega la lista de areas
+	 *
+	 * @return void
+	 */
 	function index() {
 		$this->Area->recursive = 0;
 		$areas = $this->paginate();
@@ -10,6 +29,11 @@ class AreasController extends AppController {
 		$this->set(compact('areas'));
 	}
 
+	/**
+	 * Despliega la vista de area
+	 * @param string $id
+	 * @return void
+	 */
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Área inválida', true));
@@ -18,6 +42,11 @@ class AreasController extends AppController {
 		$this->set('area', $this->Area->read(null, $id));
 	}
 
+	/**
+	 * Despliega la vista de nuevo registro de area
+	 * 
+	 * @return void
+	 */
 	function add() {
 		if (!empty($this->data)) {
 			$this->Area->create();
@@ -30,6 +59,11 @@ class AreasController extends AppController {
 		}
 	}
 
+	/**
+	 * Despliega la vista de editar area
+	 * @param string $id
+	 * @return void
+	 */
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Área inválida', true));
@@ -47,17 +81,4 @@ class AreasController extends AppController {
 			$this->data = $this->Area->read(null, $id);
 		}
 	}
-	/*
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for area', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Area->delete($id)) {
-			$this->Session->setFlash(__('Area deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Area was not deleted', true));
-		$this->redirect(array('action' => 'index'));
-	}*/
 }
