@@ -1,4 +1,15 @@
 <?php
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres 
+ *
+ * Descripción: Código del modelo de grupos
+ * 				
+ */
+ 
 class Group extends AppModel {
 
 

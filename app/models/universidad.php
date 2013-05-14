@@ -1,14 +1,15 @@
 <?php
 /**
- * Universidad Model
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres 
  *
- * @property Disponibilidad $Disponibilidad
- * @property Demanda $Demanda
- * @property User $User
- * @property Pais $Pais
- * @property Carrera $Carrera
- * @property Requisito $Requisito
+ * Descripción: Código del modelo de universidades
+ * 				
  */
+ 
 class Universidad extends AppModel {
 
 /**

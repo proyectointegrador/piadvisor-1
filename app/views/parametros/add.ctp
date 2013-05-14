@@ -10,6 +10,13 @@
  * 				para agregar parametros.
  */
 ?>
+
+<?php
+/**
+ * Campos para agregar los datos a parámetro
+ */
+?>
+
 <div class="parametros form">
 <?php echo $this->Form->create('Parametro');?>
 	<fieldset>
@@ -22,6 +29,13 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar', true));?>
 </div>
+
+<?php
+/**
+ * Menú principal con la lista de todas las áreas disponibles para usar por el usuario
+ */
+?>
+
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>

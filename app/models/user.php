@@ -1,5 +1,14 @@
 <?php
-
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres 
+ *
+ * Descripción: Código del modelo de usuarios
+ * 				
+ */
 
 class User extends AppModel {
 	var $name = 'User';

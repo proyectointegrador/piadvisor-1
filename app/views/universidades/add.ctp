@@ -10,6 +10,13 @@
  * 				para agregar Universidades.
  */
 ?>
+
+<?php
+/**
+ * Campos para agregar los datos a universidad
+ */
+?>
+
 <div class="universidades form">
 <?php echo $this->Form->create('Universidad'); ?>
 	<fieldset>
@@ -33,6 +40,13 @@
 			echo $this->Form->input('Carrera',array('label'=>'Carreras Relacionadas','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
 		?>
 	</div>
+	
+	<?php
+	/**
+	 * Cargar datos de universidad
+	 */
+	?>
+	
 	<script type="text/javascript">
 		window.onload = function(){
 			var divCarrera = document.getElementById("Carrera");
@@ -92,6 +106,13 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar',true)); ?>
 </div>
+
+<?php
+/**
+ * Menú principal con la lista de todas las áreas disponibles para usar por el usuario
+ */
+?>
+
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>

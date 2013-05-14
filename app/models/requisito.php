@@ -1,9 +1,15 @@
 <?php
 /**
- * Requisito Model
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres 
  *
- * @property Categoria $Categoria
+ * Descripción: Código del modelo de requisitos
+ * 				
  */
+ 
 class Requisito extends AppModel {
 
 /**

@@ -10,7 +10,14 @@
  * 				para editar requisitos.
  */
 ?>
- <div class="requisitos form">
+
+<?php
+/**
+ * Campos para editar los datos de requisitos
+ */
+?>
+
+<div class="requisitos form">
 <?php echo $this->Form->create('Requisito'); ?>
 	<fieldset>
 		<legend><?php echo __('Editar Requisito'); ?></legend>
@@ -23,6 +30,13 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar',true)); ?>
 </div>
+
+<?php
+/**
+ * Menú principal con la lista de todas las áreas disponibles para usar por el usuario
+ */
+?>
+
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>

@@ -1,13 +1,19 @@
 <?php
 /**
- * Categoria Model
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres 
  *
- * @property Requisito $Requisito
+ * Descripción: Código del modelo de categorias
+ * 				
  */
+ 
 class Categoria extends AppModel {
 
 /**
- * Display field
+ * Despliega los campos
  *
  * @var string
  */

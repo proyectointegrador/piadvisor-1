@@ -10,6 +10,13 @@
  * 				para editar universidades.
  */
 ?>
+
+<?php
+/**
+ * Campos para editar los datos de universidades
+ */
+?>
+
 <div class="universidades form">
 <?php echo $this->Form->create('Universidad'); ?>
 	<fieldset>
@@ -44,32 +51,33 @@
 			for(var i = 0;i< fieldsets.length;i++){
 
 				var div = document.createElement('div');
-				//creamos el checkbox
+				//Se crea el checkbox
 				var checkbox = document.createElement("input");
 				checkbox.type = "checkbox";
 				checkbox.value=i;
 				checkbox.onchange = function(){
 					
 					
-					var divCarrera = document.getElementById("Carrera");
-					var divInter = divCarrera.childNodes[1];
-					
-					var fieldsets = divInter.getElementsByTagName("fieldset");
+				var divCarrera = document.getElementById("Carrera");
+				var divInter = divCarrera.childNodes[1];
+				
+				var fieldsets = divInter.getElementsByTagName("fieldset");
 
-					var checkboxes = fieldsets[this.value].getElementsByTagName('input');
-					if(this.checked){
-						for(var i = 0;i < checkboxes.length; i++){
-							checkboxes[i].checked = true;
-						}
-						
-					}else{
-						for(var i = 0;i < checkboxes.length; i++){
-							checkboxes[i].checked = false;
-						}
+				var checkboxes = fieldsets[this.value].getElementsByTagName('input');
+				if(this.checked){
+					for(var i = 0;i < checkboxes.length; i++){
+						checkboxes[i].checked = true;
 					}
+					
+				}else{
+					for(var i = 0;i < checkboxes.length; i++){
+						checkboxes[i].checked = false;
+					}
+				}
 				};
 
-				//creamos el label
+				// Se Crea el label
+				
 				var label = document.createElement('label')
 				label.htmlFor = "Seleccionar Todos";
 				label.appendChild(document.createTextNode('label'));
@@ -90,6 +98,13 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar',true)); ?>
 </div>
+
+<?php
+/**
+ * Menú principal con la lista de todas las áreas disponibles para usar por el usuario
+ */
+?>
+
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
