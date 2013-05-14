@@ -47,6 +47,11 @@ class GroupsController extends AppController {
 		$this->set('group', $this->Group->read(null, $id));
 	}
 
+    /**
+     * Despliega la vista de nuevo registro de grupo
+     * 
+     * @return void
+     */
 	function add() {
 		if (!empty($this->data)) {
 			$this->Group->create();
@@ -59,6 +64,11 @@ class GroupsController extends AppController {
 		}
 	}
 
+    /**
+     * Despliega la vista de editar area
+     * @param string $id
+     * @return void
+     */
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Grupo inválido', true));
@@ -75,19 +85,6 @@ class GroupsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Group->read(null, $id);
 		}
-	}
-
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('ID inválida para el grupo', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Group->delete($id)) {
-			$this->Session->setFlash(__('Grupo eliminado', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Grupo no fue eliminado', true));
-		$this->redirect(array('action' => 'index'));
 	}
 	
 	function beforeFilter() {
@@ -204,7 +201,14 @@ class GroupsController extends AppController {
         }
         return $arr;
     }
-		
+	
+    /**
+     * Genera los registros en la base de datos
+     * para las acciones aceptada spor el modulo
+     * de auntenticación 
+     *
+     * @return void
+     */
 	function build_acl() {
         if (!Configure::read('debug')) {
             return $this->_stop();

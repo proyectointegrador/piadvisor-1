@@ -208,7 +208,6 @@ class PagesController extends AppController {
 		$options = array('conditions' => 
 							array('Universidad.' . $this->Universidad->primaryKey => $id));
 		$universidad = $this->Universidad->find('first', $options);
-		//debug($universidad['Carrera']);
 
 		//Query de area
 		$joins = array ( 
@@ -246,7 +245,7 @@ class PagesController extends AppController {
 		
 	}
 	/*
-	AJAX
+	FUNCIONES PARA AJAX
 	*/
 	/* Funcion que maneja la peticion ajax de os paise segun la region
 	 * Seleccionado.
@@ -366,8 +365,12 @@ class PagesController extends AppController {
 		
 	}
 
-function enviarcorreo(){
-
+	/* Funcion que maneja la peticion ajax de envio de correo
+	 * con la información de las universidades.
+	 *
+	 * @return void
+	 */
+	function enviarcorreo(){
 		$this->Universidad->recursive = 0;
 		$universidad = $this->Universidad->read(null, $this->data['Universidad']['id']);
 
@@ -389,7 +392,7 @@ function enviarcorreo(){
 		<body>
 
 			<br/>
-			'.$parametro['Parametro']['texto1'].'
+			'.nl2br($parametro['Parametro']['texto1']).'
 
 			<br />
 			<p>Nombre: '.$universidad['Universidad']['name'].'</p>
@@ -403,14 +406,14 @@ function enviarcorreo(){
 			<p>Website: '.$universidad['Universidad']['website'].'</p>
 
 			</br>
-			'.$parametro['Parametro']['texto2'].'
+			'.nl2br($parametro['Parametro']['texto2']).'
 			</br>
 		  </body>
 		</html>';
 
 		// Para enviar un correo HTML mail, la cabecera Content-type debe fijarse
 		$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-		$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
 		// Mail it
 		mail($para, $titulo, $mensaje, $cabeceras);
@@ -426,7 +429,8 @@ function enviarcorreo(){
 
 
 	/*
-		Regresa Las universidades dependiendo del estado en Session
+	*	Regresa Las universidades dependiendo del estado en Session
+	*	
 	*/
 	function _getUniversidades(){
 			$estado = $this->Session->read('estado');
