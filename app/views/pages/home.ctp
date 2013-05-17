@@ -17,7 +17,16 @@
 
 
 
-
+<!--se crea la forma que permite realizar el filtrado -->
+<!--
+ *los campos para seleccionar son:
+ *  programa_id
+ *  carrera_id
+ *  region_id
+ *  Pais
+ *  Programa
+ * 
+-->
 
 <div class="container">
 </br>
@@ -27,6 +36,7 @@
 	echo $this->Form->input('carrera_id',array('empty'=>'----'));
 	echo $this->Form->input('region_id',array('options' => $regiones,'empty'=>'----'));
 ?>
+<!--desplegamos las regiones activas por medio de ajax  -->
 
 <?php
 
@@ -40,6 +50,7 @@
 				'data' => $this->Js->serializeForm(array('isForm' => true, 'inline' => true))
 				) ) );
 ?>
+<!--desplegamos los paises activos que se encuentran dentro de la region seleccionada  -->
 
 <div id="paisajax" class="pais_content">
 	<?php

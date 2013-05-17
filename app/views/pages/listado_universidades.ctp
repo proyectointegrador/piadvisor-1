@@ -6,7 +6,7 @@
  *  Luis Galeana Peralta
  *  Luis Eduardo Torres
  *
- * Descripción: Esta es la vista de la lista de universidades.
+ * Descripción: Esta es la vista se despliega las universidades de la version de pc.
  */
 ?>
 <?php
@@ -15,6 +15,7 @@
 ?>
 
 
+<!--Forma encargada de filtrar la informacion de las universidades al realizar una llamada ajax a listadoAjax-->
 
 	 	<?php echo $this->Form->create('Page',array('action'=>'')); ?>
 	 	<div class="forma on-6 columns">
@@ -61,6 +62,7 @@
 	 		
 	 		<br/>
 	 		<br/>
+				<!--llamada a listadoAjax  -->
 
 		  		<button id="Filtrar" class="btn"  style="text-align:right;">Filtrar</button>
 		  		<?php
@@ -81,6 +83,9 @@
 		</div>
 		<?php echo $this->Form->end();?>
 
+
+
+<!--se flitra la informacion de las universidades dependiendo de que atributo se selecciono  -->
 
 <div id="listadoajax">
 	<table class="table table-striped" >
@@ -151,6 +156,10 @@
 				</th>
 				<th><?php echo __('Detalles'); ?></th>
 		</tr>
+
+		<!--se despliega el listado de universidades  -->
+
+
 		<?php foreach ($universidades as $universidad): ?>
 			<tr>
 				<td><?php echo h($universidad['Universidad']['codigo']); ?>&nbsp;</td>

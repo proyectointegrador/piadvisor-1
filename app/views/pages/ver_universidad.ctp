@@ -11,10 +11,15 @@
 ?>
   	<h3>		<?php echo h($universidad['Universidad']['name']); ?></h3>
 
+
+<!-- se despliega el detalle de las universidades -->
+
+
+
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span2">
-      <!--Sidebar content-->
+      <!--bandera de la universidad-->
       <?php
         
         echo $this->Html->image('paises/'.$universidad['Pais']['bandera'], array('class'=>'img-rounded'));
@@ -34,6 +39,9 @@
        <?php echo __('Programa'); ?>: &nbsp;<?php echo h($universidad['Programa']['name']); ?>
        </br>
       <?php echo __('Website'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['website'],'http://'.$universidad['Universidad']['website'],array('target'=>'_blank')); ?></br>
+      <!--liga al sistema de programas internacionales antiguo-->
+
+
       <?php echo __('Más Información'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['codigo'],'http://mty116.mty.itesm.mx/temporal/pi/dyn/viewInfo.php?chUniCode='.$universidad['Universidad']['codigo']); ?></br>
 
         <a href="#myModal" role="button" class="btn" data-toggle="modal">Enviar información a mi correo</a>
@@ -80,6 +88,7 @@
   </div>
 </div>
 
+      <!--Se utiliza los acordeones de bootrstrap para condensar la información de consideraciones-->
 
 
 <div class="related">
@@ -115,6 +124,7 @@
 
 </div>
 
+      <!--Se utiliza los acordeones de bootrstrap para condensar la información de las carreras-->
 
 
 <div class="related">

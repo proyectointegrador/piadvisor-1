@@ -15,7 +15,16 @@
 ?>
 <?php echo $this->Form->create('Page',array('action'=>'listado_universidades')); ?>
 
-
+<!--se crea la forma que permite realizar el filtrado -->
+<!--
+ *los campos para seleccionar son:
+ *  programa_id
+ *  carrera_id
+ *  region_id
+ *  Pais
+ *  Programa
+ * 
+-->
 
 
 
@@ -28,6 +37,8 @@
 	echo $this->Form->input('carrera_id',array('empty'=>'----', 'class'=>'input-block-level'));
 	echo $this->Form->input('region_id',array('options' => $regiones,'empty'=>'----', 'class'=>'input-block-level'));
 ?>
+
+<!--desplegamos los paises activos que se encuentran dentro de la region seleccionada  -->
 
 <?php
 

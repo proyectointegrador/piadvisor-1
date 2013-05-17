@@ -1,3 +1,5 @@
+<!--la tabla se actualiza cuando se refina la busqueda o se ordenan los valores  -->
+
 <table class="table table-striped" >
 		<tr>
 				<th>

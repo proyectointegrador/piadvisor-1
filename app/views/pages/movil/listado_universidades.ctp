@@ -17,6 +17,10 @@
 
 <br/>
 
+
+<!--Forma encargada de filtrar la informacion de las universidades al realizar una llamada ajax a listadoAjax-->
+
+
 <div class="container-fluid">  
      <div class="accordion" id="accordion2">  
           
