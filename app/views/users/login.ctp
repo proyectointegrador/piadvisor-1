@@ -11,6 +11,6 @@ echo $this->Form->input('User.password',array('label'=>'Contraseña'));
 	?>
 <?php
 
-echo $this->Html->link('¿Olvisatse tu contraseña?',array('action'=>'recuperar_pass'));
+echo $this->Html->link('¿Olvidaste tu contraseña?',array('action'=>'recuperar_pass'));
 ?>
 </div>
