@@ -1,12 +1,12 @@
-<?php
+ï»¿<?php
 /**
  *Autores:
- *  Edgar García Camarillo
- *  Eugenio Rafael García García
+ *  Edgar GarcÃ­a Camarillo
+ *  Eugenio Rafael GarcÃ­a GarcÃ­a
  *  Luis Galeana Peralta
  *  Luis Eduardo Torres 
  *
- * Descripción: Esta es la vista de administración
+ * DescripciÃ³n: Esta es la vista de administraciÃ³n
  * 				para editar regiones.
  */
 ?>
@@ -20,7 +20,7 @@
 <div class="regiones form">
 <?php echo $this->Form->create('Region');?>
 	<fieldset>
-		<legend><?php __('Editar Region'); ?></legend>
+		<legend><?php __('Editar RegiÃ³n'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('name', array('label'=>'Nombre'));

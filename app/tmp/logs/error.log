@@ -582,3 +582,4 @@ Aro: Array
 )
 
 Aco: controllers/Users/cambiar_pass in [C:\xampp\htdocs\piadvisor-1\cake\libs\controller\components\acl.php, line 273]
+2013-05-19 00:11:55 Warning: Warning (2): mail() [<a href='function.mail'>function.mail</a>]: &quot;sendmail_from&quot; not set in php.ini or custom &quot;From:&quot; header missing in [C:\xampp\htdocs\piadvisor-1\app\controllers\users_controller.php, line 337]

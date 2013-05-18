@@ -20,7 +20,7 @@
 <div class="demandas form">
 <?php echo $this->Form->create('Demanda'); ?>
 	<fieldset>
-		<legend><?php echo __('Agregar Demanda'); ?></legend>
+		<legend><?php echo __('Nueva Demanda'); ?></legend>
 	<?php
 		echo $this->Form->input('name',array('label'=>'Nombre'));
 		echo $this->Form->input('descripcion',array('label'=>'Descripción'));

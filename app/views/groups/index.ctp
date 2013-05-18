@@ -73,7 +73,6 @@
 <div class="actions">
 	<h3><?php echo $this->Html->link(__('Inicio',true), array('controller' => 'universidades', 'action' => 'index')); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Nuevo Grupo', true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Lista Usuarios', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
