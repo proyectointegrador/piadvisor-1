@@ -13,7 +13,7 @@
 class Requisito extends AppModel {
 
 /**
- * Display field
+ * Despliega los campos
  *
  * @var string
  */
@@ -21,36 +21,38 @@ class Requisito extends AppModel {
 
 	var $displayField = 'clave';
 
-	//Validaciones de datos
+/**
+ * Validaciones de datos
+ *
+ */
 
 	var $validate = array(
 	    'clave' => array(
-	        'rule' => 'isUnique',
-	        'message' => 'La clave de la consideración debe ser única.',
-	        'allowEmpty' => false
+		'rule' => 'isUnique',
+		'message' => 'La clave de la consideración debe ser única.',
+		'allowEmpty' => false
 	    ),
 	    'descripcion' => array(
-	    	'rule' => 'notEmpty',
-	        'message' => 'El nombre del requisito es obligatorio.',
-	        'allowEmpty' => false
+		'rule' => 'notEmpty',
+		'message' => 'El nombre del requisito es obligatorio.',
+		'allowEmpty' => false
 	    )
 	);
 
 
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * belongsTo associations
+ * Asociaciones pertenece a
  *
- * @var array
+ * @var arreglo
  */
 	public $belongsTo = array(
 		'Categoria' => array(
-			'className' => 'Categoria',
-			'foreignKey' => 'categoria_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+		'className' => 'Categoria',
+		'foreignKey' => 'categoria_id',
+		'conditions' => '',
+		'fields' => '',
+		'order' => ''
 		)
 	);
 }

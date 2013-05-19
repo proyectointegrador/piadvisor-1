@@ -106,7 +106,7 @@
               ?>
 
     	           <?php 
-                 echo "<button class=\"btn btn-mini btn-danger\" type=\"button\" onClick=\"location.href='users/logout'\">";
+                 echo "<button class=\"btn btn-mini btn-danger\" type=\"button\" onClick=\"location.href='".$_SERVER['SERVER_NAME']."index.php/users/logout'\">";
                  //echo $this->Html->link(__('Logout',true), array('controller' => 'users', 'action' => 'logout')); 
                  echo 'Cerrar sesión';
                  echo '</button>';

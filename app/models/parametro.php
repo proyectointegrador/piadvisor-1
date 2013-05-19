@@ -11,6 +11,13 @@
  */
  
 class Parametro extends AppModel {
+
+/**
+ * Despliega los campos
+ *
+ * @var string
+ */
+ 
 	var $name = 'Parametro';
 	var $displayField = 'name';
 }

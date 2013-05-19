@@ -13,7 +13,7 @@
 class Universidad extends AppModel {
 
 /**
- * Display field
+ * Despliega los campos
  *
  * @var string
  */
@@ -21,128 +21,128 @@ class Universidad extends AppModel {
 
 	var $displayField = 'name';
 
-
-	//Validaciones de datos
+/**
+ * Validaciones de datos
+ *
+ */
 
 	var $validate = array(
 	    'codigo' => array(
-	        'rule' => 'isUnique',
-	        'message' => 'El código de la universidad debe ser único.'
+		'rule' => 'isUnique',
+		'message' => 'El código de la universidad debe ser único.'
 	    ),
 	    'codigo' => array(
-	    	'rule' => 'notEmpty',
-	        'message' => 'El código de la universidad es obligatorio.',
-	        'allowEmpty' => false
+		'rule' => 'notEmpty',
+		'message' => 'El código de la universidad es obligatorio.',
+		'allowEmpty' => false
 	    ),
 	    'name' => array(
-	    	'rule' => 'notEmpty',
-	        'message' => 'El nombre de la universidad es obligatorio.',
-	        'allowEmpty' => false
+		'rule' => 'notEmpty',
+		'message' => 'El nombre de la universidad es obligatorio.',
+		'allowEmpty' => false
 	    ),
 	    'ciudad' => array(
-	    	'rule' => 'notEmpty',
-	        'message' => 'La ciudad de la universidad es obligatorio.',
-	        'allowEmpty' => false
+		'rule' => 'notEmpty',
+		'message' => 'La ciudad de la universidad es obligatorio.',
+		'allowEmpty' => false
 	    ),
 	    'calendario' => array(
-	    	'rule' => 'notEmpty',
-	        'message' => 'El calendario de la universidad es obligatorio.',
-	        'allowEmpty' => false
+		'rule' => 'notEmpty',
+		'message' => 'El calendario de la universidad es obligatorio.',
+		'allowEmpty' => false
 	    ),
 	    'website' => array(
-	    	'rule' => '/^((?!http).)/',
-	        'message' => 'El website de la universidad debe de no contener http.',
-	        'allowEmpty' => false
+		'rule' => '/^((?!http).)/',
+		'message' => 'El website de la universidad debe de no contener http.',
+		'allowEmpty' => false
 	    ),
 	    'idioma' => array(
-	    	'rule' => 'notEmpty',
-	        'message' => 'El idioma de la universidad es obligatorio.',
-	        'allowEmpty' => false
+		'rule' => 'notEmpty',
+		'message' => 'El idioma de la universidad es obligatorio.',
+		'allowEmpty' => false
 	    ),
 
 	);
 
 
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
 /**
- * belongsTo associations
+ * Asociaciones pertenece a
  *
- * @var array
+ * @var arreglo
  */
 	public $belongsTo = array(
 		'Disponibilidad' => array(
-			'className' => 'Disponibilidad',
-			'foreignKey' => 'disponibilidad_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+		'className' => 'Disponibilidad',
+		'foreignKey' => 'disponibilidad_id',
+		'conditions' => '',
+		'fields' => '',
+		'order' => ''
 		),
 		'Demanda' => array(
-			'className' => 'Demanda',
-			'foreignKey' => 'demanda_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+		'className' => 'Demanda',
+		'foreignKey' => 'demanda_id',
+		'conditions' => '',
+		'fields' => '',
+		'order' => ''
 		),
 		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'user_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+		'className' => 'User',
+		'foreignKey' => 'user_id',
+		'conditions' => '',
+		'fields' => '',
+		'order' => ''
 		),
 		'Pais' => array(
-			'className' => 'Pais',
-			'foreignKey' => 'pais_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+		'className' => 'Pais',
+		'foreignKey' => 'pais_id',
+		'conditions' => '',
+		'fields' => '',
+		'order' => ''
 		),
 		'Programa' => array(
-			'className' => 'Programa',
-			'foreignKey' => 'programa_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+		'className' => 'Programa',
+		'foreignKey' => 'programa_id',
+		'conditions' => '',
+		'fields' => '',
+		'order' => ''
 		)
 	);
 
 /**
- * hasAndBelongsToMany associations
+ * Asociaciones hasMany
  *
- * @var array
+ * @var arreglo
  */
 	public $hasAndBelongsToMany = array(
 		'Carrera' => array(
-			'className' => 'Carrera',
-			'joinTable' => 'universidades_carreras',
-			'foreignKey' => 'universidad_id',
-			'associationForeignKey' => 'carrera_id',
-			'unique' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
+		'className' => 'Carrera',
+		'joinTable' => 'universidades_carreras',
+		'foreignKey' => 'universidad_id',
+		'associationForeignKey' => 'carrera_id',
+		'unique' => true,
+		'conditions' => '',
+		'fields' => '',
+		'order' => '',
+		'limit' => '',
+		'offset' => '',
+		'finderQuery' => '',
+		'deleteQuery' => '',
+		'insertQuery' => ''
 		),
 		'Requisito' => array(
-			'className' => 'Requisito',
-			'joinTable' => 'universidades_requisitos',
-			'foreignKey' => 'universidad_id',
-			'associationForeignKey' => 'requisito_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
+		'className' => 'Requisito',
+		'joinTable' => 'universidades_requisitos',
+		'foreignKey' => 'universidad_id',
+		'associationForeignKey' => 'requisito_id',
+		'unique' => 'keepExisting',
+		'conditions' => '',
+		'fields' => '',
+		'order' => '',
+		'limit' => '',
+		'offset' => '',
+		'finderQuery' => '',
+		'deleteQuery' => '',
+		'insertQuery' => ''
 		)
 	);
 

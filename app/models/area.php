@@ -20,8 +20,10 @@ class Area extends AppModel {
 	var $name = 'Area';
 	var $displayField = 'name';
 
-	//Validaciones de datos
-
+/**
+ * Validaciones de datos
+ *
+ */
 	var $validate = array(
 	    'name' => array(
 		'rule' => 'alphaNumeric',
