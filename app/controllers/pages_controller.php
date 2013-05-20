@@ -443,6 +443,7 @@ class PagesController extends AppController {
 			$region = $estado['filtro']['region_id'];
 			$carrera =  $estado['filtro']['carrera_id'];
 			$programa = $estado['filtro']['programa_id'];
+			$name = $estado['filtro']['name'];
 
 			//variable de orden para query
 			$order = $estado['orden'];
@@ -459,6 +460,9 @@ class PagesController extends AppController {
 			}
 			if($programa != ''){
 				$condiciones['programa_id']=$programa;
+			}
+			if($name != ''){
+				$condiciones['Universidad.name LIKE']="%$name%";
 			}
 			if($carrera != ''){
 				$joins = array ( 
